@@ -1,15 +1,16 @@
 package com.elle.campaigntracker.data.repo;
 
-import com.elle.campaigntracker.data.Alignment;
-import com.elle.campaigntracker.data.Attack;
+import com.elle.campaigntracker.data.character.Alignment;
+import com.elle.campaigntracker.data.character.Attack;
+import com.elle.campaigntracker.data.character.Character;
 
 /**
  * Character sheet pre-sqlite setup
  */
 
 public class DummyRepo {
-    public static com.elle.campaigntracker.data.Character getRex(){
-        com.elle.campaigntracker.data.Character rex = new com.elle.campaigntracker.data.Character("Rex");
+    public static Character getRex(){
+        Character rex = new Character("Rex");
         rex.setPlayerClass("Rouge");
         rex.setAlignment(Alignment.CHAOTIC_NEUTRAL);
         Attack attack1 = new Attack("Short Sword, main hand", 8, 1, "D6", 6);

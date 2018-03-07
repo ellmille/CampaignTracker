@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data;
+package com.elle.campaigntracker.data.character;
 
 /**
  * Enum for character alignment
