@@ -18,6 +18,8 @@ public class DummyRepo {
         rex.addAttackToList(attack2);
         Attack attack3 = new Attack("Short Bow", 7, 1, "D6", 5);
         rex.addAttackToList(attack3);
+        rex.setMaxHp(34);
+        rex.setCurrentHp(34);
         return rex;
     }
 }
