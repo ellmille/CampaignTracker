@@ -2,15 +2,23 @@ package com.elle.campaigntracker.data;
 
 import android.databinding.BaseObservable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * observable object representing a character
  */
 
+//todo: rename me
 public class Character extends BaseObservable {
     private String name, playerClass, background;
     private int level;
     private int xpTotal, xpToNextLevel;
     private Alignment alignment;
+
+    private int age, heightFeet, heightInches, weight;
+
+    private List<Attack> attackList;
 
     private int armorClass, initiative, speed;
     private int maxHp, currentHp;
@@ -24,8 +32,17 @@ public class Character extends BaseObservable {
     private int deception, history, intimidation, medicine, nature;
     private int perception, performance, religion, sleightOfHand;
     private int stealth, survival;
-
     private int passiveWisdom;
+    //proficiencies and languages
+    //equipment
+    //gold
+    //features/traits
+
+    public Character(String name){
+        this.name = name;
+        this.alignment = Alignment.TRUE_NEUTRAL;
+        this.attackList = new ArrayList<Attack>();
+    }
 
     public String getName() {
         return name;
@@ -81,6 +98,14 @@ public class Character extends BaseObservable {
 
     public void setAlignment(Alignment alignment) {
         this.alignment = alignment;
+    }
+
+    public List<Attack> getAttackList(){
+        return attackList;
+    }
+
+    public void addAttackToList(Attack attack){
+        this.attackList.add(attack);
     }
 
     public int getArmorClass() {
