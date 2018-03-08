@@ -2,15 +2,21 @@ package com.elle.campaigntracker.data.repo;
 
 import com.elle.campaigntracker.data.character.Alignment;
 import com.elle.campaigntracker.data.character.Attack;
-import com.elle.campaigntracker.data.character.Character;
+import com.elle.campaigntracker.data.character.PlayerCharacter;
 
 /**
- * Character sheet pre-sqlite setup
+ * PlayerCharacter sheet pre-sqlite setup
  */
 
 public class DummyRepo {
-    public static Character getRex(){
-        Character rex = new Character("Rex");
+    private PlayerCharacter rex;
+
+    public DummyRepo(){
+        rex = createRex();
+    }
+
+    private PlayerCharacter createRex(){
+        PlayerCharacter rex = new PlayerCharacter("Rex");
         rex.setPlayerClass("Rouge");
         rex.setAlignment(Alignment.CHAOTIC_NEUTRAL);
         Attack attack1 = new Attack("Short Sword, main hand", 8, 1, "D6", 6);
@@ -21,6 +27,10 @@ public class DummyRepo {
         rex.addAttackToList(attack3);
         rex.setMaxHp(34);
         rex.setCurrentHp(34);
+        return rex;
+    }
+
+    public PlayerCharacter getRex() {
         return rex;
     }
 }

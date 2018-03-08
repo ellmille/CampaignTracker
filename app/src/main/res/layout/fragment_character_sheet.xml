@@ -3,7 +3,7 @@
     <data>
         <variable
             name="character"
-            type="com.elle.campaigntracker.data.character.Character"/>
+            type="com.elle.campaigntracker.data.character.PlayerCharacter"/>
     </data>
     <FrameLayout
         android:layout_width="match_parent"

@@ -10,7 +10,7 @@ import java.util.List;
  */
 
 //todo: rename me
-public class Character extends BaseObservable {
+public class PlayerCharacter extends BaseObservable {
     private String name, playerClass, background;
     private int level;
     private int xpTotal, xpToNextLevel;
@@ -38,7 +38,7 @@ public class Character extends BaseObservable {
     //gold
     //features/traits
 
-    public Character(String name){
+    public PlayerCharacter(String name){
         this.name = name;
         this.alignment = Alignment.TRUE_NEUTRAL;
         this.attackList = new ArrayList<Attack>();
