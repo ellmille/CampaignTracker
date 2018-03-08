@@ -2,6 +2,8 @@ package com.elle.campaigntracker.data.character;
 
 import android.databinding.BaseObservable;
 
+import com.elle.campaigntracker.data.turn.Attack;
+
 import java.util.ArrayList;
 import java.util.List;
 

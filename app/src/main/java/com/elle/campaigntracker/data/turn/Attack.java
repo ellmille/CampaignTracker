@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data.character;
+package com.elle.campaigntracker.data.turn;
 
 /**
  * Represents an attack

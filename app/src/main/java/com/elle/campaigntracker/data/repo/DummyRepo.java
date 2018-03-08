@@ -1,7 +1,7 @@
 package com.elle.campaigntracker.data.repo;
 
 import com.elle.campaigntracker.data.character.Alignment;
-import com.elle.campaigntracker.data.character.Attack;
+import com.elle.campaigntracker.data.turn.Attack;
 import com.elle.campaigntracker.data.character.PlayerCharacter;
 
 /**

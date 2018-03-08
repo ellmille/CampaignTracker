@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data.character;
+package com.elle.campaigntracker.data.turn;
 
 /**
  * Actions you can take in combat
