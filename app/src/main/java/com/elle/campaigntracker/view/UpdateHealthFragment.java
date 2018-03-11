@@ -43,6 +43,7 @@ public class UpdateHealthFragment extends DialogFragment {
                 container, false);
         View view = binding.getRoot();
         binding.setHandler(new HealthHandlers());
+        //todo: change label based on healing/hurting
         return view;
     }
 

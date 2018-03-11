@@ -5,7 +5,8 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    //todo: option to view character sheet, start turn, take damage, heal
+    //todo: add activity contract
+    //todo: add menu --> option to view character sheet, start turn, take damage, heal
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
