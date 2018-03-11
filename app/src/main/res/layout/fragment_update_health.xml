@@ -23,7 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:onValueChange="@{(theView) -> handler.enteredPoints(theView)}"/>
 
     <Button
         android:id="@+id/save"
@@ -31,7 +32,7 @@
         android:layout_height="wrap_content"
         android:text="@string/save"
         android:layout_gravity="bottom"
-        android:onClick="@{handler::save}"/>
+        android:onClick="@{() -> handler.saveHealth()}"/>
 
 </FrameLayout>
 </layout>

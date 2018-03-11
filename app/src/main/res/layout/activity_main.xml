@@ -53,6 +53,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/heal" />
 
+        <!-- skills/saving throws -->
+
         <Button
             android:id="@+id/start_turn"
             android:layout_width="match_parent"

@@ -1,21 +1,24 @@
 package com.elle.campaigntracker.view;
 
-
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.character.PlayerCharacter;
+import com.elle.campaigntracker.databinding.FragmentUpdateHealthBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class UpdateHealthFragment extends DialogFragment {
     public static final String IS_HEALING = "IS_HEALING";
+    public static final String HP_CHANGE = "HP_CHANGE";
    // private PlayerCharacter character;
     //are we healing or taking damage?
     private boolean isHealing;
@@ -36,19 +39,26 @@ public class UpdateHealthFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_update_health, container, false);
+        FragmentUpdateHealthBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_update_health,
+                container, false);
+        View view = binding.getRoot();
+        binding.setHandler(new HealthHandlers());
+        return view;
     }
 
     public class HealthHandlers {
-        public void addHealth(int points){
+        private int hitPoints;
 
+        public void enteredPoints(View view){
+            EditText points = (EditText) view;
+            this.hitPoints = Integer.valueOf(String.valueOf(points.getText()));
         }
-        public void takeDamage(int points){
-
-        }
-        public void saveHealth(View view){
-
+        public void saveHealth(){
+            //return points
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(IS_HEALING, isHealing);
+            bundle.putInt(HP_CHANGE, hitPoints);
+            //todo: close fragment
         }
     }
 }
