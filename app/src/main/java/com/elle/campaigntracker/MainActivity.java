@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        setContentView(R.layout.activity_main);
         //get last used character
         DummyRepo dummyRepo = new DummyRepo();
         character = dummyRepo.getRex();

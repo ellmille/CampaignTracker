@@ -4,6 +4,7 @@ import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 
 import com.elle.campaigntracker.data.turn.Attack;
+import com.elle.campaigntracker.BR;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +97,7 @@ public class PlayerCharacter extends BaseObservable {
         this.xpToNextLevel = xpToNextLevel;
     }
 
+    @Bindable
     public Alignment getAlignment() {
         return alignment;
     }
@@ -104,12 +106,14 @@ public class PlayerCharacter extends BaseObservable {
         this.alignment = alignment;
     }
 
+    @Bindable
     public List<Attack> getAttackList(){
         return attackList;
     }
 
     public void addAttackToList(Attack attack){
         this.attackList.add(attack);
+        notifyPropertyChanged(BR.attackList);
     }
 
     public int getArmorClass() {
@@ -144,12 +148,14 @@ public class PlayerCharacter extends BaseObservable {
         this.maxHp = maxHp;
     }
 
+    @Bindable
     public int getCurrentHp() {
         return currentHp;
     }
 
     public void setCurrentHp(int currentHp) {
         this.currentHp = currentHp;
+        notifyPropertyChanged(BR.currentHp);
     }
 
     public int getInspiration() {
