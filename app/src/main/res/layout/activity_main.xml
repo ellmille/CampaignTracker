@@ -5,6 +5,9 @@
         <variable
             name="character"
             type="com.elle.campaigntracker.data.character.PlayerCharacter"/>
+        <variable
+            name="handler"
+            type="com.elle.campaigntracker.MainActivity.Handler"/>
     </data>
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
@@ -17,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:text="@{character.name, default=name}"
+            android:text="@{character.characterName}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
         <!--class-->
@@ -42,7 +45,8 @@
             android:text="@string/take_damage"
             app:layout_constraintTop_toBottomOf="@+id/hp_bar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="+@id/heal"/>
+            app:layout_constraintEnd_toStartOf="@+id/heal"
+            android:onClick="@{() -> handler.updateHealth(false)}"/>
 
         <Button
             android:id="@+id/heal"
@@ -51,7 +55,8 @@
             app:layout_constraintTop_toBottomOf="@+id/hp_bar"
             app:layout_constraintStart_toEndOf="@+id/take_damage"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/heal" />
+            android:text="@string/heal"
+            android:onClick="@{() -> handler.updateHealth(true)}"/>
 
         <!-- skills/saving throws -->
 
@@ -60,6 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/start_turn"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:onClick="@{() -> handler.startTurn()}"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

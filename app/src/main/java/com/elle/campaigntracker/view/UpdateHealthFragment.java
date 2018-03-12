@@ -27,6 +27,14 @@ public class UpdateHealthFragment extends DialogFragment {
         // Required empty public constructor
     }
 
+    public static UpdateHealthFragment newInstance(boolean isHealing){
+        UpdateHealthFragment updateHealthFragment = new UpdateHealthFragment();
+        Bundle args = new Bundle();
+        args.putBoolean(IS_HEALING, isHealing);
+        updateHealthFragment.setArguments(args);
+        return updateHealthFragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

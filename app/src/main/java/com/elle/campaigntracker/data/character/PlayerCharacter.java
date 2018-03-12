@@ -1,6 +1,7 @@
 package com.elle.campaigntracker.data.character;
 
 import android.databinding.BaseObservable;
+import android.databinding.Bindable;
 
 import com.elle.campaigntracker.data.turn.Attack;
 
@@ -11,9 +12,8 @@ import java.util.List;
  * observable object representing a character
  */
 
-//todo: rename me
 public class PlayerCharacter extends BaseObservable {
-    private String name, playerClass, background;
+    private String characterName, playerClass, background;
     private int level;
     private int xpTotal, xpToNextLevel;
     private Alignment alignment;
@@ -40,18 +40,20 @@ public class PlayerCharacter extends BaseObservable {
     //gold
     //features/traits
 
-    public PlayerCharacter(String name){
-        this.name = name;
+    public PlayerCharacter(String characterName){
+        this.characterName = characterName;
         this.alignment = Alignment.TRUE_NEUTRAL;
         this.attackList = new ArrayList<Attack>();
     }
 
-    public String getName() {
-        return name;
+    @Bindable
+    public String getCharacterName() {
+        return characterName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCharacterName(String characterName) {
+        this.characterName = characterName;
+        notifyPropertyChanged(BR.characterName);
     }
 
     public String getPlayerClass() {
