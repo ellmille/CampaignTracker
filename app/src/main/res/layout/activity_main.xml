@@ -20,12 +20,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:text="@{character.characterName}"
+            android:text="@{character.characterName, default=Name}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
-        <!--class-->
-        <!--level-->
+
+        <TextView
+            android:id="@+id/char_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{character.characterClass, default=Class}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/char_name"/>
+        <TextView
+            android:id="@+id/char_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{String.valueOf(character.level), default=1}"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/char_class"
+            app:layout_constraintStart_toEndOf="@+id/char_name"/>
         <!--xp-->
+        <ProgressBar
+            android:id="@+id/xp_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:progressTint="#0c96aa"
+            android:min="0"
+            android:max="@{character.totalXpToLevel, default=100}"
+            android:progress="@{character.currentXp, default=0}"
+            app:layout_constraintTop_toTopOf="@+id/char_level"
+            app:layout_constraintBottom_toBottomOf="@+id/char_level"
+            app:layout_constraintStart_toEndOf="@+id/char_level"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <ProgressBar
             android:id="@+id/hp_bar"

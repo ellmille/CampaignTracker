@@ -14,9 +14,9 @@ import java.util.List;
  */
 
 public class PlayerCharacter extends BaseObservable {
-    private String characterName, playerClass, background;
+    private String characterName, characterClass, background;
     private int level;
-    private int xpTotal, xpToNextLevel;
+    private int totalXpToLevel, currentXp;
     private Alignment alignment;
 
     private int age, heightFeet, heightInches, weight;
@@ -57,12 +57,12 @@ public class PlayerCharacter extends BaseObservable {
         notifyPropertyChanged(BR.characterName);
     }
 
-    public String getPlayerClass() {
-        return playerClass;
+    public String getCharacterClass() {
+        return characterClass;
     }
 
-    public void setPlayerClass(String playerClass) {
-        this.playerClass = playerClass;
+    public void setCharacterClass(String characterClass) {
+        this.characterClass = characterClass;
     }
 
     public String getBackground() {
@@ -73,28 +73,34 @@ public class PlayerCharacter extends BaseObservable {
         this.background = background;
     }
 
+    @Bindable
     public int getLevel() {
         return level;
     }
 
     public void setLevel(int level) {
         this.level = level;
+        notifyPropertyChanged(BR.level);
     }
 
-    public int getXpTotal() {
-        return xpTotal;
+    @Bindable
+    public int getTotalXpToLevel() {
+        return totalXpToLevel;
     }
 
-    public void setXpTotal(int xpTotal) {
-        this.xpTotal = xpTotal;
+    public void setTotalXpToLevel(int totalXpToLevel) {
+        this.totalXpToLevel = totalXpToLevel;
+        notifyPropertyChanged(BR.totalXpToLevel);
     }
 
-    public int getXpToNextLevel() {
-        return xpToNextLevel;
+    @Bindable
+    public int getCurrentXp() {
+        return currentXp;
     }
 
-    public void setXpToNextLevel(int xpToNextLevel) {
-        this.xpToNextLevel = xpToNextLevel;
+    public void setCurrentXp(int currentXp) {
+        this.currentXp = currentXp;
+        notifyPropertyChanged(BR.currentXp);
     }
 
     @Bindable
@@ -104,6 +110,7 @@ public class PlayerCharacter extends BaseObservable {
 
     public void setAlignment(Alignment alignment) {
         this.alignment = alignment;
+        notifyPropertyChanged(BR.alignment);
     }
 
     @Bindable
