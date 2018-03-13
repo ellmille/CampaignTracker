@@ -9,7 +9,7 @@ import com.elle.campaigntracker.data.character.PlayerCharacter;
  */
 
 public class DummyRepo {
-    private PlayerCharacter rex;
+    private static PlayerCharacter rex;
 
     public DummyRepo(){
         rex = createRex();
@@ -26,14 +26,14 @@ public class DummyRepo {
         Attack attack3 = new Attack("Short Bow", 7, 1, "D6", 5);
         rex.addAttackToList(attack3);
         rex.setMaxHp(34);
-        rex.setCurrentHp(20);
+        rex.setCurrentHp(34);
         rex.setLevel(4);
         rex.setTotalXpToLevel(6500);
         rex.setCurrentXp(1550);
         return rex;
     }
 
-    public PlayerCharacter getRex() {
+    public static PlayerCharacter getRex() {
         return rex;
     }
 }
