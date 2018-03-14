@@ -9,8 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.character.PlayerCharacter;
-import com.elle.campaigntracker.data.repo.DummyRepo;
+import com.elle.campaigntracker.model.character.PlayerCharacter;
+import com.elle.campaigntracker.data.DummyRepo;
 import com.elle.campaigntracker.databinding.FragmentCharacterSheetBinding;
 
 /**

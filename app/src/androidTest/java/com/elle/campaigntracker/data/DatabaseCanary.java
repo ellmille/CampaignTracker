@@ -1,13 +1,12 @@
-package com.elle.campaigntracker.db;
+package com.elle.campaigntracker.data;
 
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
 
-import com.elle.campaigntracker.data.character.PlayerCharacter;
-import com.elle.campaigntracker.data.repo.AppDatabase;
-import com.elle.campaigntracker.data.repo.PlayerCharacterDao;
+import com.elle.campaigntracker.model.character.PlayerCharacter;
+import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 
 import org.junit.After;
 import org.junit.Before;

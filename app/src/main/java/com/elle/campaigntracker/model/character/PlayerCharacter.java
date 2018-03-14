@@ -1,8 +1,11 @@
-package com.elle.campaigntracker.data.character;
+package com.elle.campaigntracker.model.character;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
 import android.databinding.BaseObservable;
 
-import com.elle.campaigntracker.data.turn.Attack;
+import com.elle.campaigntracker.model.turn.Attack;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +14,11 @@ import java.util.List;
  * observable object representing a character
  */
 
-//todo: rename me
+@Entity
 public class PlayerCharacter extends BaseObservable {
+    @PrimaryKey
+    private int id;
+    @ColumnInfo
     private String name, playerClass, background;
     private int level;
     private int xpTotal, xpToNextLevel;

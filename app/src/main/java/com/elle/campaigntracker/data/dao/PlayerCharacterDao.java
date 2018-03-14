@@ -1,11 +1,11 @@
-package com.elle.campaigntracker.data.repo;
+package com.elle.campaigntracker.data.dao;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.elle.campaigntracker.data.character.PlayerCharacter;
+import com.elle.campaigntracker.model.character.PlayerCharacter;
 
 import java.util.List;
 

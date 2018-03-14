@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.character.PlayerCharacter;
 import com.elle.campaigntracker.databinding.FragmentUpdateHealthBinding;
 
 /**

@@ -1,8 +1,8 @@
-package com.elle.campaigntracker.data.repo;
+package com.elle.campaigntracker.data;
 
-import com.elle.campaigntracker.data.character.Alignment;
-import com.elle.campaigntracker.data.turn.Attack;
-import com.elle.campaigntracker.data.character.PlayerCharacter;
+import com.elle.campaigntracker.model.character.Alignment;
+import com.elle.campaigntracker.model.turn.Attack;
+import com.elle.campaigntracker.model.character.PlayerCharacter;
 
 /**
  * PlayerCharacter sheet pre-sqlite setup

@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data.repo;
+package com.elle.campaigntracker.data;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
@@ -11,9 +11,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import com.elle.campaigntracker.AppExecutors;
-import com.elle.campaigntracker.data.character.PlayerCharacter;
-
-import java.util.List;
+import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
+import com.elle.campaigntracker.model.character.PlayerCharacter;
 
 /**
  * Holds database
@@ -60,9 +59,9 @@ public abstract class AppDatabase extends RoomDatabase {
                             addDelay();
                             // Generate the data for pre-population
                             AppDatabase database = AppDatabase.getInstance(appContext, executors);
-                            List<PlayerCharacter> playerCharacter = DataGenerator.generateProducts();
-
-                         //   insertData(database, products, comments);
+                            DummyRepo dummyRepo = new DummyRepo();
+                            PlayerCharacter playerCharacter = dummyRepo.getRex();
+                            insertData(database, playerCharacter);
                             // notify that the database was created and it's ready to be used
                             database.setDatabaseCreated();
                         });
@@ -83,10 +82,10 @@ public abstract class AppDatabase extends RoomDatabase {
         isDatabaseCreated.postValue(true);
     }
 
-    private static void insertData(final AppDatabase database, final List<PlayerCharacter> products) {
-//        database.runInTransaction(() -> {
-//            database.playerCharacterDao().insertAll(products);
-//        });
+    private static void insertData(final AppDatabase database, final PlayerCharacter playerCharacter) {
+        database.runInTransaction(() -> {
+            database.playerCharacterDao().insertPlayerCharacter(playerCharacter);
+        });
     }
 
     private static void addDelay() {
