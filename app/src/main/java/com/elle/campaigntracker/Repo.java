@@ -4,7 +4,10 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
 
 import com.elle.campaigntracker.data.AppDatabase;
+import com.elle.campaigntracker.data.entity.InventoryItemEntity;
 import com.elle.campaigntracker.data.entity.PlayCharacterEntity;
+
+import java.util.List;
 
 /**
  * Handles working with the database
@@ -37,5 +40,9 @@ public class Repo {
      */
     public LiveData<PlayCharacterEntity> getCharacter(){
         return observableCharacter;
+    }
+
+    public LiveData<List<InventoryItemEntity>> getItems(final int char_id){
+        return database.inventoryDao().getItems(char_id);
     }
 }
