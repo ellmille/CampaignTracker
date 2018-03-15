@@ -8,4 +8,17 @@
     <string name="take_damage">Take Damage</string>
     <string name="save">Save</string>
     <string name="damage_taken">Damage Taken:</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="full_sheet">Full Sheet</string>
+    <string name="inventory">Inventory</string>
+    <string name="attacks">Attacks</string>
+    <string name="log">Log</string>
+    <string name="switch_game">Switch Game</string>
+    <string name="placeholder_image">placeholder image</string>
+    <string name="also_placeholder">Also Placeholder</string>
 </resources>
