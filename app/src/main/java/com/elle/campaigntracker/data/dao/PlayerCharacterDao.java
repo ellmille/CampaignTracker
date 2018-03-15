@@ -5,7 +5,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.elle.campaigntracker.model.character.PlayerCharacter;
+import com.elle.campaigntracker.data.entity.PlayableCharacterEntity;
 
 import java.util.List;
 
@@ -16,17 +16,17 @@ import java.util.List;
 @Dao
 public interface PlayerCharacterDao {
     @Query("SELECT * FROM player_characters")
-    List<PlayerCharacter> getAllCharacters();
+    List<PlayableCharacterEntity> getAllCharacters();
 
     @Query("SELECT * FROM player_characters WHERE id = :id")
-    PlayerCharacter findCharacterById(int id);
+    PlayableCharacterEntity findCharacterById(int id);
 
     @Query("SELECT * FROM player_characters WHERE name LIKE :name")
-    PlayerCharacter findCharacterByName(String name);
+    PlayableCharacterEntity findCharacterByName(String name);
 
     @Insert
-    public void insertPlayerCharacter(PlayerCharacter playerCharacter);
+    public void insertPlayerCharacter(PlayableCharacterEntity playerCharacter);
 
     @Update
-    public void updatePlayerCharacter(PlayerCharacter playerCharacter);
+    public void updatePlayerCharacter(PlayableCharacterEntity playerCharacter);
 }
