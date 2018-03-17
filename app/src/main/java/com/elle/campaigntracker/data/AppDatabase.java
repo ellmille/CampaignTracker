@@ -11,9 +11,9 @@ import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
 import com.elle.campaigntracker.AppExecutors;
+import com.elle.campaigntracker.data.dao.LogDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.entity.PlayableCharacterEntity;
-import com.elle.campaigntracker.model.PlayableCharacter;
 
 /**
  * Holds database
@@ -27,6 +27,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     //list all daos
     public abstract PlayerCharacterDao playerCharacterDao();
+    public abstract LogDao logDao();
 
     private final MutableLiveData<Boolean> isDatabaseCreated = new MutableLiveData<>();
 
