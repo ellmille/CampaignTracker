@@ -2,6 +2,7 @@ package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.entity.PlayableCharacterEntity;
 import com.elle.campaigntracker.model.character.Alignment;
+import com.elle.campaigntracker.model.character.PlayableChar;
 import com.elle.campaigntracker.model.turn.Attack;
 
 /**
@@ -10,9 +11,28 @@ import com.elle.campaigntracker.model.turn.Attack;
 
 public class DummyRepo {
     private static PlayableCharacterEntity rex;
+    private static PlayableChar playableChar;
 
     public DummyRepo(){
-        rex = createRex();
+        //rex = createRex();
+        playableChar = createPlayableChar();
+    }
+
+    private PlayableChar createPlayableChar() {
+        PlayableChar playableChar = new PlayableChar();
+        playableChar.setName("Rex");
+        playableChar.setCharacterClass("Rouge");
+        playableChar.setAlignment(Alignment.CHAOTIC_NEUTRAL);
+        playableChar.setMaxHp(34);
+        playableChar.setCurrentHp(34);
+        playableChar.setLevel(4);
+        playableChar.setTotalXpToLevel(6500);
+        playableChar.setCurrentXp(1550);
+        return playableChar;
+    }
+
+    public PlayableChar getPlayableChar(){
+        return playableChar;
     }
 
     private PlayableCharacterEntity createRex(){
