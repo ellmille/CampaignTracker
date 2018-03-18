@@ -1,6 +1,10 @@
-package com.elle.campaigntracker;
+package com.elle.campaigntracker.view;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModel;
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,10 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.model.character.PlayableChar;
+import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
-    //todo: add activity contract
-    //todo: add menu --> option to view character sheet, start turn, take damage, heal
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    PlayableCharacterViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //set up nav drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //setup view model
+        viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
     }
 
     @Override

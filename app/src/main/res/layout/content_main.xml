@@ -4,13 +4,13 @@
     <data>
         <variable
             name="character"
-            type="com.elle.campaigntracker.data.character.PlayerCharacter"/>
+            type="com.elle.campaigntracker.model.character.PlayableChar"/>
     </data>
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.elle.campaigntracker.MainActivity">
+        tools:context="com.elle.campaigntracker.view.MainActivity">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
