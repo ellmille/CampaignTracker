@@ -10,11 +10,13 @@ import com.elle.campaigntracker.data.AppDatabase;
 
 public class App extends Application {
     private AppExecutors appExecutors;
+    private int charId;
 
     @Override
     public void onCreate(){
         super.onCreate();
         appExecutors = new AppExecutors();
+        charId = new LastSession(getApplicationContext()).getCharId();
     }
 
     public AppDatabase getDatabase(){
@@ -22,6 +24,6 @@ public class App extends Application {
     }
 
     public Repo getRepo(){
-        return Repo.getInstance(getDatabase());
+        return Repo.getInstance(getDatabase(), charId);
     }
 }
