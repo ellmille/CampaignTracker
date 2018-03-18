@@ -1,5 +1,6 @@
 package com.elle.campaigntracker.model.character;
 
+import com.elle.campaigntracker.model.CharacterStats;
 import com.elle.campaigntracker.model.PlayableCharacter;
 
 /**
@@ -10,9 +11,11 @@ public class PlayableChar implements PlayableCharacter {
     private int id;
     private String name, characterClass;
     private Alignment alignment;
+    private String background;
     private int level;
     private int maxHp, currentHp;
     private int totalXpToLevel, currentXp;
+    private CharacterStats characterStats;
 
     @Override
     public int getId() {
@@ -44,6 +47,15 @@ public class PlayableChar implements PlayableCharacter {
 
     public void setAlignment(Alignment alignment){
         this.alignment = alignment;
+    }
+
+    @Override
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background){
+        this.background = background;
     }
 
     @Override
@@ -89,5 +101,14 @@ public class PlayableChar implements PlayableCharacter {
 
     public void setCurrentXp(int currentXp){
         this.currentXp = currentXp;
+    }
+
+    @Override
+    public CharacterStats getCharacterStats() {
+        return characterStats;
+    }
+
+    public void setCharacterStats(CharacterStats characterStats) {
+        this.characterStats = characterStats;
     }
 }

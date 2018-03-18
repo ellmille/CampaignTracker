@@ -14,9 +14,11 @@ public interface PlayableCharacter {
     String getName();
     String getCharacterClass();
     Alignment getAlignment();
+    String getBackground();
     int getMaxHp();
     int getCurrentHp();
     int getLevel();
     int getTotalXpToLevel();
     int getCurrentXp();
+    CharacterStats getCharacterStats();
 }
