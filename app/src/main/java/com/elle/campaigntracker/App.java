@@ -9,21 +9,25 @@ import com.elle.campaigntracker.data.AppDatabase;
  */
 
 public class App extends Application {
-    private AppExecutors appExecutors;
+  //  private AppExecutors appExecutors;
     private int charId;
 
     @Override
     public void onCreate(){
         super.onCreate();
-        appExecutors = new AppExecutors();
+      //  appExecutors = new AppExecutors();
         charId = new LastSession(getApplicationContext()).getCharId();
     }
 
-    public AppDatabase getDatabase(){
-        return AppDatabase.getInstance(this, appExecutors);
+    public int getCharId(){
+        return charId;
     }
 
-    public Repo getRepo(){
-        return Repo.getInstance(getDatabase(), charId);
-    }
+//    public AppDatabase getDatabase(){
+//        return AppDatabase.getInstance(this, appExecutors);
+//    }
+//
+//    public Repo getRepo(){
+//        return Repo.getInstance(getDatabase(), charId);
+//    }
 }

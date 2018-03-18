@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
  * Quick class to grab the last used char
  */
 
+//todo: this should just save the ID of the last used character
 public class LastSession {
     private static int charId;
 
