@@ -10,10 +10,11 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
-import com.elle.campaigntracker.AppExecutors;
 import com.elle.campaigntracker.data.dao.LogDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.entity.PlayableCharacterEntity;
+
+import java.util.concurrent.Executor;
 
 /**
  * Holds database
@@ -31,11 +32,11 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private final MutableLiveData<Boolean> isDatabaseCreated = new MutableLiveData<>();
 
-    public static AppDatabase getInstance(final Context context, final AppExecutors executors){
+    public static AppDatabase getInstance(final Context context, final Executor executor){
         if (instance == null) {
             synchronized (AppDatabase.class) {
                 if (instance == null) {
-                    instance = buildDatabase(context.getApplicationContext(), executors);
+                    instance = buildDatabase(context.getApplicationContext(), executor);
                     instance.updateDatabaseCreated(context.getApplicationContext());
                 }
             }
@@ -49,17 +50,17 @@ public abstract class AppDatabase extends RoomDatabase {
      * The SQLite database is only created when it's accessed for the first time.
      */
     private static AppDatabase buildDatabase(final Context appContext,
-                                             final AppExecutors executors) {
+                                             final Executor executor) {
         return Room.databaseBuilder(appContext, AppDatabase.class, DATABASE_NAME)
                 .addCallback(new Callback() {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
-                        executors.diskIO().execute(() -> {
+                        executor.execute(() -> {
                             // Add a delay to simulate a long-running operation
                             addDelay();
                             // Generate the data for pre-population
-                            AppDatabase database = AppDatabase.getInstance(appContext, executors);
+                            AppDatabase database = AppDatabase.getInstance(appContext, executor);
                             DummyRepo dummyRepo = new DummyRepo();
                             PlayableCharacterEntity playerCharacter = dummyRepo.getRex();
                             insertData(database, playerCharacter);
