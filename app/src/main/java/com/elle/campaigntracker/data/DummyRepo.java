@@ -1,7 +1,7 @@
 package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.model.character.Alignment;
+import com.elle.campaigntracker.data.model.Alignment;
 
 /**
  * PlayerCharacter sheet pre-sqlite setup

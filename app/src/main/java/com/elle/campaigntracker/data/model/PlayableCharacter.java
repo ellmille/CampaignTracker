@@ -3,9 +3,6 @@ package com.elle.campaigntracker.data.model;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-import com.elle.campaigntracker.model.CharacterStats;
-import com.elle.campaigntracker.model.character.Alignment;
-
 /**
  * POJO for playable character
  */
@@ -20,6 +17,12 @@ public class PlayableCharacter {
     private int level;
     private int maxHp, currentHp;
     private int totalXpToLevel, currentXp;
+    private int proficiencyBonus, strength, dexterity, constitution;
+    private int intelligence, wisdom, charisma;
+    private int acrobatics, animalHandling, arcana, athletics;
+    private int deception, history, insight, intimidation, investigation;
+    private int medicine, nature, perception, performance, persuasion;
+    private int religion, sleightOfHand, stealth, survival;
 
     public int getId() {
         return id;

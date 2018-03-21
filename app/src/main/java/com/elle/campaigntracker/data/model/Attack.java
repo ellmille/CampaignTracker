@@ -1,10 +1,12 @@
-package com.elle.campaigntracker.model.turn;
+package com.elle.campaigntracker.data.model;
 
 /**
  * Represents an attack
  */
 
 public class Attack {
+    private int id;
+    private int charId;
     private String name;
     private int attackBonus;
     //damage
