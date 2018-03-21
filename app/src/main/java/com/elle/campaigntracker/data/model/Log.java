@@ -1,57 +1,63 @@
-package com.elle.campaigntracker.data.entity;
+package com.elle.campaigntracker.data.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-import com.elle.campaigntracker.model.Log;
-import com.elle.campaigntracker.model.PlayableCharacter;
-
 /**
- * DB
+ * POJO for a log
  */
-@Entity(tableName = "logs",
-        foreignKeys = @ForeignKey(entity = PlayableCharacterEntity.class,
+
+@Entity(foreignKeys = @ForeignKey(entity = PlayableChar.class,
         parentColumns = "id",
-        childColumns = "char_id"))
-public class LogEntity implements Log {
+        childColumns = "character_id"), indices = @Index(value = ("character_id")))
+public class Log {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    @ColumnInfo(name = "char_id")
+    @ColumnInfo(name = "character_id")
     private int charId;
     private String title, logEntry;
     private long timeEntered;
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCharId() {
+        return charId;
+    }
+
+    public void setCharId(int charId) {
+        this.charId = charId;
+    }
+
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         this.title = title;
     }
 
-    @Override
     public String getLogEntry() {
         return logEntry;
     }
 
-    public void setLogEntry(String logEntry){
+    public void setLogEntry(String logEntry) {
         this.logEntry = logEntry;
     }
 
-    @Override
     public long getTimeEntered() {
         return timeEntered;
     }
 
-    public void setTimeEntered(long timeEntered){
+    public void setTimeEntered(long timeEntered) {
         this.timeEntered = timeEntered;
     }
 }

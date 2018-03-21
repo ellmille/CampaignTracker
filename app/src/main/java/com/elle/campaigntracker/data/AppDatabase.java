@@ -12,14 +12,14 @@ import android.support.annotation.VisibleForTesting;
 
 import com.elle.campaigntracker.data.dao.LogDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
-import com.elle.campaigntracker.data.entity.PlayableCharacterEntity;
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 
 import java.util.concurrent.Executor;
 
 /**
  * Holds database
  */
-@Database(entities = {PlayableCharacterEntity.class}, version = 1)
+@Database(entities = {PlayableCharacter.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
@@ -62,7 +62,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             // Generate the data for pre-population
                             AppDatabase database = AppDatabase.getInstance(appContext, executor);
                             DummyRepo dummyRepo = new DummyRepo();
-                            PlayableCharacterEntity playerCharacter = dummyRepo.getRex();
+                            PlayableCharacter playerCharacter = dummyRepo.getPlayableChar();
                             insertData(database, playerCharacter);
                             // notify that the database was created and it's ready to be used
                             database.setDatabaseCreated();
@@ -84,7 +84,7 @@ public abstract class AppDatabase extends RoomDatabase {
         isDatabaseCreated.postValue(true);
     }
 
-    private static void insertData(final AppDatabase database, final PlayableCharacterEntity playerCharacter) {
+    private static void insertData(final AppDatabase database, final PlayableCharacter playerCharacter) {
         database.runInTransaction(() -> {
             database.playerCharacterDao().insertPlayerCharacter(playerCharacter);
         });

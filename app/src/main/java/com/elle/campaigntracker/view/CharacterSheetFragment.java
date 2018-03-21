@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.model.character.PlayerCharacter;
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.DummyRepo;
 import com.elle.campaigntracker.databinding.FragmentCharacterSheetBinding;
 
@@ -17,7 +17,7 @@ import com.elle.campaigntracker.databinding.FragmentCharacterSheetBinding;
  * A simple {@link Fragment} subclass.
  */
 public class CharacterSheetFragment extends Fragment {
-    private PlayerCharacter rex;
+    private PlayableCharacter rex;
 
     public CharacterSheetFragment() {
         // Required empty public constructor
@@ -27,7 +27,7 @@ public class CharacterSheetFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         DummyRepo dummyRepo = new DummyRepo();
-        rex = dummyRepo.getRex();
+        rex = dummyRepo.getPlayableChar();
     }
 
     @Override

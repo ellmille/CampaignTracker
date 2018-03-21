@@ -1,10 +1,7 @@
 package com.elle.campaigntracker.view;
 
-import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.model.character.PlayableChar;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {

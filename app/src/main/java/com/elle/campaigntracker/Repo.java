@@ -2,13 +2,9 @@ package com.elle.campaigntracker;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.Nullable;
 
 import com.elle.campaigntracker.data.AppDatabase;
-import com.elle.campaigntracker.data.entity.LogEntity;
-import com.elle.campaigntracker.data.entity.PlayableCharacterEntity;
-import com.elle.campaigntracker.model.PlayableCharacter;
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 
 /**
  * Handles working with the database
@@ -18,7 +14,7 @@ public class Repo {
     private static Repo instance;
 
     private final AppDatabase database;
-    private MediatorLiveData<PlayableCharacterEntity> observableCharacter;
+    private MediatorLiveData<PlayableCharacter> observableCharacter;
 
     private Repo(final AppDatabase database, int charId){
         this.database = database;
@@ -46,11 +42,11 @@ public class Repo {
     /**
      * Get the list of products from the database and get notified when the data changes.
      */
-    public LiveData<PlayableCharacterEntity> getCharacter(){
+    public LiveData<PlayableCharacter> getCharacter(){
         return observableCharacter;
     }
 
-    public PlayableCharacterEntity loadCharacter(final int charId){
+    public PlayableCharacter loadCharacter(final int charId){
         return database.playerCharacterDao().findCharacterById(charId);
     }
 

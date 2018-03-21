@@ -5,16 +5,16 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.elle.campaigntracker.data.DummyRepo;
-import com.elle.campaigntracker.model.character.PlayableChar;
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 
 /**
  * Prepares data for the UI
  */
 
 public class PlayableCharacterViewModel extends ViewModel {
-    private MutableLiveData<PlayableChar> playableCharacter;
+    private MutableLiveData<PlayableCharacter> playableCharacter;
 
-    public LiveData<PlayableChar> getPlayableCharacter(){
+    public LiveData<PlayableCharacter> getPlayableCharacter(){
         if(playableCharacter == null){
             playableCharacter = new MutableLiveData<>();
             loadCharacter();
