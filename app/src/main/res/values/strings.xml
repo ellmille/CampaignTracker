@@ -21,4 +21,6 @@
     <string name="switch_game">Switch Game</string>
     <string name="placeholder_image">placeholder image</string>
     <string name="also_placeholder">Also Placeholder</string>
+    <string name="item_name">Item Name:</string>
+    <string name="description">Description</string>
 </resources>

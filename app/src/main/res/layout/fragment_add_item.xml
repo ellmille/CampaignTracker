@@ -1,0 +1,61 @@
+<layout>
+    <data>
+        <variable
+            name="newItem"
+            type="com.elle.campaigntracker.data.model.Item"/>
+        <variable
+            name="callback"
+            type="com.elle.campaigntracker.view.callback.EditItemCallback"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.elle.campaigntracker.view.AddItemFragment">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/name"
+            android:text="@string/item_name"/>
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={newItem.name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/description"
+            android:text="@string/description"/>
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@={newItem.description}" />
+
+        <!--<EditText-->
+            <!--android:id="@+id/quantity"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="number"-->
+            <!--android:text="@={newItem.quantity}" />-->
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:onClick="@{() -> callback.onSave(newItem)}"/>
+    </LinearLayout>
+</layout>

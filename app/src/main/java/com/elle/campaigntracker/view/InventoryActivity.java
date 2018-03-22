@@ -1,5 +1,6 @@
 package com.elle.campaigntracker.view;
 
+import android.support.v4.app.DialogFragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -52,6 +53,9 @@ public class InventoryActivity extends AppCompatActivity {
         public void onFabClicked() {
             //add new item
             Toast.makeText(InventoryActivity.this, "FAB", Toast.LENGTH_SHORT).show();
+
+            DialogFragment dialogFragment = new AddItemFragment();
+            dialogFragment.show(getSupportFragmentManager(), "ITEM");
         }
     };
 }

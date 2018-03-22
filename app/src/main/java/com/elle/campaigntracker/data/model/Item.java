@@ -24,6 +24,13 @@ public class Item {
     private String description;
 
     @Ignore
+    public Item(){
+        this.name = "";
+        this.quantity = 1;
+        this.description = "";
+    }
+
+    @Ignore
     public Item(int charId, String name, int quantity, String description){
         this.charId = charId;
         this.name = name;
