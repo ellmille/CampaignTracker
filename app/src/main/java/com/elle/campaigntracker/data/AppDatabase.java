@@ -10,16 +10,23 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
 
+import com.elle.campaigntracker.data.dao.AttackDao;
+import com.elle.campaigntracker.data.dao.ItemDao;
 import com.elle.campaigntracker.data.dao.LogDao;
+import com.elle.campaigntracker.data.dao.PlayableCharacterStatsDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
+import com.elle.campaigntracker.data.model.Attack;
+import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 import java.util.concurrent.Executor;
 
 /**
  * Holds database
  */
-@Database(entities = {PlayableCharacter.class}, version = 1)
+@Database(entities = {PlayableCharacter.class, PlayableCharacterStats.class, Log.class, Item.class, Attack.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
@@ -28,7 +35,10 @@ public abstract class AppDatabase extends RoomDatabase {
 
     //list all daos
     public abstract PlayerCharacterDao playerCharacterDao();
+    public abstract PlayableCharacterStatsDao playableCharacterStatsDao();
     public abstract LogDao logDao();
+    public abstract ItemDao itemDao();
+    public abstract AttackDao attackDao();
 
     private final MutableLiveData<Boolean> isDatabaseCreated = new MutableLiveData<>();
 

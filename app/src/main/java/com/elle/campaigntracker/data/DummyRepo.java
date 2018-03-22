@@ -15,15 +15,12 @@ public class DummyRepo {
     }
 
     private PlayableCharacter createPlayableChar() {
-        PlayableCharacter playableChar = new PlayableCharacter();
-        playableChar.setName("Rex");
-        playableChar.setCharacterClass("Rouge");
-        playableChar.setAlignment(Alignment.CHAOTIC_NEUTRAL);
-//        playableChar.setMaxHp(34);
-//        playableChar.setCurrentHp(34);
-//        playableChar.setLevel(4);
-//        playableChar.setTotalXpToLevel(6500);
-//        playableChar.setCurrentXp(1550);
+        PlayableCharacter playableChar = new PlayableCharacter("Rex", "Rouge", Alignment.CHAOTIC_NEUTRAL);
+        playableChar.setMaxHp(34);
+        playableChar.setCurrentHp(34);
+        playableChar.setLevel(4);
+        playableChar.setTotalXpToLevel(6500);
+        playableChar.setCurrentXp(1550);
         return playableChar;
     }
 
