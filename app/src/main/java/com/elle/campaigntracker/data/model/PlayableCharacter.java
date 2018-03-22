@@ -8,7 +8,7 @@ import android.arch.persistence.room.PrimaryKey;
  * POJO for playable character
  */
 
-@Entity(tableName = "playable_characters")
+@Entity(tableName = "playable_character")
 public class PlayableCharacter {
     @PrimaryKey(autoGenerate = true)
     private int id;
