@@ -2,6 +2,7 @@ package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.Alignment;
+import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 /**
  * PlayerCharacter sheet pre-sqlite setup
@@ -9,9 +10,11 @@ import com.elle.campaigntracker.data.model.Alignment;
 
 public class DummyRepo {
     private static PlayableCharacter playableChar;
+    private static PlayableCharacterStats stats;
 
     public DummyRepo(){
         playableChar = createPlayableChar();
+        stats = createPlayableCharStats(playableChar.getId());
     }
 
     private PlayableCharacter createPlayableChar() {
@@ -22,6 +25,12 @@ public class DummyRepo {
         playableChar.setTotalXpToLevel(6500);
         playableChar.setCurrentXp(1550);
         return playableChar;
+    }
+
+    private PlayableCharacterStats createPlayableCharStats(int charId) {
+        PlayableCharacterStats stats = new PlayableCharacterStats(charId);
+        stats.setProficiencyBonus(2);
+        return stats;
     }
 
     public PlayableCharacter getPlayableChar(){

@@ -26,10 +26,16 @@ public class PlayableCharacterStats {
     private int medicine, nature, perception, performance, persuasion;
     private int religion, sleightOfHand, stealth, survival;
 
-    public PlayableCharacterStats(int charId, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence,
+    @Ignore
+    public PlayableCharacterStats(int charId){
+        this.charId = charId;
+    }
+
+    public PlayableCharacterStats(int id, int charId, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence,
                                   int wisdom, int charisma, int acrobatics, int animalHandling, int arcana, int athletics, int deception, int history, int insight,
                                   int intimidation, int investigation, int medicine, int nature, int perception, int performance, int persuasion, int religion,
                                   int sleightOfHand, int stealth, int survival){
+        this.id = id;
         this.charId = charId;
         this.proficiencyBonus = proficiencyBonus;
         this.strength = strength;
