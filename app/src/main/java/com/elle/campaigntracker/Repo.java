@@ -2,9 +2,17 @@ package com.elle.campaigntracker;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MediatorLiveData;
+import android.arch.lifecycle.Observer;
+import android.support.annotation.Nullable;
 
 import com.elle.campaigntracker.data.AppDatabase;
+import com.elle.campaigntracker.data.model.Attack;
+import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.data.model.PlayableCharacterStats;
+
+import java.util.List;
 
 /**
  * Handles working with the database
@@ -15,17 +23,26 @@ public class Repo {
 
     private final AppDatabase database;
     private MediatorLiveData<PlayableCharacter> observableCharacter;
+    private MediatorLiveData<PlayableCharacterStats> observableStats;
 
     private Repo(final AppDatabase database, int charId){
         this.database = database;
         this.observableCharacter = new MediatorLiveData<>();
+        this.observableStats = new MediatorLiveData<>();
 
-//        observableCharacter.addSource(database.playerCharacterDao().findCharacterById(charId),
-//            playCharacterEntity -> {
-//                if(database.getDatabaseCreated().getValue() != null){
-//                    observableCharacter.postValue(playCharacterEntity);
-//                }
-//            });
+        observableCharacter.addSource(loadCharacter(charId), new Observer<PlayableCharacter>() {
+            @Override
+            public void onChanged(@Nullable PlayableCharacter playableCharacter) {
+                observableCharacter.postValue(playableCharacter);
+            }
+        });
+
+        observableStats.addSource(loadCharacterStats(charId), new Observer<PlayableCharacterStats>() {
+            @Override
+            public void onChanged(@Nullable PlayableCharacterStats playableCharacterStats) {
+                observableStats.postValue(playableCharacterStats);
+            }
+        });
     }
 
     public static Repo getInstance(final AppDatabase database, int charId){
@@ -46,11 +63,27 @@ public class Repo {
         return observableCharacter;
     }
 
-    public PlayableCharacter loadCharacter(final int charId){
+    public LiveData<PlayableCharacterStats> getCharacterStats(){
+        return observableStats;
+    }
+
+    public LiveData<PlayableCharacter> loadCharacter(final int charId){
         return database.playerCharacterDao().findCharacterById(charId);
     }
 
-//    public LiveData<LogEntity> loadLogsForCharacter(final int charId){
-//        return database.logDao().findLogsForCharacter(charId);
-//    }
+    public LiveData<PlayableCharacterStats> loadCharacterStats(final int charId){
+        return database.playableCharacterStatsDao().findStatsById(charId);
+    }
+
+    public LiveData<List<Log>> loadLogsForCharacter(final int charId){
+        return database.logDao().findLogsForCharacter(charId);
+    }
+
+    public LiveData<List<Item>> loadItemsForCharacter(final int charId){
+        return database.itemDao().findInventoryForCharacter(charId);
+    }
+
+    public LiveData<List<Attack>> loadAttacksForCharacter(final int charId){
+        return database.attackDao().findAttacksForCharacter(charId);
+    }
 }
