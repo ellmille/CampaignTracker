@@ -16,15 +16,11 @@ public class LastSession {
 
     public LastSession(Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences(SESSION_KEY, Context.MODE_PRIVATE);
-        charId = sharedPreferences.getInt(CHAR_ID, 0);
+        charId = sharedPreferences.getInt(CHAR_ID, 1);
     }
 
     public int getCharId(){
-        if(charId > 0){
-            return charId;
-        }else{
-            return 0;
-        }
+        return charId;
     }
 
     public static void setCharId(int charId, Context context){
