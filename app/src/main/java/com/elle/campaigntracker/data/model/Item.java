@@ -19,19 +19,22 @@ public class Item {
     private int id;
     @ColumnInfo(name = "character_id")
     private int charId;
+    private String name;
     private int quantity;
     private String description;
 
     @Ignore
-    public Item(int charId, int quantity, String description){
+    public Item(int charId, String name, int quantity, String description){
         this.charId = charId;
+        this.name = name;
         this.quantity = quantity;
         this.description = description;
     }
 
-    public Item(int id, int charId, int quantity, String description){
+    public Item(int id, int charId, String name, int quantity, String description){
         this.id = id;
         this.charId = charId;
+        this.name = name;
         this.quantity = quantity;
         this.description = description;
     }
@@ -66,5 +69,13 @@ public class Item {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
