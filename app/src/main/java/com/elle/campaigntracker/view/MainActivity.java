@@ -2,6 +2,7 @@ package com.elle.campaigntracker.view;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -93,7 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_full_sheet) {
             // Handle the camera action
         } else if (id == R.id.nav_inventory) {
-
+            Intent intent = new Intent(this, InventoryActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_log) {
 
         }

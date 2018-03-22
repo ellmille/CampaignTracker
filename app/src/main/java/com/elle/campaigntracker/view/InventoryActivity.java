@@ -17,6 +17,7 @@ public class InventoryActivity extends AppCompatActivity {
     private InventoryViewModel viewModel;
     private InventoryItemAdapter adapter;
 
+    //todo: add a onclick handler (one for clicking an item, one for clicking the fab) to databinding
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

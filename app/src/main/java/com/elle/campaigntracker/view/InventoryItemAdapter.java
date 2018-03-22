@@ -76,6 +76,9 @@ public class InventoryItemAdapter extends RecyclerView.Adapter<InventoryItemAdap
 
     @Override
     public int getItemCount() {
+        if(itemList == null){
+            return 0;
+        }
         return itemList.size();
     }
 
