@@ -1,6 +1,7 @@
 package com.elle.campaigntracker.view;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,15 +14,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.databinding.ActivityMainBinding;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    ActivityMainBinding binding;
     PlayableCharacterViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setup binding
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         //setup tool bar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         //setup view model
         viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
+        binding.setCharViewModel(viewModel);
     }
 
     @Override
