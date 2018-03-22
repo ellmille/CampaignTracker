@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context="com.elle.campaigntracker.view.InventoryActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:tools="http://schemas.android.com/tools"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/item" />
+
 </android.support.constraint.ConstraintLayout>

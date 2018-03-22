@@ -17,13 +17,12 @@ import java.util.List;
 
 public class InventoryViewModel extends AndroidViewModel {
     private final LiveData<List<Item>> observableInventory;
-    private final Repo repo;
     public ObservableList<Item> inventory;
 
     public InventoryViewModel(Application application){
         super(application);
-        this.repo = ((App) application).getRepo();
-        this.observableInventory = repo.loadItemsForCharacter(repo.getCharId());
+        Repo repo = ((App) application).getRepo();
+        this.observableInventory = repo.getInventory();
     }
 
     public LiveData<List<Item>> getObservableInventory(){

@@ -24,6 +24,7 @@ public class Repo {
     private final AppDatabase database;
     private MediatorLiveData<PlayableCharacter> observableCharacter;
     private MediatorLiveData<PlayableCharacterStats> observableStats;
+    private MediatorLiveData<List<Item>> observableInventory;
     private final int charId;
 
     private Repo(final AppDatabase database, int charId){
@@ -31,6 +32,7 @@ public class Repo {
         this.charId = charId;
         this.observableCharacter = new MediatorLiveData<>();
         this.observableStats = new MediatorLiveData<>();
+        this.observableInventory = new MediatorLiveData<>();
 
         observableCharacter.addSource(loadCharacter(charId), new Observer<PlayableCharacter>() {
             @Override
@@ -43,6 +45,13 @@ public class Repo {
             @Override
             public void onChanged(@Nullable PlayableCharacterStats playableCharacterStats) {
                 observableStats.postValue(playableCharacterStats);
+            }
+        });
+
+        observableInventory.addSource(loadItemsForCharacter(charId), new Observer<List<Item>>() {
+            @Override
+            public void onChanged(@Nullable List<Item> items) {
+                observableInventory.postValue(items);
             }
         });
     }
@@ -67,6 +76,10 @@ public class Repo {
 
     public LiveData<PlayableCharacterStats> getCharacterStats(){
         return observableStats;
+    }
+
+    public LiveData<List<Item>> getInventory(){
+        return observableInventory;
     }
 
     public LiveData<PlayableCharacter> loadCharacter(final int charId){
