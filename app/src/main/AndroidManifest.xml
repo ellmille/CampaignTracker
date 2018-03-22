@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.PlayerTurnActivity"></activity>
+        <activity android:name=".view.InventoryActivity" android:parentActivityName=".view.MainActivity"/>
     </application>
 
 </manifest>

@@ -62,6 +62,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/heal" />
 
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <!-- skills/saving throws -->
 
         <Button
