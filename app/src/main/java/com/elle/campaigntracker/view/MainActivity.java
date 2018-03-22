@@ -1,9 +1,11 @@
 package com.elle.campaigntracker.view;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -13,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.ActivityMainBinding;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
@@ -37,6 +40,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //setup view model
         viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
         binding.setCharViewModel(viewModel);
+        subscribeToModel(viewModel);
+    }
+
+    private void subscribeToModel(final PlayableCharacterViewModel model){
+        //observe character
+        model.getObservableCharacter().observe(this, new Observer<PlayableCharacter>() {
+            @Override
+            public void onChanged(@Nullable PlayableCharacter playableCharacter) {
+                model.setPlayableCharacter(playableCharacter);
+            }
+        });
     }
 
     @Override
