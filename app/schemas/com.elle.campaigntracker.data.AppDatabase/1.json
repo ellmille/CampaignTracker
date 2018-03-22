@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "aa9ea7d27a1f4ce7ee5778c04797b66f",
+    "identityHash": "e0cbf41ab739c01a762eebcf5a8c3394",
     "entities": [
       {
         "tableName": "playable_character",
@@ -342,7 +342,7 @@
       },
       {
         "tableName": "Item",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `quantity` INTEGER NOT NULL, `description` TEXT, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `name` TEXT, `quantity` INTEGER NOT NULL, `description` TEXT, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -355,6 +355,12 @@
             "columnName": "character_id",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
           },
           {
             "fieldPath": "quantity",
@@ -491,7 +497,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"aa9ea7d27a1f4ce7ee5778c04797b66f\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e0cbf41ab739c01a762eebcf5a8c3394\")"
     ]
   }
 }
