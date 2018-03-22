@@ -7,7 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.elle.campaigntracker.data.model.Log;
+import com.elle.campaigntracker.data.model.Attack;
 
 import java.util.List;
 
@@ -16,16 +16,16 @@ import java.util.List;
  */
 
 @Dao
-public interface LogDao {
-    @Query("SELECT * FROM log WHERE character_id = :charId")
-    LiveData<List<Log>> findLogsForCharacter(int charId);
+public interface AttackDao {
+    @Query("SELECT * FROM attack WHERE character_id = :charId")
+    LiveData<List<Attack>> findAttacksForCharacter(int charId);
 
     @Insert
-    void insertLog(Log log);
+    void insertAttack(Attack attack);
 
     @Update
-    void updateLog(Log log);
+    void updateAttack(Attack attack);
 
     @Delete
-    void deleteLog(Log log);
+    void deleteAttack(Attack attack);
 }

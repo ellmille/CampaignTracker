@@ -11,7 +11,7 @@ import android.arch.persistence.room.PrimaryKey;
  * POJO for character stats
  */
 
-@Entity(foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
+@Entity(tableName = "character_stats", foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
         parentColumns = "id",
         childColumns = "character_id"), indices = @Index(value = ("character_id")))
 public class PlayableCharacterStats {

@@ -1,11 +1,22 @@
 package com.elle.campaigntracker.data.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Index;
+import android.arch.persistence.room.PrimaryKey;
+
 /**
  * Represents an attack
  */
 
+@Entity(foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
+        parentColumns = "id",
+        childColumns = "character_id"), indices = @Index(value = ("character_id")))
 public class Attack {
+    @PrimaryKey(autoGenerate = true)
     private int id;
+    @ColumnInfo(name = "character_id")
     private int charId;
     private String name;
     private int attackBonus;
@@ -78,5 +89,21 @@ public class Attack {
 
     public void setRange(int range) {
         this.range = range;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCharId() {
+        return charId;
+    }
+
+    public void setCharId(int charId) {
+        this.charId = charId;
     }
 }
