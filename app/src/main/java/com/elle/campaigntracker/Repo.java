@@ -24,9 +24,11 @@ public class Repo {
     private final AppDatabase database;
     private MediatorLiveData<PlayableCharacter> observableCharacter;
     private MediatorLiveData<PlayableCharacterStats> observableStats;
+    private final int charId;
 
     private Repo(final AppDatabase database, int charId){
         this.database = database;
+        this.charId = charId;
         this.observableCharacter = new MediatorLiveData<>();
         this.observableStats = new MediatorLiveData<>();
 
@@ -85,5 +87,9 @@ public class Repo {
 
     public LiveData<List<Attack>> loadAttacksForCharacter(final int charId){
         return database.attackDao().findAttacksForCharacter(charId);
+    }
+
+    public int getCharId() {
+        return charId;
     }
 }

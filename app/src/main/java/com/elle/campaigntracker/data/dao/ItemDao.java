@@ -17,7 +17,7 @@ import java.util.List;
 
 @Dao
 public interface ItemDao {
-    @Query("SELECT * FROM logs WHERE character_id = :charId")
+    @Query("SELECT * FROM Item WHERE character_id = :charId")
     LiveData<List<Item>> findInventoryForCharacter(int charId);
 
     @Query("SELECT * FROM Item WHERE id = :id")

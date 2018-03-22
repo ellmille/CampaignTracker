@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="character"
-            type="com.elle.campaigntracker.model.character.PlayableChar"/>
+            name="playableCharacter"
+            type="com.elle.campaigntracker.data.model.PlayableCharacter"/>
     </data>
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40sp"
-            android:text="@{character.name, default=name}"
+            android:text="@{playableCharacter.name, default=name}"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
             app:layout_constraintStart_toStartOf="parent"/>
         <!--class-->
@@ -40,8 +40,8 @@
             android:layout_height="50dp"
             android:progressTint="#0c9607"
             android:min="0"
-            android:max="@{character.maxHp, default=100}"
-            android:progress="@{character.currentHp, default=100}"
+            android:max="@{playableCharacter.maxHp, default=100}"
+            android:progress="@{playableCharacter.currentHp, default=100}"
             app:layout_constraintTop_toBottomOf="@+id/char_name"/>
 
         <Button
@@ -61,6 +61,11 @@
             app:layout_constraintStart_toEndOf="@+id/take_damage"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/heal" />
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <!-- skills/saving throws -->
 
