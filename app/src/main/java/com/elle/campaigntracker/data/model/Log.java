@@ -10,7 +10,7 @@ import android.arch.persistence.room.PrimaryKey;
  * POJO for a log
  */
 
-@Entity(foreignKeys = @ForeignKey(entity = PlayableChar.class,
+@Entity(foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
         parentColumns = "id",
         childColumns = "character_id"), indices = @Index(value = ("character_id")))
 public class Log {
