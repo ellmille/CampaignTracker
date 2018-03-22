@@ -23,6 +23,9 @@ public interface ItemDao {
     @Query("SELECT * FROM Item WHERE id = :id")
     LiveData<Item> findItemById(int id);
 
+    @Query("SELECT DISTINCT name, description FROM Item")
+    LiveData<List<Item>> findAllItems();
+
     @Insert
     void insertLog(Item item);
 
