@@ -6,6 +6,7 @@ import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
+import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.VisibleForTesting;
@@ -16,6 +17,7 @@ import com.elle.campaigntracker.data.dao.LogDao;
 import com.elle.campaigntracker.data.dao.PlayableCharacterStatsDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.model.Attack;
+import com.elle.campaigntracker.data.model.Converters;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
@@ -27,6 +29,7 @@ import java.util.concurrent.Executor;
  * Holds database
  */
 @Database(entities = {PlayableCharacter.class, PlayableCharacterStats.class, Log.class, Item.class, Attack.class}, version = 1)
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
 
