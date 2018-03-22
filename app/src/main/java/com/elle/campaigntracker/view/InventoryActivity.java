@@ -2,13 +2,17 @@ package com.elle.campaigntracker.view;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.databinding.ActivityInventoryBinding;
+import com.elle.campaigntracker.view.callback.ItemCallback;
 import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
 import java.util.List;
@@ -17,11 +21,12 @@ public class InventoryActivity extends AppCompatActivity {
     private InventoryViewModel viewModel;
     private InventoryItemAdapter adapter;
 
-    //todo: add a onclick handler (one for clicking an item, one for clicking the fab) to databinding
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inventory);
+        ActivityInventoryBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_inventory);
+        binding.setCallback(itemCallback);
+
         RecyclerView recyclerView = findViewById(R.id.list);
         adapter = new InventoryItemAdapter();
         recyclerView.setAdapter(adapter);
@@ -35,4 +40,18 @@ public class InventoryActivity extends AppCompatActivity {
             }
         });
     }
+
+    private ItemCallback itemCallback = new ItemCallback() {
+        @Override
+        public void onItemClicked(Item item) {
+            //edit item
+            Toast.makeText(InventoryActivity.this, item.getDescription(), Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onFabClicked() {
+            //add new item
+            Toast.makeText(InventoryActivity.this, "FAB", Toast.LENGTH_SHORT).show();
+        }
+    };
 }
