@@ -12,26 +12,48 @@
         android:layout_height="match_parent"
         tools:context="com.elle.campaigntracker.view.MainActivity">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
         <TextView
             android:id="@+id/char_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="40sp"
             android:text="@{playableCharacter.name, default=name}"
-            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
-        <!--class-->
-        <!--level-->
-        <!--xp-->
+
+        <TextView
+            android:id="@+id/char_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{String.valueOf(playableCharacter.level), default=level 4}"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintStart_toEndOf="@id/char_name"
+            app:layout_constraintTop_toTopOf="@id/char_name"/>
+
+        <TextView
+            android:id="@+id/char_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="@{playableCharacter.characterClass, default=charClass}"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintStart_toEndOf="@id/char_level"
+            app:layout_constraintTop_toTopOf="@id/char_name"/>
+
+        <ProgressBar
+            android:id="@+id/xp_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/colorPrimary"
+            android:max="@{playableCharacter.totalXpToLevel, default=100}"
+            android:progress="@{playableCharacter.currentXp, default=25}"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintTop_toBottomOf="@+id/char_class"
+            app:layout_constraintStart_toEndOf="@+id/char_name"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <ProgressBar
             android:id="@+id/hp_bar"
@@ -39,7 +61,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:progressTint="#0c9607"
-            android:min="0"
             android:max="@{playableCharacter.maxHp, default=100}"
             android:progress="@{playableCharacter.currentHp, default=100}"
             app:layout_constraintTop_toBottomOf="@+id/char_name"/>
