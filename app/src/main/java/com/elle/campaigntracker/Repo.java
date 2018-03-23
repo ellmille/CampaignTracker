@@ -98,6 +98,10 @@ public class Repo {
         return database.itemDao().findInventoryForCharacter(charId);
     }
 
+    public void addItemToInventory(Item item){
+        database.addItem(item);
+    }
+
     public LiveData<List<Attack>> loadAttacksForCharacter(final int charId){
         return database.attackDao().findAttacksForCharacter(charId);
     }

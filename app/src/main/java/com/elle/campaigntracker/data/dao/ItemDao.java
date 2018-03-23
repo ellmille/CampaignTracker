@@ -27,11 +27,11 @@ public interface ItemDao {
     LiveData<List<Item>> findAllItems();
 
     @Insert
-    void insertLog(Item item);
+    void insertItem(Item item);
 
     @Update
-    void updateLog(Item item);
+    void updateItem(Item item);
 
     @Delete
-    void deleteLog(Item item);
+    void deleteItem(Item item);
 }

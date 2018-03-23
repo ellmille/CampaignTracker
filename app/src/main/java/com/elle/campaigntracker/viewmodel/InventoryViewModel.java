@@ -3,6 +3,7 @@ package com.elle.campaigntracker.viewmodel;
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
+import android.arch.persistence.room.Ignore;
 import android.databinding.ObservableList;
 
 import com.elle.campaigntracker.App;
@@ -18,10 +19,11 @@ import java.util.List;
 public class InventoryViewModel extends AndroidViewModel {
     private final LiveData<List<Item>> observableInventory;
     public ObservableList<Item> inventory;
+    private final Repo repo;
 
     public InventoryViewModel(Application application){
         super(application);
-        Repo repo = ((App) application).getRepo();
+        this.repo = ((App) application).getRepo();
         this.observableInventory = repo.getInventory();
     }
 
@@ -31,5 +33,10 @@ public class InventoryViewModel extends AndroidViewModel {
 
     public void setInventory(List<Item> items){
         this.inventory.addAll(items);
+    }
+
+    public void addToInventory(Item item){
+        item.setCharId(repo.getCharId());
+        repo.addItemToInventory(item);
     }
 }

@@ -18,7 +18,7 @@ import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
 import java.util.List;
 
-public class InventoryActivity extends AppCompatActivity {
+public class InventoryActivity extends AppCompatActivity implements AddItemFragment.DialogItemCallback{
     private InventoryViewModel viewModel;
     private InventoryItemAdapter adapter;
 
@@ -58,4 +58,11 @@ public class InventoryActivity extends AppCompatActivity {
             dialogFragment.show(getSupportFragmentManager(), "ITEM");
         }
     };
+
+    @Override
+    public void onSave(Item item) {
+        Toast.makeText(this, item.getName(), Toast.LENGTH_LONG).show();
+        //todo: save to DB
+        viewModel.addToInventory(item);
+    }
 }
