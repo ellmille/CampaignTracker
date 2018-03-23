@@ -5,7 +5,7 @@
     <data>
         <variable
             name="callback"
-            type="com.elle.campaigntracker.view.callback.ItemCallback"/>
+            type="com.elle.campaigntracker.view.callback.FabCallback"/>
     </data>
 
     <android.support.constraint.ConstraintLayout

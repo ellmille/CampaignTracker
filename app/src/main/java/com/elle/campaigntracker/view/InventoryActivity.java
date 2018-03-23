@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.databinding.ActivityInventoryBinding;
+import com.elle.campaigntracker.view.adapters.InventoryItemAdapter;
+import com.elle.campaigntracker.view.callback.FabCallback;
 import com.elle.campaigntracker.view.callback.ItemCallback;
 import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
@@ -26,7 +28,7 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityInventoryBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_inventory);
-        binding.setCallback(itemCallback);
+        binding.setCallback(fabCallback);
 
         RecyclerView recyclerView = findViewById(R.id.list);
         adapter = new InventoryItemAdapter();
@@ -42,17 +44,9 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
         });
     }
 
-    private ItemCallback itemCallback = new ItemCallback() {
-        @Override
-        public void onItemClicked(Item item) {
-            //edit item
-            //todo: edit or delete item
-            Toast.makeText(InventoryActivity.this, item.getDescription(), Toast.LENGTH_SHORT).show();
-        }
-
+    private FabCallback fabCallback = new FabCallback() {
         @Override
         public void onFabClicked() {
-            //add new item
             DialogFragment dialogFragment = new AddItemFragment();
             dialogFragment.show(getSupportFragmentManager(), "ITEM");
         }
