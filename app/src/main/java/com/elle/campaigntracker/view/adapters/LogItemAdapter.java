@@ -22,7 +22,7 @@ import java.util.Objects;
 public class LogItemAdapter extends RecyclerView.Adapter<LogItemAdapter.ViewHolder>{
     private List<Log> logList;
 
-    void setLogList(final List<Log> logListIn){
+    public void setLogList(final List<Log> logListIn){
         if(logListIn != null){
             if(logList == null){
                 logList = logListIn;
