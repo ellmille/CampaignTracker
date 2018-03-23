@@ -39,7 +39,8 @@
             android:layout_margin="@dimen/character_sheet_margin"
             app:layout_constraintTop_toTopOf="@+id/points"
             app:layout_constraintBottom_toBottomOf="@+id/points"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/points"/>
 
         <!--todo: data binding adapter and use 2 way data binding -->
         <EditText
@@ -52,7 +53,8 @@
             android:gravity="center_horizontal"
             android:layout_margin="@dimen/character_sheet_margin"
             app:layout_constraintTop_toBottomOf="@+id/hp_bar"
-            app:layout_constraintStart_toEndOf="@+id/pointsLabel"/>
+            app:layout_constraintStart_toEndOf="@+id/pointsLabel"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <Button
             android:id="@+id/take_damage"
