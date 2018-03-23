@@ -13,6 +13,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
+            android:textSize="@dimen/title_text_size"
             android:text="@{log.title, default=TITLE}"/>
 
         <!--<TextView-->
@@ -23,6 +25,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/message_text_size"
+            android:layout_marginStart="@dimen/activity_vertical_margin"
+            android:layout_marginEnd="@dimen/activity_vertical_margin"
             android:text="@{log.logEntry, default=ENTRY}"/>
 
     </LinearLayout>

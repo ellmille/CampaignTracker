@@ -27,6 +27,7 @@ public class Repo {
     private MediatorLiveData<PlayableCharacter> observableCharacter;
     private MediatorLiveData<PlayableCharacterStats> observableStats;
     private MediatorLiveData<List<Item>> observableInventory;
+    private MediatorLiveData<List<Log>> observableLogs;
     private final int charId;
 
     private Repo(final AppDatabase database, int charId){
@@ -54,6 +55,13 @@ public class Repo {
             @Override
             public void onChanged(@Nullable List<Item> items) {
                 observableInventory.postValue(items);
+            }
+        });
+
+        observableLogs.addSource(loadLogsForCharacter(charId), new Observer<List<Log>>() {
+            @Override
+            public void onChanged(@Nullable List<Log> logs) {
+                observableLogs.postValue(logs);
             }
         });
     }
@@ -84,6 +92,10 @@ public class Repo {
         return observableInventory;
     }
 
+    public LiveData<List<Log>> getLogs(){
+        return observableLogs;
+    }
+
     public LiveData<PlayableCharacter> loadCharacter(final int charId){
         return database.playerCharacterDao().findCharacterById(charId);
     }
@@ -94,6 +106,15 @@ public class Repo {
 
     public LiveData<List<Log>> loadLogsForCharacter(final int charId){
         return database.logDao().findLogsForCharacter(charId);
+    }
+
+    public void addLog(Log log){
+        database.runInTransaction(new Runnable() {
+            @Override
+            public void run() {
+                database.logDao().insertLog(log);
+            }
+        });
     }
 
     public LiveData<List<Item>> loadItemsForCharacter(final int charId){
