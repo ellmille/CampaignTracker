@@ -6,6 +6,11 @@
             type="com.elle.campaigntracker.data.model.Item"/>
     </data>
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -13,16 +18,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(item.quantity), default=0}"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textSize="@dimen/title_text_size"
+            android:layout_margin="@dimen/character_sheet_margin"
             android:text="@{item.name, default=NAME}"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:textSize="@dimen/detail_text_size"
+            android:text="@{String.valueOf(item.quantity), default=0}"/>
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/message_text_size"
             android:text="@{item.description, default=DESCRIPTION}"/>
 
     </LinearLayout>
