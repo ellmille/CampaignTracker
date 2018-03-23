@@ -46,14 +46,13 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
         @Override
         public void onItemClicked(Item item) {
             //edit item
+            //todo: edit or delete item
             Toast.makeText(InventoryActivity.this, item.getDescription(), Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onFabClicked() {
             //add new item
-            Toast.makeText(InventoryActivity.this, "FAB", Toast.LENGTH_SHORT).show();
-
             DialogFragment dialogFragment = new AddItemFragment();
             dialogFragment.show(getSupportFragmentManager(), "ITEM");
         }
@@ -61,8 +60,6 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
 
     @Override
     public void onSave(Item item) {
-        Toast.makeText(this, item.getName(), Toast.LENGTH_LONG).show();
-        //todo: save to DB
         viewModel.addToInventory(item);
     }
 }
