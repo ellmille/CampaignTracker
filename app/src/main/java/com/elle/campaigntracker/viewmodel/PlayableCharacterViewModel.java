@@ -4,6 +4,7 @@ import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.databinding.ObservableField;
+import android.util.Log;
 
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
@@ -30,5 +31,9 @@ public class PlayableCharacterViewModel extends AndroidViewModel {
 
     public void setPlayableCharacter(PlayableCharacter playableCharacter){
         this.playableCharacter.set(playableCharacter);
+    }
+
+    public void updatePlayableCharacterHealth(int newHp){
+        Log.d("PCViewModel", "new health " + String.valueOf(newHp));
     }
 }

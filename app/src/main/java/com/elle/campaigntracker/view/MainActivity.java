@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
         binding.setCharViewModel(viewModel);
         subscribeToModel(viewModel);
+
+        //add health fragment if this is first creation
+        if(savedInstanceState == null){
+            HealthFragment fragment = new HealthFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.fragment_container, fragment, HealthFragment.TAG).commit();
+        }
     }
 
     private void subscribeToModel(final PlayableCharacterViewModel model){

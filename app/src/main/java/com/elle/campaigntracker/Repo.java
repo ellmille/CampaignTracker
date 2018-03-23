@@ -13,8 +13,6 @@ import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 import java.util.List;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
 
 /**
  * Handles working with the database
@@ -36,6 +34,7 @@ public class Repo {
         this.observableCharacter = new MediatorLiveData<>();
         this.observableStats = new MediatorLiveData<>();
         this.observableInventory = new MediatorLiveData<>();
+        this.observableLogs = new MediatorLiveData<>();
 
         observableCharacter.addSource(loadCharacter(charId), new Observer<PlayableCharacter>() {
             @Override

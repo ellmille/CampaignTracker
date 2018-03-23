@@ -1,0 +1,77 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="callback"
+            type="com.elle.campaigntracker.view.callback.HealthCallback"/>
+        <variable
+            name="playableCharacter"
+            type="com.elle.campaigntracker.data.model.PlayableCharacter"/>
+        <variable
+            name="points"
+            type="int"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.elle.campaigntracker.view.HealthFragment">
+
+        <ProgressBar
+            android:id="@+id/hp_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:progressTint="#0c9607"
+            android:max="@{playableCharacter.maxHp, default=100}"
+            android:progress="@{playableCharacter.currentHp, default=100}"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/pointsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points"
+            android:textSize="@dimen/detail_text_size"
+            android:labelFor="@+id/points"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintTop_toTopOf="@+id/points"
+            app:layout_constraintBottom_toBottomOf="@+id/points"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <!--todo: data binding adapter and use 2 way data binding -->
+        <EditText
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@{String.valueOf(points), default=1}"
+            android:gravity="center_horizontal"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintTop_toBottomOf="@+id/hp_bar"
+            app:layout_constraintStart_toEndOf="@+id/pointsLabel"/>
+
+        <Button
+            android:id="@+id/take_damage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/take_damage"
+            app:layout_constraintTop_toBottomOf="@+id/points"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/heal"
+            android:onClick="@{() -> callback.takeDamage(points)}"/>
+
+        <Button
+            android:id="@+id/heal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/points"
+            app:layout_constraintStart_toEndOf="@+id/take_damage"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/heal"
+            android:onClick="@{() -> callback.heal(points)}"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>
