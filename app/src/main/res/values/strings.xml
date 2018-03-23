@@ -23,4 +23,5 @@
     <string name="also_placeholder">Also Placeholder</string>
     <string name="item_name">Item Name:</string>
     <string name="description">Description</string>
+    <string name="title_activity_log">LogActivity</string>
 </resources>

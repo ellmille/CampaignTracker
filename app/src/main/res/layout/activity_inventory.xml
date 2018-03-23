@@ -19,8 +19,7 @@
             android:layout_height="wrap_content"
             xmlns:tools="http://schemas.android.com/tools"
             app:layoutManager="LinearLayoutManager"
-            tools:listitem="@layout/item"
-            />
+            tools:listitem="@layout/item" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatingActionButton"
