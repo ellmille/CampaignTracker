@@ -104,13 +104,6 @@ public abstract class AppDatabase extends RoomDatabase {
         });
     }
 
-    private static void addDelay() {
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException ignored) {
-        }
-    }
-
     public LiveData<Boolean> getDatabaseCreated() {
         return isDatabaseCreated;
     }

@@ -13,6 +13,8 @@ import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * Handles working with the database
@@ -107,8 +109,19 @@ public class Repo {
         return database.logDao().findLogsForCharacter(charId);
     }
 
+    public void updateCharacter(final PlayableCharacter playableCharacter){
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                database.playerCharacterDao().updatePlayerCharacter(playableCharacter);
+            }
+        });
+    }
+
     public void addLog(Log log){
-        database.runInTransaction(new Runnable() {
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
             @Override
             public void run() {
                 database.logDao().insertLog(log);
@@ -121,7 +134,8 @@ public class Repo {
     }
 
     public void addItemToInventory(Item item){
-        database.runInTransaction(new Runnable() {
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
             @Override
             public void run() {
                 database.itemDao().insertItem(item);
