@@ -1,6 +1,5 @@
-package com.elle.campaigntracker.view;
+package com.elle.campaigntracker.view.adapters;
 
-import android.arch.lifecycle.LiveData;
 import android.databinding.DataBindingUtil;
 import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
