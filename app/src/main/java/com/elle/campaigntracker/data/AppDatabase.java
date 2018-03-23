@@ -115,12 +115,12 @@ public abstract class AppDatabase extends RoomDatabase {
         return isDatabaseCreated;
     }
 
-    public void addItem(final Item item){
+    public void addAttack(final Attack attack){
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                itemDao().insertItem(item);
+                attackDao().insertAttack(attack);
             }
         });
     }

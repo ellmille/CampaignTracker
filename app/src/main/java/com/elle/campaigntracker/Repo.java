@@ -13,6 +13,8 @@ import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 /**
  * Handles working with the database
@@ -99,7 +101,12 @@ public class Repo {
     }
 
     public void addItemToInventory(Item item){
-        database.addItem(item);
+        database.runInTransaction(new Runnable() {
+            @Override
+            public void run() {
+                database.itemDao().insertItem(item);
+            }
+        });
     }
 
     public LiveData<List<Attack>> loadAttacksForCharacter(final int charId){
