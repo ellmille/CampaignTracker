@@ -23,13 +23,23 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
+            android:id="@+id/level_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/detail_text_size"
+            android:text="@string/level"
+            app:layout_constraintTop_toTopOf="@+id/char_level"
+            app:layout_constraintBottom_toBottomOf="@+id/char_level"
+            app:layout_constraintStart_toEndOf="@+id/char_name"/>
+
+        <TextView
             android:id="@+id/char_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="@{String.valueOf(playableCharacter.level), default=level 4}"
             android:layout_margin="@dimen/character_sheet_margin"
-            app:layout_constraintStart_toEndOf="@id/char_name"
+            app:layout_constraintStart_toEndOf="@id/level_label"
             app:layout_constraintTop_toTopOf="@id/char_name"/>
 
         <TextView
