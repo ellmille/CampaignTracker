@@ -2,6 +2,7 @@ package com.elle.campaigntracker.view;
 
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.databinding.FragmentXpBinding;
+import com.elle.campaigntracker.view.callback.HealthCallback;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
 /**
@@ -17,6 +20,7 @@ import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 public class XpFragment extends Fragment {
     public static final String TAG = "XP";
     private PlayableCharacterViewModel viewModel;
+    private FragmentXpBinding binding;
     //todo: will need it's own callback and make it easier to add points
     //todo: we only want to edit if there was a mistake
 
@@ -33,8 +37,25 @@ public class XpFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_xp, container, false);
+        binding.setCallback(xpCallback);
+        binding.setPoints("1");
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_xp, container, false);
+        return binding.getRoot();
     }
 
+
+    private final HealthCallback xpCallback = new HealthCallback() {
+        @Override
+        public void heal(String hp) {
+            int newPoints = viewModel.playableCharacter.get().getCurrentXp() + Integer.parseInt(hp);
+            viewModel.updatePlayableCharacterXp(newPoints);
+        }
+
+        @Override
+        public void takeDamage(String hp) {
+            int newPoints = viewModel.playableCharacter.get().getCurrentXp() - Integer.parseInt(hp);
+            viewModel.updatePlayableCharacterXp(newPoints);
+        }
+    };
 }

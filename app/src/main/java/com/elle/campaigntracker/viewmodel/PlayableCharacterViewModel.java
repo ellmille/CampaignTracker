@@ -44,4 +44,16 @@ public class PlayableCharacterViewModel extends AndroidViewModel {
         playableCharacter.get().setCurrentHp(newHp);
         repo.updateCharacter(playableCharacter.get());
     }
+
+    public void updatePlayableCharacterXp(int newXp){
+        if(newXp > playableCharacter.get().getTotalXpToLevel()){
+            newXp = playableCharacter.get().getTotalXpToLevel();
+        }
+        if(newXp < 0){
+            newXp = 0;
+        }
+        Log.d("PCViewModel", "new XP " + String.valueOf(newXp));
+        playableCharacter.get().setCurrentXp(newXp);
+        repo.updateCharacter(playableCharacter.get());
+    }
 }
