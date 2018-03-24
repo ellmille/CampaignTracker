@@ -2,7 +2,10 @@ package com.elle.campaigntracker.view;
 
 import android.databinding.BindingAdapter;
 import android.databinding.InverseBindingAdapter;
+import android.databinding.InverseBindingListener;
 import android.databinding.InverseMethod;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -13,12 +16,36 @@ import android.widget.TextView;
 
 public class BindingAdapters {
 
-    @BindingAdapter("intToText")
-    public static void setIntToText(EditText view, int number){
-        view.setText(String.valueOf(number));
+    @BindingAdapter(value = "intToTextAttrChanged")
+    public static void setListener(EditText editText, final InverseBindingListener listener){
+        if(listener != null){
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    listener.onChange();
+                }
+            });
+        }
     }
 
-    @InverseBindingAdapter(attribute = "intToText", event = "intToTextAttrChanged")
+    @BindingAdapter("intToText")
+    public static void setIntToText(EditText view, int number){
+        if(!String.valueOf(number).equals(view.getText().toString())){
+            view.setText(String.valueOf(number));
+        }
+    }
+
+    @InverseBindingAdapter(attribute = "intToText")
     public static int getNumber(EditText view){
         return Integer.parseInt(view.getText().toString());
     }

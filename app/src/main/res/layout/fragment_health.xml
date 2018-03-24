@@ -42,14 +42,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/points"/>
 
-        <!--todo: data binding adapter and use 2 way data binding -->
         <EditText
             android:id="@+id/points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="@{String.valueOf(points), default=1}"
+            app:intToText="@={points}"
             android:gravity="center_horizontal"
             android:layout_margin="@dimen/character_sheet_margin"
             app:layout_constraintTop_toBottomOf="@+id/hp_bar"
