@@ -34,8 +34,11 @@ public class PlayableCharacterViewModel extends AndroidViewModel {
     }
 
     public void updatePlayableCharacterHealth(int newHp){
-        if(newHp > playableCharacter.get().getMaxHp() || newHp < 0){
-            return;
+        if(newHp > playableCharacter.get().getMaxHp()){
+            newHp = playableCharacter.get().getMaxHp();
+        }
+        if(newHp < 0){
+            newHp = 0;
         }
         Log.d("PCViewModel", "new health " + String.valueOf(newHp));
         playableCharacter.get().setCurrentHp(newHp);
