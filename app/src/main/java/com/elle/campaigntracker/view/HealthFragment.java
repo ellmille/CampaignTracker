@@ -37,7 +37,7 @@ public class HealthFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_health, container, false);
         binding.setCallback(healthCallback);
-        binding.setPoints(1);
+        binding.setPoints("1");
 
         viewModel.getObservableCharacter().observe(this, new Observer<PlayableCharacter>() {
             @Override
@@ -51,14 +51,14 @@ public class HealthFragment extends Fragment {
 
     private final HealthCallback healthCallback = new HealthCallback() {
         @Override
-        public void heal(int hp) {
-            int newPoints = viewModel.playableCharacter.get().getCurrentHp() + hp;
+        public void heal(String hp) {
+            int newPoints = viewModel.playableCharacter.get().getCurrentHp() + Integer.parseInt(hp);
             viewModel.updatePlayableCharacterHealth(newPoints);
         }
 
         @Override
-        public void takeDamage(int hp) {
-            int newPoints = viewModel.playableCharacter.get().getCurrentHp() - hp;
+        public void takeDamage(String hp) {
+            int newPoints = viewModel.playableCharacter.get().getCurrentHp() - Integer.parseInt(hp);
             viewModel.updatePlayableCharacterHealth(newPoints);
         }
     };

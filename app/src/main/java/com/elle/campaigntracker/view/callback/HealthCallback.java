@@ -5,6 +5,6 @@ package com.elle.campaigntracker.view.callback;
  */
 
 public interface HealthCallback {
-    void heal(int hp);
-    void takeDamage(int hp);
+    void heal(String hp);
+    void takeDamage(String hp);
 }
