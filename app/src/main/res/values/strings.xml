@@ -25,4 +25,6 @@
     <string name="description">Description</string>
     <string name="title_activity_log">LogActivity</string>
     <string name="points">Points:</string>
+    <string name="subtract_xp">Subtract XP</string>
+    <string name="add_xp">Add XP</string>
 </resources>
