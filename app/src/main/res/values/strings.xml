@@ -27,4 +27,5 @@
     <string name="points">Points:</string>
     <string name="subtract_xp">Subtract XP</string>
     <string name="add_xp">Add XP</string>
+    <string name="edit_xp">Edit Xp</string>
 </resources>

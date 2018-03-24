@@ -20,6 +20,10 @@
             android:id="@+id/nav_log"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/log" />
+        <item
+            android:id="@+id/nav_level"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/edit_xp"/>
     </group>
 
     <!--<item android:title="@string/switch_game">-->
