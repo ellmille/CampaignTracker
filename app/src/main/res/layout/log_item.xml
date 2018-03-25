@@ -16,22 +16,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:orientation="horizontal">-->
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_margin="@dimen/activity_vertical_margin"-->
-                <!--android:textSize="@dimen/title_text_size"-->
-                <!--android:text="@{log.title, default=TITLE}"/>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_vertical_margin"
+                android:textSize="@dimen/title_text_size"
+                android:text="@{log.title, default=TITLE}"/>
 
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--app:setLongToDate="@{log.timeEntered}"/>-->
-        <!--</LinearLayout>-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:longToDate="@{log.timeEntered}"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
