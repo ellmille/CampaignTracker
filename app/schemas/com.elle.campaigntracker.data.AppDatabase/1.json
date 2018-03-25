@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e0cbf41ab739c01a762eebcf5a8c3394",
+    "identityHash": "9de3aaecc164768a613fc84be3eca50b",
     "entities": [
       {
         "tableName": "playable_character",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `characterClass` TEXT, `alignment` TEXT, `background` TEXT, `level` INTEGER NOT NULL, `maxHp` INTEGER NOT NULL, `currentHp` INTEGER NOT NULL, `totalXpToLevel` INTEGER NOT NULL, `currentXp` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `characterClass` TEXT, `characterRace` TEXT, `alignment` TEXT, `background` TEXT, `level` INTEGER NOT NULL, `maxHp` INTEGER NOT NULL, `currentHp` INTEGER NOT NULL, `totalXpToLevel` INTEGER NOT NULL, `currentXp` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -23,6 +23,12 @@
           {
             "fieldPath": "characterClass",
             "columnName": "characterClass",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "characterRace",
+            "columnName": "characterRace",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -497,7 +503,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e0cbf41ab739c01a762eebcf5a8c3394\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9de3aaecc164768a613fc84be3eca50b\")"
     ]
   }
 }

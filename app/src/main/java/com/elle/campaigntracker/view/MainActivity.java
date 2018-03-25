@@ -114,6 +114,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentTransaction.replace(R.id.fragment_container, fragment);
             fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
+        } else if(id == R.id.nav_edit_char){
+            Intent intent = new Intent(this, EditCharacterActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(EditCharacterActivity.ARG_ACTION, false);
+            intent.putExtras(bundle);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

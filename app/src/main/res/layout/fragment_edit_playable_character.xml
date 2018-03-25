@@ -110,45 +110,45 @@
             app:layout_constraintTop_toBottomOf="@+id/editRace"
             app:layout_constraintStart_toEndOf="@+id/alignmentLabel"/>
 
-        <TextView
-            android:id="@+id/maxHpLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/max_health"
-            android:labelFor="@+id/editMaxHp"
-            app:layout_constraintTop_toTopOf="@+id/editMaxHp"
-            app:layout_constraintBottom_toBottomOf="@+id/editMaxHp"
-            app:layout_constraintStart_toStartOf="parent"/>
+        <!--<TextView-->
+            <!--android:id="@+id/maxHpLabel"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/max_health"-->
+            <!--android:labelFor="@+id/editMaxHp"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/editMaxHp"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/editMaxHp"-->
+            <!--app:layout_constraintStart_toStartOf="parent"/>-->
 
-        <EditText
-            android:id="@+id/editMaxHp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            app:setIntToText="@={playableCharacter.maxHp}"
-            app:layout_constraintTop_toBottomOf="@+id/editAlignment"
-            app:layout_constraintStart_toEndOf="@+id/maxHpLabel"/>
+        <!--<EditText-->
+            <!--android:id="@+id/editMaxHp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="number"-->
+            <!--app:setIntToText="@={playableCharacter.maxHp}"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/editAlignment"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/maxHpLabel"/>-->
 
-        <TextView
-            android:id="@+id/xpToLevelLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/experience_to_level"
-            android:labelFor="@+id/editXpToLevel"
-            app:layout_constraintTop_toTopOf="@+id/editXpToLevel"
-            app:layout_constraintBottom_toBottomOf="@+id/editXpToLevel"
-            app:layout_constraintStart_toStartOf="parent"/>
+        <!--<TextView-->
+            <!--android:id="@+id/xpToLevelLabel"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="@string/experience_to_level"-->
+            <!--android:labelFor="@+id/editXpToLevel"-->
+            <!--app:layout_constraintTop_toTopOf="@+id/editXpToLevel"-->
+            <!--app:layout_constraintBottom_toBottomOf="@+id/editXpToLevel"-->
+            <!--app:layout_constraintStart_toStartOf="parent"/>-->
 
-        <EditText
-            android:id="@+id/editXpToLevel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            app:setIntToText="@={playableCharacter.totalXpToLevel}"
-            app:layout_constraintTop_toBottomOf="@+id/editMaxHp"
-            app:layout_constraintStart_toEndOf="@+id/xpToLevelLabel"/>
+        <!--<EditText-->
+            <!--android:id="@+id/editXpToLevel"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:ems="10"-->
+            <!--android:inputType="number"-->
+            <!--app:setIntToText="@={playableCharacter.totalXpToLevel}"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/editMaxHp"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/xpToLevelLabel"/>-->
 
         <Button
             android:id="@+id/save"
@@ -156,39 +156,6 @@
             android:layout_height="wrap_content"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"/>
-
-
-        <!-- personality -->
-
-
-        <!--<TextView-->
-        <!--android:id="@+id/personalityLabel"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/personality"-->
-        <!--android:labelFor="@+id/editPersonality"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/editPersonality"-->
-        <!--app:layout_constraintBottom_toBottomOf="@+id/editPersonality"-->
-        <!--app:layout_constraintStart_toStartOf="parent"/>-->
-        <!--<EditText-->
-        <!--android:id="@+id/editPersonality"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ems="10"-->
-        <!--android:inputType="textMultiLine"-->
-        <!--android:text="@={}"/>-->
-
-        <!-- ideals-->
-        <!-- bonds-->
-        <!-- flaws -->
-        <!-- abilities-->
-
-        <!-- proficiencies and languages-->
-
-        <!-- age -->
-        <!-- height -->
-        <!-- weight -->
-
 
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -10,4 +10,35 @@
         android:layout_height="match_parent"
         android:text="@string/hello_blank_fragment" />
 
+    <!-- personality -->
+
+
+    <!--<TextView-->
+    <!--android:id="@+id/personalityLabel"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/personality"-->
+    <!--android:labelFor="@+id/editPersonality"-->
+    <!--app:layout_constraintTop_toTopOf="@+id/editPersonality"-->
+    <!--app:layout_constraintBottom_toBottomOf="@+id/editPersonality"-->
+    <!--app:layout_constraintStart_toStartOf="parent"/>-->
+    <!--<EditText-->
+    <!--android:id="@+id/editPersonality"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:ems="10"-->
+    <!--android:inputType="textMultiLine"-->
+    <!--android:text="@={}"/>-->
+
+    <!-- ideals-->
+    <!-- bonds-->
+    <!-- flaws -->
+    <!-- abilities-->
+
+    <!-- proficiencies and languages-->
+
+    <!-- age -->
+    <!-- height -->
+    <!-- weight -->
+
 </FrameLayout>

@@ -20,6 +20,11 @@ public class PlayableCharacter {
     private int totalXpToLevel, currentXp;
 
     @Ignore
+    public PlayableCharacter(){
+
+    }
+
+    @Ignore
     public PlayableCharacter(String name, String characterClass, Alignment alignment){
         this.name = name;
         this.characterClass = characterClass;

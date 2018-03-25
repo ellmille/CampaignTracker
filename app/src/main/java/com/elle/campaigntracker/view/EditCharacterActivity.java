@@ -1,5 +1,6 @@
 package com.elle.campaigntracker.view;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -15,8 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.databinding.ActivityMainBinding;
+import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
 public class EditCharacterActivity extends AppCompatActivity {
+    public static final String ARG_ACTION = "add_or_edit";
+    private PlayableCharacterViewModel viewModel;
+    private boolean isNew;
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -37,7 +43,9 @@ public class EditCharacterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_character);
-        ;
+
+        isNew = getIntent().getExtras().getBoolean(ARG_ACTION);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         sectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -50,6 +58,9 @@ public class EditCharacterActivity extends AppCompatActivity {
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+
+        //setup view model
+        viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
     }
 
 
@@ -89,7 +100,7 @@ public class EditCharacterActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return EditCharacterBasicsFragment.newInstance(1);
+                    return EditCharacterBasicsFragment.newInstance(isNew);
                 case 1:
                     return EditCharacterStatsFragment.newInstance(2);
                 case 2:
