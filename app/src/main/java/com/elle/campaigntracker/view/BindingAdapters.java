@@ -10,11 +10,16 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Binding and inverse binding adapters
  */
 
 public class BindingAdapters {
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMMM.dd - yyyy", Locale.getDefault());
 
 //    @BindingAdapter(value = "intToTextAttrChanged")
 //    public static void setListener(EditText editText, final InverseBindingListener listener){
@@ -43,6 +48,12 @@ public class BindingAdapters {
         if(!String.valueOf(number).equals(view.getText().toString())){
             view.setText(String.valueOf(number));
         }
+    }
+
+    @BindingAdapter("longToDate")
+    public static void setLongToDate(TextView view, long time){
+        Date date = new Date(time);
+        view.setText(simpleDateFormat.format(date));
     }
 
 //    @InverseBindingAdapter(attribute = "intToText")

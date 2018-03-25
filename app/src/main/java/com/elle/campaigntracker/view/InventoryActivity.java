@@ -24,6 +24,8 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
     private InventoryViewModel viewModel;
     private InventoryItemAdapter adapter;
 
+    //todo: allow edit/deleting on item click,
+    // todo: use card view? do you want this to be a fragment?
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
