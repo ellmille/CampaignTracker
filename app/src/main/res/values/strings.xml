@@ -35,4 +35,6 @@
     <string name="race">Race:</string>
     <string name="armor_class">Armor Class:</string>
     <string name="personality">Personality:</string>
+    <string name="max_health">Max Health:</string>
+    <string name="experience_to_level">Experience to Level:</string>
 </resources>
