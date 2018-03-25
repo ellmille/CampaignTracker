@@ -30,7 +30,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.elle.campaigntracker.view.MainActivity" />
         </activity>
-        <activity android:name=".view.EditCharacterActivity"></activity>
+        <activity
+            android:name=".view.EditCharacterActivity"
+            android:label="@string/title_activity_edit_playable_character"
+            android:parentActivityName=".view.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.elle.campaigntracker.view.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
