@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            android:text="@{String.valueOf(playableCharacter.level), default=level 4}"
+            android:text="@{String.valueOf(playableCharacter.level), default=4}"
             android:layout_margin="@dimen/character_sheet_margin"
             app:layout_constraintStart_toEndOf="@id/level_label"
             app:layout_constraintTop_toTopOf="@id/char_name"/>
