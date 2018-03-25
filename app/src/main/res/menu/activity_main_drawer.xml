@@ -6,37 +6,37 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_full_sheet"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_line_style_black"
             android:title="@string/full_sheet" />
         <item
             android:id="@+id/nav_inventory"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/inventory" />
-        <!--<item-->
-            <!--android:id="@+id/nav_attacks"-->
-            <!--android:icon="@drawable/ic_menu_manage"-->
-            <!--android:title="@string/attacks" />-->
+        <item
+            android:id="@+id/nav_attacks"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/attacks" />
         <item
             android:id="@+id/nav_log"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_import_contacts_black"
             android:title="@string/log" />
         <item
             android:id="@+id/nav_level"
             android:icon="@drawable/ic_menu_share"
             android:title="@string/edit_xp"/>
+        <item
+            android:id="@+id/nav_edit_char"
+            android:icon="@drawable/ic_person_add_black"
+            android:title="@string/edit_character"/>
     </group>
 
-    <!--<item android:title="@string/switch_game">-->
-        <!--<menu>-->
-            <!--<item-->
-                <!--android:id="@+id/nav_share"-->
-                <!--android:icon="@drawable/ic_menu_share"-->
-                <!--android:title="Share" />-->
-            <!--<item-->
-                <!--android:id="@+id/nav_send"-->
-                <!--android:icon="@drawable/ic_menu_send"-->
-                <!--android:title="Send" />-->
-        <!--</menu>-->
-    <!--</item>-->
+    <item android:title="@string/switch_game">
+        <menu>
+            <item
+                android:id="@+id/nav_add"
+                android:icon="@drawable/ic_group_add_black"
+                android:title="@string/switch_game" />
+        </menu>
+    </item>
 
 </menu>

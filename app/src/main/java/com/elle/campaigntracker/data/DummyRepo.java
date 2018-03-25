@@ -24,12 +24,14 @@ public class DummyRepo {
         playableChar.setLevel(4);
         playableChar.setTotalXpToLevel(6500);
         playableChar.setCurrentXp(1550);
+        playableChar.setCharacterRace("Half-elf");
         return playableChar;
     }
 
     private PlayableCharacterStats createPlayableCharStats(int charId) {
         PlayableCharacterStats stats = new PlayableCharacterStats(charId);
         stats.setProficiencyBonus(2);
+
         return stats;
     }
 

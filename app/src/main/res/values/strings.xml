@@ -45,4 +45,7 @@
     <string name="basics">Basics</string>
     <string name="stats">Stats</string>
     <string name="traits">Traits</string>
+    <string name="new_character">New Character</string>
+    <string name="edit_character">Edit Character</string>
+    <string name="switch_game">Switch Game</string>
 </resources>
