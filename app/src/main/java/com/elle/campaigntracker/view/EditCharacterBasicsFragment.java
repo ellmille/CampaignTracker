@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Alignment;
@@ -74,6 +75,7 @@ public class EditCharacterBasicsFragment extends Fragment{
         @Override
         public void onSave(PlayableCharacter playableCharacter) {
             viewModel.updatePlayableCharacter(playableCharacter);
+            Toast.makeText(getActivity(), "SAVED", Toast.LENGTH_LONG).show();
         }
     };
 
