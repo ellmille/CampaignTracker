@@ -10,7 +10,8 @@
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:context="com.elle.campaigntracker.view.EditCharacterBasicsFragment">
 
         <TextView
             android:id="@+id/nameLabel"
@@ -149,26 +150,14 @@
             app:layout_constraintTop_toBottomOf="@+id/editMaxHp"
             app:layout_constraintStart_toEndOf="@+id/xpToLevelLabel"/>
 
-        <!--<TextView-->
-        <!--android:id="@+id/armorLabel"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:text="@string/armor_class"-->
-        <!--android:labelFor="@+id/editArmor"-->
-        <!--app:layout_constraintTop_toTopOf="@+id/editArmor"-->
-        <!--app:layout_constraintBottom_toBottomOf="@+id/editArmor"-->
-        <!--app:layout_constraintStart_toStartOf="parent"/>-->
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <!--<EditText-->
-        <!--android:id="@+id/editArmor"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:ems="10"-->
-        <!--android:inputType="number" />-->
 
-        <!-- initiative-->
-        <!-- speed -->
-        <!-- max hp -->
         <!-- personality -->
 
 
@@ -194,10 +183,7 @@
         <!-- flaws -->
         <!-- abilities-->
 
-        <!-- xp to level -->
         <!-- proficiencies and languages-->
-        <!-- saving throws -->
-        <!-- skills -->
 
         <!-- age -->
         <!-- height -->

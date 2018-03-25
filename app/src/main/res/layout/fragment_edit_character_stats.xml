@@ -1,0 +1,19 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="stats"
+            type="com.elle.campaigntracker.data.model.PlayableCharacterStats"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.elle.campaigntracker.view.EditCharacterStatsFragment">
+        <!-- armor class -->
+        <!-- initiative -->
+        <!-- speed -->
+        <!-- Proficiency Bonus -->
+        <!-- saving throws -->
+        <!-- skills -->
+    </android.support.constraint.ConstraintLayout>
+</layout>
