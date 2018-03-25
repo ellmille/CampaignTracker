@@ -12,7 +12,7 @@ import android.arch.persistence.room.PrimaryKey;
 public class PlayableCharacter {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String name, characterClass;
+    private String name, characterClass, characterRace;
     private Alignment alignment;
     private String background;
     private int level;
@@ -26,11 +26,12 @@ public class PlayableCharacter {
         this.alignment = alignment;
     }
 
-    public PlayableCharacter(int id, String name, String characterClass, Alignment alignment, String background, int level, int maxHp, int currentHp,
+    public PlayableCharacter(int id, String name, String characterClass, String characterRace, Alignment alignment, String background, int level, int maxHp, int currentHp,
                              int totalXpToLevel, int currentXp){
         this.id = id;
         this.name = name;
         this.characterClass = characterClass;
+        this.characterRace = characterRace;
         this.alignment = alignment;
         this.background = background;
         this.level = level;
@@ -118,5 +119,13 @@ public class PlayableCharacter {
 
     public void setCurrentXp(int currentXp) {
         this.currentXp = currentXp;
+    }
+
+    public String getCharacterRace() {
+        return characterRace;
+    }
+
+    public void setCharacterRace(String characterRace) {
+        this.characterRace = characterRace;
     }
 }
