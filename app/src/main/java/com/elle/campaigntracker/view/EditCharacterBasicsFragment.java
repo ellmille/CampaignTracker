@@ -51,6 +51,7 @@ public class EditCharacterBasicsFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_playable_character, container, false);
+        binding.setCallback(playableCharacterCallback);
         isNew = getArguments().getBoolean(EditCharacterActivity.ARG_ACTION);
         if(isNew){
             binding.setPlayableCharacter(new PlayableCharacter());
@@ -67,5 +68,16 @@ public class EditCharacterBasicsFragment extends Fragment{
         spinner.setAdapter(new ArrayAdapter<Alignment>(getActivity(), R.layout.support_simple_spinner_dropdown_item, Alignment.values()));
         //return root view
         return binding.getRoot();
+    }
+
+    private PlayableCharacterCallback playableCharacterCallback = new PlayableCharacterCallback() {
+        @Override
+        public void onSave(PlayableCharacter playableCharacter) {
+            viewModel.updatePlayableCharacter(playableCharacter);
+        }
+    };
+
+    private interface PlayableCharacterCallback{
+        void onSave(PlayableCharacter playableCharacter);
     }
 }

@@ -56,4 +56,9 @@ public class PlayableCharacterViewModel extends AndroidViewModel {
         playableCharacter.get().setCurrentXp(newXp);
         repo.updateCharacter(playableCharacter.get());
     }
+
+    //todo: update or insert
+    public void updatePlayableCharacter(PlayableCharacter playableCharacter){
+        repo.updateCharacter(playableCharacter);
+    }
 }
