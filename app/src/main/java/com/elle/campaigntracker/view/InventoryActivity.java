@@ -21,6 +21,7 @@ import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity implements AddItemFragment.DialogItemCallback{
+    public static final String ARG_ACTION = "add_or_edit";
     private InventoryViewModel viewModel;
     private InventoryItemAdapter adapter;
 
@@ -50,6 +51,9 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
         @Override
         public void onFabClicked() {
             DialogFragment dialogFragment = new AddItemFragment();
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(ARG_ACTION, true);
+            dialogFragment.setArguments(bundle);
             dialogFragment.show(getSupportFragmentManager(), "ITEM");
         }
     };

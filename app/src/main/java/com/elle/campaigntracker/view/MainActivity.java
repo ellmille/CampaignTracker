@@ -104,13 +104,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_full_sheet) {
             // Handle the camera action
         } else if (id == R.id.nav_inventory) {
-//            Intent intent = new Intent(this, InventoryActivity.class);
-//            startActivity(intent);
-            InventoryFragment fragment = new InventoryFragment();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            Intent intent = new Intent(this, InventoryActivity.class);
+            startActivity(intent);
+//            InventoryFragment fragment = new InventoryFragment();
+//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fragment_container, fragment);
+//            fragmentTransaction.addToBackStack(null);
+//            fragmentTransaction.commit();
         } else if (id == R.id.nav_log) {
             Intent intent = new Intent(this, LogActivity.class);
             startActivity(intent);
