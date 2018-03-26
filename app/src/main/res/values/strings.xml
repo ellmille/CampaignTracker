@@ -41,7 +41,6 @@
     <string name="new_character">New Character</string>
     <string name="edit_character">Edit Character</string>
     <string name="quantity">Quantity:</string>
-    <string name="armor_class">Armor Class:</string>
     <string name="initiative">Initiative</string>
     <string name="speed">Speed</string>
     <string name="proficiency_bonus">Proficiency Bonus</string>

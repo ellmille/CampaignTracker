@@ -9,6 +9,7 @@ import com.elle.campaigntracker.data.AppDatabase;
 import com.elle.campaigntracker.data.model.Attack;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
+import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
@@ -170,6 +171,10 @@ public class Repo {
 
             }
         });
+    }
+
+    public LiveData<Money> loadMoneyByCharId(final int charId){
+        return database.moneyDao().getMoneyByCharId(charId);
     }
 
     public LiveData<List<Attack>> loadAttacksForCharacter(final int charId){

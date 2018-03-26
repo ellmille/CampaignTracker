@@ -14,12 +14,14 @@ import android.support.annotation.VisibleForTesting;
 import com.elle.campaigntracker.data.dao.AttackDao;
 import com.elle.campaigntracker.data.dao.ItemDao;
 import com.elle.campaigntracker.data.dao.LogDao;
+import com.elle.campaigntracker.data.dao.MoneyDao;
 import com.elle.campaigntracker.data.dao.PlayableCharacterStatsDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.model.Attack;
 import com.elle.campaigntracker.data.model.Converters;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
+import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
@@ -29,7 +31,7 @@ import java.util.concurrent.Executors;
 /**
  * Holds database
  */
-@Database(entities = {PlayableCharacter.class, PlayableCharacterStats.class, Log.class, Item.class, Attack.class}, version = 1)
+@Database(entities = {PlayableCharacter.class, PlayableCharacterStats.class, Log.class, Item.class, Money.class, Attack.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
@@ -42,6 +44,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract PlayableCharacterStatsDao playableCharacterStatsDao();
     public abstract LogDao logDao();
     public abstract ItemDao itemDao();
+    public abstract MoneyDao moneyDao();
     public abstract AttackDao attackDao();
 
     private final MutableLiveData<Boolean> isDatabaseCreated = new MutableLiveData<>();
@@ -100,7 +103,9 @@ public abstract class AppDatabase extends RoomDatabase {
 
     private static void insertData(final AppDatabase database, final PlayableCharacter playerCharacter) {
         database.runInTransaction(() -> {
-            database.playerCharacterDao().insertPlayerCharacter(playerCharacter);
+            long id = database.playerCharacterDao().insertPlayerCharacter(playerCharacter);
+            int charId = (int) id;
+            database.moneyDao().insertMoney(new Money(charId, 0, 0, 0));
         });
     }
 

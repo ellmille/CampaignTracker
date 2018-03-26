@@ -26,7 +26,7 @@ public interface PlayerCharacterDao {
     PlayableCharacter findCharacterByName(String name);
 
     @Insert
-    public void insertPlayerCharacter(PlayableCharacter playerCharacter);
+    long insertPlayerCharacter(PlayableCharacter playerCharacter);
 
     @Update
     public void updatePlayerCharacter(PlayableCharacter playerCharacter);

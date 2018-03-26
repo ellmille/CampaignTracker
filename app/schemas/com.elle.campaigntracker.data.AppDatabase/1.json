@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "9de3aaecc164768a613fc84be3eca50b",
+    "identityHash": "4cdbe62cc9d7b4ad1aaa4347b247ce05",
     "entities": [
       {
         "tableName": "playable_character",
@@ -86,7 +86,7 @@
       },
       {
         "tableName": "character_stats",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `proficiencyBonus` INTEGER NOT NULL, `strength` INTEGER NOT NULL, `dexterity` INTEGER NOT NULL, `constitution` INTEGER NOT NULL, `intelligence` INTEGER NOT NULL, `wisdom` INTEGER NOT NULL, `charisma` INTEGER NOT NULL, `acrobatics` INTEGER NOT NULL, `animalHandling` INTEGER NOT NULL, `arcana` INTEGER NOT NULL, `athletics` INTEGER NOT NULL, `deception` INTEGER NOT NULL, `history` INTEGER NOT NULL, `insight` INTEGER NOT NULL, `intimidation` INTEGER NOT NULL, `investigation` INTEGER NOT NULL, `medicine` INTEGER NOT NULL, `nature` INTEGER NOT NULL, `perception` INTEGER NOT NULL, `performance` INTEGER NOT NULL, `persuasion` INTEGER NOT NULL, `religion` INTEGER NOT NULL, `sleightOfHand` INTEGER NOT NULL, `stealth` INTEGER NOT NULL, `survival` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `armorClass` INTEGER NOT NULL, `initiative` INTEGER NOT NULL, `speed` INTEGER NOT NULL, `proficiencyBonus` INTEGER NOT NULL, `strength` INTEGER NOT NULL, `dexterity` INTEGER NOT NULL, `constitution` INTEGER NOT NULL, `intelligence` INTEGER NOT NULL, `wisdom` INTEGER NOT NULL, `charisma` INTEGER NOT NULL, `acrobatics` INTEGER NOT NULL, `animalHandling` INTEGER NOT NULL, `arcana` INTEGER NOT NULL, `athletics` INTEGER NOT NULL, `deception` INTEGER NOT NULL, `history` INTEGER NOT NULL, `insight` INTEGER NOT NULL, `intimidation` INTEGER NOT NULL, `investigation` INTEGER NOT NULL, `medicine` INTEGER NOT NULL, `nature` INTEGER NOT NULL, `perception` INTEGER NOT NULL, `performance` INTEGER NOT NULL, `persuasion` INTEGER NOT NULL, `religion` INTEGER NOT NULL, `sleightOfHand` INTEGER NOT NULL, `stealth` INTEGER NOT NULL, `survival` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -97,6 +97,24 @@
           {
             "fieldPath": "charId",
             "columnName": "character_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "armorClass",
+            "columnName": "armorClass",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "initiative",
+            "columnName": "initiative",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "speed",
+            "columnName": "speed",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -412,6 +430,71 @@
         ]
       },
       {
+        "tableName": "money",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `gold` INTEGER NOT NULL, `silver` INTEGER NOT NULL, `copper` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "charId",
+            "columnName": "character_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gold",
+            "columnName": "gold",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "silver",
+            "columnName": "silver",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "copper",
+            "columnName": "copper",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_money_character_id",
+            "unique": false,
+            "columnNames": [
+              "character_id"
+            ],
+            "createSql": "CREATE  INDEX `index_money_character_id` ON `${TABLE_NAME}` (`character_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "playable_character",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "character_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
         "tableName": "Attack",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `name` TEXT, `attackBonus` INTEGER NOT NULL, `rollCount` INTEGER NOT NULL, `rollType` TEXT, `damage` INTEGER NOT NULL, `damageType` TEXT, `range` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
@@ -503,7 +586,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"9de3aaecc164768a613fc84be3eca50b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4cdbe62cc9d7b4ad1aaa4347b247ce05\")"
     ]
   }
 }
