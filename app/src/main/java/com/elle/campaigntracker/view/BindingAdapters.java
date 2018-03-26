@@ -3,7 +3,6 @@ package com.elle.campaigntracker.view;
 import android.databinding.BindingAdapter;
 import android.databinding.InverseBindingAdapter;
 import android.databinding.InverseBindingListener;
-import android.databinding.InverseMethod;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -37,7 +36,9 @@ public class BindingAdapters {
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    listener.onChange();
+                    if(s.length() > 0){
+                        listener.onChange();
+                    }
                 }
             });
         }
