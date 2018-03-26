@@ -20,22 +20,26 @@ public class Money {
     @ColumnInfo(name = "character_id")
     private int charId;
     private int gold, silver, copper;
-//    private int electrum, platinum;
+    private int electrum, platinum;
 
     @Ignore
-    public Money(int charId, int gold, int silver, int copper){
+    public Money(int charId, int gold, int silver, int copper, int electrum, int platinum){
         this.charId = charId;
         this.gold = gold;
         this.silver = silver;
         this.copper = copper;
+        this.electrum = electrum;
+        this.platinum = platinum;
     }
 
-    public Money(int id, int charId, int gold, int silver, int copper){
+    public Money(int id, int charId, int gold, int silver, int copper, int electrum, int platinum){
         this.id = id;
         this.charId = charId;
         this.gold = gold;
         this.silver = silver;
         this.copper = copper;
+        this.electrum = electrum;
+        this.platinum = platinum;
     }
 
     public int getId() {
@@ -72,6 +76,22 @@ public class Money {
 
     public void setCopper(int copper) {
         this.copper = copper;
+    }
+
+    public int getElectrum() {
+        return electrum;
+    }
+
+    public void setElectrum(int electrum) {
+        this.electrum = electrum;
+    }
+
+    public int getPlatinum() {
+        return platinum;
+    }
+
+    public void setPlatinum(int platinum) {
+        this.platinum = platinum;
     }
 
     //todo: conversions
