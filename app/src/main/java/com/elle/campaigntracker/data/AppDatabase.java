@@ -74,12 +74,12 @@ public abstract class AppDatabase extends RoomDatabase {
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
                         executor.execute(() -> {
-                            // Add a delay to simulate a long-running operation
-                           // addDelay();
                             // Generate the data for pre-population
                             AppDatabase database = AppDatabase.getInstance(appContext, executor);
+                            //todo: remove
                             DummyRepo dummyRepo = new DummyRepo();
                             PlayableCharacter playerCharacter = dummyRepo.getPlayableChar();
+
                             insertData(database, playerCharacter);
                             // notify that the database was created and it's ready to be used
                             database.setDatabaseCreated();
@@ -105,7 +105,7 @@ public abstract class AppDatabase extends RoomDatabase {
         database.runInTransaction(() -> {
             long id = database.playerCharacterDao().insertPlayerCharacter(playerCharacter);
             int charId = (int) id;
-            database.moneyDao().insertMoney(new Money(charId, 0, 0, 0));
+            database.moneyDao().insertMoney(new Money(charId, 0, 0, 0, 0, 0));
         });
     }
 
