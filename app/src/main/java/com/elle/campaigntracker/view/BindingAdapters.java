@@ -37,9 +37,7 @@ public class BindingAdapters {
 
                 @Override
                 public void afterTextChanged(Editable s) {
-                    if(!editText.isFocused()){
-                        listener.onChange();
-                    }
+                    listener.onChange();
                 }
             });
         }
@@ -58,6 +56,7 @@ public class BindingAdapters {
         view.setText(simpleDateFormat.format(date));
     }
 
+    //todo: not crash when edit text is empty
     @InverseBindingAdapter(attribute = "intToText")
     public static int getNumber(EditText view){
         return Integer.parseInt(view.getText().toString());
