@@ -71,7 +71,7 @@ public class EditCharacterBasicsFragment extends Fragment{
         return binding.getRoot();
     }
 
-    private PlayableCharacterCallback playableCharacterCallback = new PlayableCharacterCallback() {
+    public PlayableCharacterCallback playableCharacterCallback = new PlayableCharacterCallback() {
         @Override
         public void onSave(PlayableCharacter playableCharacter) {
             viewModel.updatePlayableCharacter(playableCharacter);
@@ -79,7 +79,7 @@ public class EditCharacterBasicsFragment extends Fragment{
         }
     };
 
-    private interface PlayableCharacterCallback{
+    public interface PlayableCharacterCallback{
         void onSave(PlayableCharacter playableCharacter);
     }
 }

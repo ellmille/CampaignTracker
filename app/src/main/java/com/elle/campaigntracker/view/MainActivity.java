@@ -15,13 +15,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.ActivityMainBinding;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AddItemFragment.DialogItemCallback {
     ActivityMainBinding binding;
     PlayableCharacterViewModel viewModel;
 
@@ -102,8 +104,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_full_sheet) {
             // Handle the camera action
         } else if (id == R.id.nav_inventory) {
-            Intent intent = new Intent(this, InventoryActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(this, InventoryActivity.class);
+//            startActivity(intent);
+            InventoryFragment fragment = new InventoryFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_log) {
             Intent intent = new Intent(this, LogActivity.class);
             startActivity(intent);
@@ -125,5 +132,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onSave(Item item) {
+        Toast.makeText(this, "make item", Toast.LENGTH_LONG).show();
     }
 }

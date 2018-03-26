@@ -22,7 +22,7 @@ import com.elle.campaigntracker.view.callback.EditItemCallback;
  */
 public class AddItemFragment extends DialogFragment {
     FragmentAddItemBinding binding;
-    //todo: pass in existing item if we are editing
+
     public interface DialogItemCallback{
         void onSave(Item item);
     }
@@ -33,14 +33,15 @@ public class AddItemFragment extends DialogFragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_item, container, false);
         binding.setCallback(editItemCallback);
+        if(getArguments().getBoolean(EditCharacterActivity.ARG_ACTION)){
+            binding.setNewItem(new Item());
+        }
         //todo: pass in existing item if we are editing
-        binding.setNewItem(new Item());
         // Inflate the layout for this fragment
         return binding.getRoot();
     }
