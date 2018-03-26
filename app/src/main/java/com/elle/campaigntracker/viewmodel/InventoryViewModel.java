@@ -35,8 +35,8 @@ public class InventoryViewModel extends AndroidViewModel {
         this.inventory.addAll(items);
     }
 
-    public void addToInventory(Item item){
+    public void updateItem(Item item){
         item.setCharId(repo.getCharId());
-        repo.addItemToInventory(item);
+        repo.updateItem(item);
     }
 }

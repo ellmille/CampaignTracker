@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.databinding.ItemBinding;
+import com.elle.campaigntracker.view.callback.ClickCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,12 @@ import java.util.Objects;
  */
 
 public class InventoryItemAdapter extends RecyclerView.Adapter<InventoryItemAdapter.ViewHolder> {
+    private ClickCallback.ItemClick itemClick;
     private List<Item> itemList;
+
+    public InventoryItemAdapter(ClickCallback.ItemClick itemClick){
+        this.itemClick = itemClick;
+    }
 
     public void setItemList(final List<Item> itemListIn){
         if(itemListIn != null){
@@ -64,6 +70,7 @@ public class InventoryItemAdapter extends RecyclerView.Adapter<InventoryItemAdap
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ItemBinding itemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.item, parent, false);
+        itemBinding.setCallback(itemClick);
         return new ViewHolder(itemBinding);
     }
 

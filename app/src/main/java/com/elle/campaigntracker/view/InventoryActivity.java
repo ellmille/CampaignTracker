@@ -8,25 +8,24 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.databinding.ActivityInventoryBinding;
 import com.elle.campaigntracker.view.adapters.InventoryItemAdapter;
+import com.elle.campaigntracker.view.callback.ClickCallback;
 import com.elle.campaigntracker.view.callback.FabCallback;
-import com.elle.campaigntracker.view.callback.ItemCallback;
 import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
 import java.util.List;
 
 public class InventoryActivity extends AppCompatActivity implements AddItemFragment.DialogItemCallback{
     public static final String ARG_ACTION = "add_or_edit";
+    public static final String ARG_ID = "item_id";
     private InventoryViewModel viewModel;
     private InventoryItemAdapter adapter;
 
-    //todo: allow edit/deleting on item click,
-    // todo: use card view? do you want this to be a fragment?
+    // todo: do you want this to be a fragment?
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,7 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
         binding.setCallback(fabCallback);
 
         RecyclerView recyclerView = findViewById(R.id.list);
-        adapter = new InventoryItemAdapter();
+        adapter = new InventoryItemAdapter(itemClickCallback);
         recyclerView.setAdapter(adapter);
         //set view model
         viewModel = ViewModelProviders.of(this).get(InventoryViewModel.class);
@@ -58,8 +57,20 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
         }
     };
 
+    private ClickCallback.ItemClick itemClickCallback = new ClickCallback.ItemClick() {
+        @Override
+        public void onClick(Item item) {
+            DialogFragment dialogFragment = new AddItemFragment();
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(ARG_ACTION, false);
+            bundle.putInt(ARG_ID, item.getId());
+            dialogFragment.setArguments(bundle);
+            dialogFragment.show(getSupportFragmentManager(), "ITEM");
+        }
+    };
+
     @Override
     public void onSave(Item item) {
-        viewModel.addToInventory(item);
+        viewModel.updateItem(item);
     }
 }

@@ -11,15 +11,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.Alignment;
 import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.ActivityInventoryBinding;
 import com.elle.campaigntracker.view.adapters.InventoryItemAdapter;
+import com.elle.campaigntracker.view.callback.ClickCallback;
 import com.elle.campaigntracker.view.callback.FabCallback;
 import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
@@ -31,6 +28,7 @@ import java.util.List;
 
 public class InventoryFragment extends Fragment{
     public static final String ARG_ACTION = "add_or_edit";
+    public static final String ARG_ID = "item_id";
 
     private InventoryViewModel viewModel;
     private InventoryItemAdapter adapter;
@@ -42,7 +40,7 @@ public class InventoryFragment extends Fragment{
         binding.setCallback(fabCallback);
 
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.list);
-        adapter = new InventoryItemAdapter();
+        adapter = new InventoryItemAdapter(itemClickCallback);
         recyclerView.setAdapter(adapter);
 
         //set view model
@@ -70,7 +68,19 @@ public class InventoryFragment extends Fragment{
         }
     };
 
+    private ClickCallback.ItemClick itemClickCallback = new ClickCallback.ItemClick() {
+        @Override
+        public void onClick(Item item) {
+            DialogFragment dialogFragment = new AddItemFragment();
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(ARG_ACTION, false);
+            bundle.putInt(ARG_ID, item.getId());
+            dialogFragment.setArguments(bundle);
+            dialogFragment.show(getChildFragmentManager(), "ITEM");
+        }
+    };
+
     public void onSave(Item item) {
-        viewModel.addToInventory(item);
+        viewModel.updateItem(item);
     }
 }

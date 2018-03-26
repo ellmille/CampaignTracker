@@ -129,16 +129,41 @@ public class Repo {
         });
     }
 
+    public void updateLog(Log log){
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                database.logDao().updateLog(log);
+            }
+        });
+    }
+
     public LiveData<List<Item>> loadItemsForCharacter(final int charId){
         return database.itemDao().findInventoryForCharacter(charId);
     }
 
-    public void addItemToInventory(Item item){
+    public void addItem(Item item){
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {
             @Override
             public void run() {
                 database.itemDao().insertItem(item);
+            }
+        });
+    }
+
+    public void updateItem(Item item){
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                if(item.getId() > 0){
+                    database.itemDao().updateItem(item);
+                }else{
+                    database.itemDao().insertItem(item);
+                }
+
             }
         });
     }

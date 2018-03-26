@@ -4,10 +4,14 @@
         <variable
             name="item"
             type="com.elle.campaigntracker.data.model.Item"/>
+        <variable
+            name="callback"
+            type="com.elle.campaigntracker.view.callback.ClickCallback.ItemClick"/>
     </data>
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> callback.onClick(item)}">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
