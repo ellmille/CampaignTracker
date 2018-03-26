@@ -25,9 +25,6 @@ public class Item {
 
     @Ignore
     public Item(){
-        this.name = "";
-        this.quantity = 1;
-        this.description = "";
     }
 
     @Ignore

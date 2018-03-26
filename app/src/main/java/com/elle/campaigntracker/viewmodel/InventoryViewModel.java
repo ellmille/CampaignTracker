@@ -41,6 +41,7 @@ public class InventoryViewModel extends AndroidViewModel {
     public void setItem(Item item){
         this.item.set(item);
     }
+
     public Item getItem(){
         return this.item.get();
     }

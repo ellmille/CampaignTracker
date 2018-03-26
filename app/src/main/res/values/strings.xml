@@ -1,14 +1,11 @@
 <resources>
     <string name="app_name">CampaignTracker</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="start_turn">Start Turn</string>
     <string name="heal">Heal</string>
     <string name="take_damage">Take Damage</string>
     <string name="save">Save</string>
     <string name="damage_taken">Damage Taken:</string>
-    <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -21,8 +18,8 @@
     <string name="switch_game">Switch Game</string>
     <string name="placeholder_image">placeholder image</string>
     <string name="also_placeholder">Also Placeholder</string>
-    <string name="item_name">Item Name:</string>
-    <string name="description">Description</string>
+    <string name="item_name">Name:</string>
+    <string name="description">Description:</string>
     <string name="title_activity_log">LogActivity</string>
     <string name="points">Points:</string>
     <string name="subtract_xp">Subtract XP</string>
@@ -38,13 +35,10 @@
     <string name="max_health">Max Health:</string>
     <string name="experience_to_level">Experience to Level:</string>
     <string name="title_activity_edit_playable_character">EditPlayableCharacterActivity</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="tab_text_3">Tab 3</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="basics">Basics</string>
     <string name="stats">Stats</string>
     <string name="traits">Traits</string>
     <string name="new_character">New Character</string>
     <string name="edit_character">Edit Character</string>
+    <string name="quantity">Quantity:</string>
 </resources>
