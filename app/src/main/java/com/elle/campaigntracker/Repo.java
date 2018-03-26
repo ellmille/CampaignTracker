@@ -153,6 +153,10 @@ public class Repo {
         });
     }
 
+    public LiveData<Item> loadItemById(final int id){
+        return database.itemDao().findItemById(id);
+    }
+
     public void updateItem(Item item){
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {

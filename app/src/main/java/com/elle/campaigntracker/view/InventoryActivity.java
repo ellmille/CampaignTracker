@@ -60,6 +60,8 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
     private ClickCallback.ItemClick itemClickCallback = new ClickCallback.ItemClick() {
         @Override
         public void onClick(Item item) {
+            viewModel.setItem(item);
+            //open fragment
             DialogFragment dialogFragment = new AddItemFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean(ARG_ACTION, false);
