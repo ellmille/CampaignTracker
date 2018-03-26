@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="stats"
@@ -9,11 +10,158 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.elle.campaigntracker.view.EditCharacterStatsFragment">
-        <!-- armor class -->
-        <!-- initiative -->
-        <!-- speed -->
-        <!-- Proficiency Bonus -->
+
+        <TextView
+            android:id="@+id/aCLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/armor_class"
+            android:labelFor="@+id/editAc"
+            app:layout_constraintTop_toTopOf="@+id/editAc"
+            app:layout_constraintBottom_toBottomOf="@+id/editAc"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/editAc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/aCLabel"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/initiativeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/initiative"
+            android:labelFor="@+id/editInitiative"
+            app:layout_constraintTop_toTopOf="@+id/editInitiative"
+            app:layout_constraintBottom_toBottomOf="@+id/editInitiative"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/editInitiative"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/initiativeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/editAc"/>
+
+        <TextView
+            android:id="@+id/speedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editSpeed"
+            android:text="@string/speed"
+            app:layout_constraintTop_toTopOf="@+id/editSpeed"
+            app:layout_constraintBottom_toBottomOf="@+id/editSpeed"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/editSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/speedLabel"
+            app:layout_constraintTop_toBottomOf="@+id/editInitiative"/>
+
+        <TextView
+            android:id="@+id/profLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proficiency_bonus"
+            android:labelFor="@+id/editProf"
+            app:layout_constraintTop_toTopOf="@+id/editProf"
+            app:layout_constraintBottom_toBottomOf="@+id/editProf"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/editProf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/profLabel"
+            app:layout_constraintTop_toBottomOf="@+id/editSpeed"/>
+
         <!-- saving throws -->
+        <Space
+            android:id="@+id/savingThrows"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/editProf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/strengthLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strength"
+            android:labelFor="@+id/editStrength"
+            app:layout_constraintTop_toBottomOf="@+id/savingThrows"
+            app:layout_constraintStart_toEndOf="@+id/editStrength"
+            app:layout_constraintEnd_toStartOf="@+id/editStrength"/>
+
+        <EditText
+            android:id="@+id/editStrength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@+id/strengthLabel"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/dexterityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dexterity"
+            android:labelFor="@+id/editDex"
+            app:layout_constraintTop_toBottomOf="@+id/savingThrows"
+            app:layout_constraintStart_toEndOf="@+id/editDex"
+            app:layout_constraintEnd_toStartOf="@+id/editDex"/>
+
+        <EditText
+            android:id="@+id/editDex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@+id/dexterityLabel"
+            app:layout_constraintStart_toEndOf="@+id/editStrength"/>
+
+        <TextView
+            android:id="@+id/constLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/constitution"
+            android:labelFor="@+id/editConst"
+            app:layout_constraintTop_toBottomOf="@+id/savingThrows"
+            app:layout_constraintStart_toEndOf="@+id/editConst"
+            app:layout_constraintEnd_toStartOf="@+id/editConst"/>
+
+        <EditText
+            android:id="@+id/editConst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@+id/constLabel"
+            app:layout_constraintStart_toEndOf="@+id/editDex"/>
+
         <!-- skills -->
+
+
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

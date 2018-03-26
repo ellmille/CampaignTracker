@@ -19,6 +19,8 @@ public class PlayableCharacterStats {
     private int id;
     @ColumnInfo(name = "character_id")
     private int charId;
+    private int armorClass, initiative, speed;
+
     private int proficiencyBonus, strength, dexterity, constitution;
     private int intelligence, wisdom, charisma;
     private int acrobatics, animalHandling, arcana, athletics;
@@ -27,16 +29,24 @@ public class PlayableCharacterStats {
     private int religion, sleightOfHand, stealth, survival;
 
     @Ignore
+    public PlayableCharacterStats(){
+
+    }
+
+    @Ignore
     public PlayableCharacterStats(int charId){
         this.charId = charId;
     }
 
-    public PlayableCharacterStats(int id, int charId, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence,
+    public PlayableCharacterStats(int id, int charId, int armorClass, int initiative, int speed, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence,
                                   int wisdom, int charisma, int acrobatics, int animalHandling, int arcana, int athletics, int deception, int history, int insight,
                                   int intimidation, int investigation, int medicine, int nature, int perception, int performance, int persuasion, int religion,
                                   int sleightOfHand, int stealth, int survival){
         this.id = id;
         this.charId = charId;
+        this.armorClass = armorClass;
+        this.initiative = initiative;
+        this.speed = speed;
         this.proficiencyBonus = proficiencyBonus;
         this.strength = strength;
         this.dexterity = dexterity;
@@ -278,5 +288,29 @@ public class PlayableCharacterStats {
 
     public void setCharId(int charId) {
         this.charId = charId;
+    }
+
+    public int getArmorClass() {
+        return armorClass;
+    }
+
+    public void setArmorClass(int armorClass) {
+        this.armorClass = armorClass;
+    }
+
+    public int getInitiative() {
+        return initiative;
+    }
+
+    public void setInitiative(int initiative) {
+        this.initiative = initiative;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(int speed) {
+        this.speed = speed;
     }
 }
