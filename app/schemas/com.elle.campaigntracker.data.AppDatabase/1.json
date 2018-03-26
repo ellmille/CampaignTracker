@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4cdbe62cc9d7b4ad1aaa4347b247ce05",
+    "identityHash": "78c6484c6aff2f17721f8257f55969a1",
     "entities": [
       {
         "tableName": "playable_character",
@@ -431,7 +431,7 @@
       },
       {
         "tableName": "money",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `gold` INTEGER NOT NULL, `silver` INTEGER NOT NULL, `copper` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `gold` INTEGER NOT NULL, `silver` INTEGER NOT NULL, `copper` INTEGER NOT NULL, `electrum` INTEGER NOT NULL, `platinum` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -460,6 +460,18 @@
           {
             "fieldPath": "copper",
             "columnName": "copper",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "electrum",
+            "columnName": "electrum",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "platinum",
+            "columnName": "platinum",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -586,7 +598,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4cdbe62cc9d7b4ad1aaa4347b247ce05\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"78c6484c6aff2f17721f8257f55969a1\")"
     ]
   }
 }

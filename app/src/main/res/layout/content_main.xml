@@ -23,35 +23,76 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/level_label"
+            android:id="@+id/char_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/detail_text_size"
-            android:text="@string/level"
-            app:layout_constraintTop_toTopOf="@+id/char_level"
-            app:layout_constraintBottom_toBottomOf="@+id/char_level"
-            app:layout_constraintStart_toEndOf="@+id/char_name"/>
+            android:text="@{playableCharacter.characterClass, default=charClass}"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintStart_toEndOf="@+id/char_name"
+            app:layout_constraintTop_toTopOf="@+id/char_name"/>
 
         <TextView
             android:id="@+id/char_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:textSize="@dimen/detail_text_size"
             android:text="@{String.valueOf(playableCharacter.level), default=4}"
             android:layout_margin="@dimen/character_sheet_margin"
-            app:layout_constraintStart_toEndOf="@id/level_label"
-            app:layout_constraintTop_toTopOf="@id/char_name"/>
+            app:layout_constraintStart_toEndOf="@+id/char_class"
+            app:layout_constraintTop_toTopOf="@+id/char_name"/>
 
         <TextView
-            android:id="@+id/char_class"
+            android:id="@+id/char_background"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="@{playableCharacter.characterClass, default=charClass}"
+            android:textSize="@dimen/detail_text_size"
             android:layout_margin="@dimen/character_sheet_margin"
-            app:layout_constraintStart_toEndOf="@id/char_level"
-            app:layout_constraintTop_toTopOf="@id/char_name"/>
+            android:text="@{playableCharacter.background, default=BACKGROUND}"
+            app:layout_constraintStart_toEndOf="@+id/char_level"
+            app:layout_constraintTop_toTopOf="@+id/char_name"/>
 
+        <TextView
+            android:id="@+id/char_race"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/detail_text_size"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:text="@{playableCharacter.characterRace, default=RACE}"
+            app:layout_constraintTop_toBottomOf="@+id/char_class"
+            app:layout_constraintStart_toEndOf="@+id/char_name"/>
+
+        <TextView
+            android:id="@+id/char_alignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/detail_text_size"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:text="@{playableCharacter.alignment.toString, default=CN}"
+            app:layout_constraintTop_toBottomOf="@+id/char_class"
+            app:layout_constraintStart_toEndOf="@+id/char_race"/>
+
+        <!--<TextView-->
+            <!--android:id="@+id/xp_text"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/detail_text_size"-->
+            <!--android:layout_margin="@dimen/character_sheet_margin"-->
+            <!--android:text="@{String.valueof(playableCharacter.currentXp), default=25}"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/char_class"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/char_alignment"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/xp_text_total"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="@dimen/detail_text_size"-->
+            <!--android:layout_marginBottom="@dimen/character_sheet_margin"-->
+            <!--android:layout_marginTop="@dimen/character_sheet_margin"-->
+            <!--android:text="@{String.valueof(playableCharacter.totalXpToLevel), default=100}"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/char_class"-->
+            <!--app:layout_constraintStart_toEndOf="@+id/xp_text"/>-->
+
+        <!--todo: show text on click-->
         <ProgressBar
             android:id="@+id/xp_bar"
             style="?android:attr/progressBarStyleHorizontal"
@@ -62,36 +103,19 @@
             android:progress="@{playableCharacter.currentXp, default=25}"
             android:layout_margin="@dimen/character_sheet_margin"
             app:layout_constraintTop_toBottomOf="@+id/char_class"
-            app:layout_constraintStart_toEndOf="@+id/char_name"
+            app:layout_constraintStart_toEndOf="@+id/char_alignment"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <!--<ProgressBar-->
-            <!--android:id="@+id/hp_bar"-->
-            <!--style="?android:attr/progressBarStyleHorizontal"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:progressTint="#0c9607"-->
-            <!--android:max="@{playableCharacter.maxHp, default=100}"-->
-            <!--android:progress="@{playableCharacter.currentHp, default=100}"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/char_name"/>-->
-
-        <!--<Button-->
-            <!--android:id="@+id/take_damage"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="@string/take_damage"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/hp_bar"-->
-            <!--app:layout_constraintStart_toStartOf="parent"-->
-            <!--app:layout_constraintEnd_toStartOf="@+id/heal"/>-->
-
-        <!--<Button-->
-            <!--android:id="@+id/heal"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--app:layout_constraintTop_toBottomOf="@+id/hp_bar"-->
-            <!--app:layout_constraintStart_toEndOf="@+id/take_damage"-->
-            <!--app:layout_constraintEnd_toEndOf="parent"-->
-            <!--android:text="@string/heal" />-->
+        <!--todo: show text on click-->
+        <ProgressBar
+            android:id="@+id/hp_bar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:progressTint="#0c9607"
+            android:max="@{playableCharacter.maxHp, default=100}"
+            android:progress="@{playableCharacter.currentHp, default=100}"
+            app:layout_constraintTop_toBottomOf="@+id/xp_bar"/>
 
         <FrameLayout
             android:id="@+id/fragment_container"
@@ -100,8 +124,6 @@
             app:layout_constraintTop_toBottomOf="@+id/xp_bar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
-
-        <!-- skills/saving throws -->
 
         <Button
             android:id="@+id/start_turn"
