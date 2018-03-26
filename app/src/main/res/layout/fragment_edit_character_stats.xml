@@ -6,6 +6,7 @@
             name="stats"
             type="com.elle.campaigntracker.data.model.PlayableCharacterStats"/>
     </data>
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,11 +16,11 @@
             android:id="@+id/aCLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/armor_class"
             android:labelFor="@+id/editAc"
-            app:layout_constraintTop_toTopOf="@+id/editAc"
-            app:layout_constraintBottom_toBottomOf="@+id/editAc"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:text="@string/armor_class"
+            app:layout_constraintStart_toStartOf="@+id/editAc"
+            app:layout_constraintEnd_toEndOf="@+id/editAc"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editAc"
@@ -27,18 +28,21 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintStart_toEndOf="@+id/aCLabel"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:intToText="@{stats.armorClass}"
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/half"
+            app:layout_constraintTop_toBottomOf="@+id/aCLabel" />
 
         <TextView
             android:id="@+id/initiativeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/initiative"
             android:labelFor="@+id/editInitiative"
-            app:layout_constraintTop_toTopOf="@+id/editInitiative"
-            app:layout_constraintBottom_toBottomOf="@+id/editInitiative"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:text="@string/initiative"
+            app:layout_constraintStart_toStartOf="@+id/editInitiative"
+            app:layout_constraintEnd_toEndOf="@+id/editInitiative"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/editInitiative"
@@ -46,8 +50,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintStart_toEndOf="@+id/initiativeLabel"
-            app:layout_constraintTop_toBottomOf="@+id/editAc"/>
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintStart_toEndOf="@+id/half"
+            app:layout_constraintTop_toBottomOf="@+id/initiativeLabel" />
 
         <TextView
             android:id="@+id/speedLabel"
@@ -55,9 +60,9 @@
             android:layout_height="wrap_content"
             android:labelFor="@+id/editSpeed"
             android:text="@string/speed"
-            app:layout_constraintTop_toTopOf="@+id/editSpeed"
-            app:layout_constraintBottom_toBottomOf="@+id/editSpeed"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="@+id/editSpeed"
+            app:layout_constraintEnd_toEndOf="@+id/editSpeed"
+            app:layout_constraintTop_toBottomOf="@+id/editInitiative" />
 
         <EditText
             android:id="@+id/editSpeed"
@@ -65,18 +70,19 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintStart_toEndOf="@+id/speedLabel"
-            app:layout_constraintTop_toBottomOf="@+id/editInitiative"/>
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/speedLabel" />
 
         <TextView
             android:id="@+id/profLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/proficiency_bonus"
             android:labelFor="@+id/editProf"
-            app:layout_constraintTop_toTopOf="@+id/editProf"
-            app:layout_constraintBottom_toBottomOf="@+id/editProf"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:text="@string/proficiency_bonus"
+            app:layout_constraintStart_toStartOf="@+id/editProf"
+            app:layout_constraintEnd_toEndOf="@+id/editProf"
+            app:layout_constraintTop_toBottomOf="@+id/editInitiative" />
 
         <EditText
             android:id="@+id/editProf"
@@ -84,27 +90,28 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            app:layout_constraintStart_toEndOf="@+id/profLabel"
-            app:layout_constraintTop_toBottomOf="@+id/editSpeed"/>
+            android:layout_margin="@dimen/character_sheet_margin"
+            app:layout_constraintStart_toStartOf="@+id/half"
+            app:layout_constraintTop_toBottomOf="@+id/profLabel" />
 
         <!-- saving throws -->
         <Space
             android:id="@+id/savingThrows"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/editProf"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/editProf" />
 
         <TextView
             android:id="@+id/strengthLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/strength"
             android:labelFor="@+id/editStrength"
-            app:layout_constraintTop_toBottomOf="@+id/savingThrows"
+            android:text="@string/strength"
+            app:layout_constraintEnd_toStartOf="@+id/editStrength"
             app:layout_constraintStart_toEndOf="@+id/editStrength"
-            app:layout_constraintEnd_toStartOf="@+id/editStrength"/>
+            app:layout_constraintTop_toBottomOf="@+id/savingThrows" />
 
         <EditText
             android:id="@+id/editStrength"
@@ -112,18 +119,18 @@
             android:layout_height="wrap_content"
             android:ems="5"
             android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@+id/strengthLabel"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/strengthLabel" />
 
         <TextView
             android:id="@+id/dexterityLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dexterity"
             android:labelFor="@+id/editDex"
-            app:layout_constraintTop_toBottomOf="@+id/savingThrows"
+            android:text="@string/dexterity"
+            app:layout_constraintEnd_toStartOf="@+id/editDex"
             app:layout_constraintStart_toEndOf="@+id/editDex"
-            app:layout_constraintEnd_toStartOf="@+id/editDex"/>
+            app:layout_constraintTop_toBottomOf="@+id/savingThrows" />
 
         <EditText
             android:id="@+id/editDex"
@@ -131,18 +138,18 @@
             android:layout_height="wrap_content"
             android:ems="5"
             android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@+id/dexterityLabel"
-            app:layout_constraintStart_toEndOf="@+id/editStrength"/>
+            app:layout_constraintStart_toEndOf="@+id/one_third"
+            app:layout_constraintTop_toBottomOf="@+id/dexterityLabel" />
 
         <TextView
             android:id="@+id/constLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/constitution"
             android:labelFor="@+id/editConst"
-            app:layout_constraintTop_toBottomOf="@+id/savingThrows"
+            android:text="@string/constitution"
+            app:layout_constraintEnd_toStartOf="@+id/editConst"
             app:layout_constraintStart_toEndOf="@+id/editConst"
-            app:layout_constraintEnd_toStartOf="@+id/editConst"/>
+            app:layout_constraintTop_toBottomOf="@+id/savingThrows" />
 
         <EditText
             android:id="@+id/editConst"
@@ -150,11 +157,114 @@
             android:layout_height="wrap_content"
             android:ems="5"
             android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@+id/constLabel"
-            app:layout_constraintStart_toEndOf="@+id/editDex"/>
+            app:layout_constraintStart_toEndOf="@+id/two_thirds"
+            app:layout_constraintTop_toBottomOf="@+id/constLabel" />
+
+        <TextView
+            android:id="@+id/intLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editInt"
+            android:text="@string/intelligence"
+            app:layout_constraintEnd_toStartOf="@+id/editInt"
+            app:layout_constraintStart_toEndOf="@+id/editInt"
+            app:layout_constraintTop_toBottomOf="@+id/editStrength" />
+
+        <EditText
+            android:id="@+id/editInt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/intLabel" />
+
+        <TextView
+            android:id="@+id/wisdomLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editWisdom"
+            android:text="@string/wisdom"
+            app:layout_constraintEnd_toStartOf="@+id/editWisdom"
+            app:layout_constraintStart_toEndOf="@+id/editWisdom"
+            app:layout_constraintTop_toBottomOf="@+id/editStrength" />
+
+        <EditText
+            android:id="@+id/editWisdom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/one_third"
+            app:layout_constraintTop_toBottomOf="@+id/wisdomLabel" />
+
+        <TextView
+            android:id="@+id/charismaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editCharisma"
+            android:text="@string/charisma"
+            app:layout_constraintEnd_toStartOf="@+id/editCharisma"
+            app:layout_constraintStart_toEndOf="@+id/editCharisma"
+            app:layout_constraintTop_toBottomOf="@+id/editStrength" />
+
+        <EditText
+            android:id="@+id/editCharisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/two_thirds"
+            app:layout_constraintTop_toBottomOf="@+id/charismaLabel" />
+
+        <!-- todo: what has the proficiency bonus? -->
 
         <!-- skills -->
+        <Space
+            android:id="@+id/skills"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editCharisma" />
 
+        <TextView
+            android:id="@+id/acrobaticsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editAcrobatics"
+            android:text="@string/acrobatics"
+            app:layout_constraintEnd_toStartOf="@+id/editAcrobatics"
+            app:layout_constraintStart_toEndOf="@+id/editAcrobatics"
+            app:layout_constraintTop_toBottomOf="@+id/skills" />
+
+        <EditText
+            android:id="@+id/editAcrobatics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/acrobaticsLabel" />
+
+        <TextView
+            android:id="@+id/animalLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editAnimal"
+            android:text="@string/animal_handling"
+            app:layout_constraintEnd_toStartOf="@+id/editAnimal"
+            app:layout_constraintStart_toEndOf="@+id/editAnimal"
+            app:layout_constraintTop_toBottomOf="@+id/skills" />
+
+        <EditText
+            android:id="@+id/editAnimal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/one_third"
+            app:layout_constraintTop_toBottomOf="@+id/animalLabel" />
 
 
         <Button
@@ -162,6 +272,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/one_third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/two_thirds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.67" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/half"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
     </android.support.constraint.ConstraintLayout>
 </layout>

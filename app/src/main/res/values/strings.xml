@@ -47,4 +47,9 @@
     <string name="strength">Strength</string>
     <string name="dexterity">Dexterity</string>
     <string name="constitution">Constitution</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="wisdom">Wisdom</string>
+    <string name="charisma">Charisma</string>
+    <string name="acrobatics">Acrobatics</string>
+    <string name="animal_handling">Animal Handling</string>
 </resources>

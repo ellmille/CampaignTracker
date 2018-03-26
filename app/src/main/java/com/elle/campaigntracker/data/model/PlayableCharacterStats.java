@@ -20,7 +20,7 @@ public class PlayableCharacterStats {
     @ColumnInfo(name = "character_id")
     private int charId;
     private int armorClass, initiative, speed;
-
+//todo: what stats get the bonus for saves?
     private int proficiencyBonus, strength, dexterity, constitution;
     private int intelligence, wisdom, charisma;
     private int acrobatics, animalHandling, arcana, athletics;
