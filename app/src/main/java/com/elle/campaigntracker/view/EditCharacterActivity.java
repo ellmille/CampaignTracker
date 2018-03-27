@@ -102,9 +102,9 @@ public class EditCharacterActivity extends AppCompatActivity {
                 case 0:
                     return EditCharacterBasicsFragment.newInstance(isNew);
                 case 1:
-                    return EditCharacterStatsFragment.newInstance(2);
+                    return EditCharacterStatsFragment.newInstance(isNew);
                 case 2:
-                    return EditCharacterInfoFragment.newInstance(3);
+                    return EditCharacterInfoFragment.newInstance(isNew);
             }
             return null;
         }
