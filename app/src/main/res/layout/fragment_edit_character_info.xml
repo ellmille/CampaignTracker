@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.elle.campaigntracker.view.EditCharacterInfoFragment">
+    tools:context="com.elle.campaigntracker.view.EditPcInfoFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

@@ -1,7 +1,6 @@
 package com.elle.campaigntracker.view;
 
 
-import android.app.Activity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
@@ -11,7 +10,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Item;
@@ -40,7 +38,7 @@ public class AddItemFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_item, container, false);
         binding.setCallback(editItemCallback);
-        if(getArguments().getBoolean(EditCharacterActivity.ARG_ACTION)){
+        if(getArguments().getBoolean(EditPcActivity.ARG_ACTION)){
             binding.setNewItem(new Item());
         }else{
             InventoryViewModel viewModel = ViewModelProviders.of(getActivity()).get(InventoryViewModel.class);
