@@ -266,6 +266,81 @@
             app:layout_constraintStart_toEndOf="@+id/one_third"
             app:layout_constraintTop_toBottomOf="@+id/animalLabel" />
 
+        <TextView
+            android:id="@+id/arcanaLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editArcana"
+            android:text="@string/arcana"
+            app:layout_constraintEnd_toStartOf="@+id/editArcana"
+            app:layout_constraintStart_toEndOf="@+id/editArcana"
+            app:layout_constraintTop_toBottomOf="@+id/skills" />
+
+        <EditText
+            android:id="@+id/editArcana"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/two_thirds"
+            app:layout_constraintTop_toBottomOf="@+id/animalLabel" />
+
+        <TextView
+            android:id="@+id/athleticsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editAthletics"
+            android:text="@string/athletics"
+            app:layout_constraintEnd_toStartOf="@+id/editAthletics"
+            app:layout_constraintStart_toEndOf="@+id/editAthletics"
+            app:layout_constraintTop_toBottomOf="@+id/editArcana" />
+
+        <EditText
+            android:id="@+id/editAthletics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/athleticsLabel" />
+
+        <TextView
+            android:id="@+id/deceptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editDeception"
+            android:text="@string/deception"
+            app:layout_constraintEnd_toStartOf="@+id/editDeception"
+            app:layout_constraintStart_toEndOf="@+id/editDeception"
+            app:layout_constraintTop_toBottomOf="@+id/editArcana" />
+
+        <EditText
+            android:id="@+id/editDeception"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/one_third"
+            app:layout_constraintTop_toBottomOf="@+id/deceptionLabel" />
+
+        <TextView
+            android:id="@+id/historyLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editHistory"
+            android:text="@string/history"
+            app:layout_constraintEnd_toStartOf="@+id/editHistory"
+            app:layout_constraintStart_toEndOf="@+id/editHistory"
+            app:layout_constraintTop_toBottomOf="@+id/editArcana" />
+
+        <EditText
+            android:id="@+id/editHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/two_thirds"
+            app:layout_constraintTop_toBottomOf="@+id/historyLabel" />
 
         <Button
             android:id="@+id/save"

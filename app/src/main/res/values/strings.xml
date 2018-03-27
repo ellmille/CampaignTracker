@@ -60,4 +60,8 @@
     <string name="copper">Copper</string>
     <string name="electrum">Electrum</string>
     <string name="platinum">Platinum</string>
+    <string name="arcana">Arcana</string>
+    <string name="athletics">Athletics</string>
+    <string name="deception">Deception</string>
+    <string name="history">History</string>
 </resources>
