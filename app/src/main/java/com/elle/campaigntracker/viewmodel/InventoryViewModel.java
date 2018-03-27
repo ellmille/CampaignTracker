@@ -10,6 +10,7 @@ import android.databinding.ObservableList;
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
 import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.data.model.Money;
 
 import java.util.List;
 
@@ -19,19 +20,26 @@ import java.util.List;
 
 public class InventoryViewModel extends AndroidViewModel {
     private final LiveData<List<Item>> observableInventory;
+    private final LiveData<Money> observableMoney;
     public ObservableList<Item> inventory;
-    public ObservableField<Item> item;
+    public ObservableField<Money> money = new ObservableField<>();
+
+    public ObservableField<Item> item = new ObservableField<Item>();
     private final Repo repo;
 
     public InventoryViewModel(Application application){
         super(application);
         this.repo = ((App) application).getRepo();
         this.observableInventory = repo.getInventory();
-        this.item = new ObservableField<Item>();
+        this.observableMoney = repo.getMoney();
     }
 
     public LiveData<List<Item>> getObservableInventory(){
         return observableInventory;
+    }
+
+    public LiveData<Money> getObservableMoney(){
+        return observableMoney;
     }
 
     public void setInventory(List<Item> items){
@@ -42,6 +50,10 @@ public class InventoryViewModel extends AndroidViewModel {
         this.item.set(item);
     }
 
+    public void setMoney(Money money){
+        this.money.set(money);
+    }
+
     public Item getItem(){
         return this.item.get();
     }
@@ -49,5 +61,9 @@ public class InventoryViewModel extends AndroidViewModel {
     public void updateItem(Item item){
         item.setCharId(repo.getCharId());
         repo.updateItem(item);
+    }
+
+    public void updateMoney(Money money){
+        repo.updateMoney(money);
     }
 }

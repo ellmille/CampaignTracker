@@ -14,6 +14,7 @@ import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 import java.util.List;
+import java.util.concurrent.Exchanger;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -29,6 +30,7 @@ public class Repo {
     private MediatorLiveData<PlayableCharacterStats> observableStats;
     private MediatorLiveData<List<Item>> observableInventory;
     private MediatorLiveData<List<Log>> observableLogs;
+    private MediatorLiveData<Money> observableMoney;
     private final int charId;
 
     private Repo(final AppDatabase database, int charId){
@@ -60,6 +62,13 @@ public class Repo {
             }
         });
 
+        observableMoney.addSource(loadMoneyByCharId(charId), new Observer<Money>() {
+            @Override
+            public void onChanged(@Nullable Money money) {
+                observableMoney.postValue(money);
+            }
+        });
+
         observableLogs.addSource(loadLogsForCharacter(charId), new Observer<List<Log>>() {
             @Override
             public void onChanged(@Nullable List<Log> logs) {
@@ -88,6 +97,10 @@ public class Repo {
 
     public LiveData<PlayableCharacterStats> getCharacterStats(){
         return observableStats;
+    }
+
+    public LiveData<Money> getMoney(){
+        return observableMoney;
     }
 
     public LiveData<List<Item>> getInventory(){
@@ -169,6 +182,16 @@ public class Repo {
                     database.itemDao().insertItem(item);
                 }
 
+            }
+        });
+    }
+
+    public void updateMoney(Money money){
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                database.moneyDao().updateMoney(money);
             }
         });
     }

@@ -1,0 +1,143 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="money"
+            type="com.elle.campaigntracker.data.model.Money"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.elle.campaigntracker.view.MoneyFragment">
+
+        <TextView
+            android:id="@+id/goldLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gold"
+            android:textSize="@dimen/money_label_text_size"
+            app:layout_constraintStart_toStartOf="@+id/gold"
+            app:layout_constraintEnd_toEndOf="@+id/gold"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/gold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{money.gold, default=1}"
+            android:textSize="@dimen/message_text_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goldLabel"
+            app:layout_constraintEnd_toEndOf="@+id/one_fifth"/>
+
+        <TextView
+            android:id="@+id/silverLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/silver"
+            android:textSize="@dimen/money_label_text_size"
+            app:layout_constraintStart_toStartOf="@+id/silver"
+            app:layout_constraintEnd_toEndOf="@+id/silver"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/silver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{money.silver, default=10}"
+            android:textSize="@dimen/message_text_size"
+            app:layout_constraintStart_toStartOf="@+id/one_fifth"
+            app:layout_constraintTop_toBottomOf="@+id/silverLabel"
+            app:layout_constraintEnd_toEndOf="@+id/two_fifths"/>
+
+        <TextView
+            android:id="@+id/copperLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/copper"
+            android:textSize="@dimen/money_label_text_size"
+            app:layout_constraintStart_toStartOf="@+id/copper"
+            app:layout_constraintEnd_toEndOf="@+id/copper"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/copper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{money.copper, default=100}"
+            android:textSize="@dimen/message_text_size"
+            app:layout_constraintStart_toStartOf="@+id/two_fifths"
+            app:layout_constraintTop_toBottomOf="@+id/copperLabel"
+            app:layout_constraintEnd_toEndOf="@+id/three_fifths"/>
+
+        <TextView
+            android:id="@+id/electrumLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/electrum"
+            android:textSize="@dimen/money_label_text_size"
+            app:layout_constraintStart_toStartOf="@+id/electrum"
+            app:layout_constraintEnd_toEndOf="@+id/electrum"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/electrum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{money.electrum, default=.5}"
+            android:textSize="@dimen/message_text_size"
+            app:layout_constraintStart_toStartOf="@+id/three_fifths"
+            app:layout_constraintTop_toBottomOf="@+id/electrumLabel"
+            app:layout_constraintEnd_toEndOf="@+id/four_fifths"/>
+
+        <TextView
+            android:id="@+id/platinumLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/platinum"
+            android:textSize="@dimen/money_label_text_size"
+            app:layout_constraintStart_toStartOf="@+id/platinum"
+            app:layout_constraintEnd_toEndOf="@+id/platinum"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/platinum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{money.platinum, default=.1}"
+            android:textSize="@dimen/message_text_size"
+            app:layout_constraintStart_toStartOf="@+id/four_fifths"
+            app:layout_constraintTop_toBottomOf="@+id/platinumLabel"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/one_fifth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2"  />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/two_fifths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/three_fifths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/four_fifths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+    </android.support.constraint.ConstraintLayout>
+</layout>
