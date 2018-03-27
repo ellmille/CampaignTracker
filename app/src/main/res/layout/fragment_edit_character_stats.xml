@@ -245,6 +245,7 @@
             android:ems="5"
             android:inputType="number"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/one_third"
             app:layout_constraintTop_toBottomOf="@+id/acrobaticsLabel" />
 
         <TextView
@@ -264,6 +265,7 @@
             android:ems="5"
             android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/one_third"
+            app:layout_constraintEnd_toEndOf="@+id/two_thirds"
             app:layout_constraintTop_toBottomOf="@+id/animalLabel" />
 
         <TextView
@@ -283,6 +285,7 @@
             android:ems="5"
             android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/two_thirds"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/animalLabel" />
 
         <TextView
@@ -302,6 +305,7 @@
             android:ems="5"
             android:inputType="number"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/one_third"
             app:layout_constraintTop_toBottomOf="@+id/athleticsLabel" />
 
         <TextView
@@ -321,6 +325,7 @@
             android:ems="5"
             android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/one_third"
+            app:layout_constraintEnd_toEndOf="@+id/two_thirds"
             app:layout_constraintTop_toBottomOf="@+id/deceptionLabel" />
 
         <TextView
@@ -340,7 +345,68 @@
             android:ems="5"
             android:inputType="number"
             app:layout_constraintStart_toEndOf="@+id/two_thirds"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/historyLabel" />
+
+        <TextView
+            android:id="@+id/insightLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editInsight"
+            android:text="@string/insight"
+            app:layout_constraintEnd_toStartOf="@+id/editInsight"
+            app:layout_constraintStart_toEndOf="@+id/editInsight"
+            app:layout_constraintTop_toBottomOf="@+id/editHistory" />
+
+        <EditText
+            android:id="@+id/editInsight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/one_third"
+            app:layout_constraintTop_toBottomOf="@+id/insightLabel" />
+
+        <TextView
+            android:id="@+id/intimidationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editIntimidation"
+            android:text="@string/intimidation"
+            app:layout_constraintEnd_toStartOf="@+id/editIntimidation"
+            app:layout_constraintStart_toEndOf="@+id/editIntimidation"
+            app:layout_constraintTop_toBottomOf="@+id/editHistory" />
+
+        <EditText
+            android:id="@+id/editIntimidation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/one_third"
+            app:layout_constraintEnd_toEndOf="@+id/two_thirds"
+            app:layout_constraintTop_toBottomOf="@+id/intimidationLabel" />
+
+        <TextView
+            android:id="@+id/investigationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:labelFor="@+id/editInvestigation"
+            android:text="@string/investigation"
+            app:layout_constraintEnd_toStartOf="@+id/editInvestigation"
+            app:layout_constraintStart_toEndOf="@+id/editInvestigation"
+            app:layout_constraintTop_toBottomOf="@+id/editHistory" />
+
+        <EditText
+            android:id="@+id/editInvestigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="5"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/two_thirds"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/investigationLabel" />
 
         <Button
             android:id="@+id/save"

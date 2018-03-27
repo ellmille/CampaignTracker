@@ -64,4 +64,7 @@
     <string name="athletics">Athletics</string>
     <string name="deception">Deception</string>
     <string name="history">History</string>
+    <string name="insight">Insight</string>
+    <string name="intimidation">Intimidation</string>
+    <string name="investigation">Investigation</string>
 </resources>
