@@ -9,17 +9,13 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.databinding.ActivityMainBinding;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
-public class EditCharacterActivity extends AppCompatActivity {
+public class EditPcActivity extends AppCompatActivity {
     public static final String ARG_ACTION = "add_or_edit";
     private PlayableCharacterViewModel viewModel;
     private boolean isNew;
@@ -100,11 +96,11 @@ public class EditCharacterActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return EditCharacterBasicsFragment.newInstance(isNew);
+                    return EditPcBasicsFragment.newInstance(isNew);
                 case 1:
-                    return EditCharacterStatsFragment.newInstance(isNew);
+                    return EditPcStatsFragment.newInstance(isNew);
                 case 2:
-                    return EditCharacterInfoFragment.newInstance(isNew);
+                    return EditPcInfoFragment.newInstance(isNew);
             }
             return null;
         }

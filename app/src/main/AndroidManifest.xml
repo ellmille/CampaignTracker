@@ -31,7 +31,7 @@
                 android:value="com.elle.campaigntracker.view.MainActivity" />
         </activity>
         <activity
-            android:name=".view.EditCharacterActivity"
+            android:name=".view.EditPcActivity"
             android:label="@string/title_activity_edit_playable_character"
             android:parentActivityName=".view.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

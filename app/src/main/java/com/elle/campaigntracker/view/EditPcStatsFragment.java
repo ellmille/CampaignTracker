@@ -14,7 +14,7 @@ import com.elle.campaigntracker.databinding.FragmentEditCharacterStatsBinding;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EditCharacterStatsFragment extends Fragment {
+public class EditPcStatsFragment extends Fragment {
     private FragmentEditCharacterStatsBinding binding;
 
     private boolean isNew;
@@ -24,7 +24,7 @@ public class EditCharacterStatsFragment extends Fragment {
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
 
-    public EditCharacterStatsFragment() {
+    public EditPcStatsFragment() {
         // Required empty public constructor
     }
 
@@ -32,10 +32,10 @@ public class EditCharacterStatsFragment extends Fragment {
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static EditCharacterStatsFragment newInstance(boolean isNew) {
-        EditCharacterStatsFragment fragment = new EditCharacterStatsFragment();
+    public static EditPcStatsFragment newInstance(boolean isNew) {
+        EditPcStatsFragment fragment = new EditPcStatsFragment();
         Bundle args = new Bundle();
-        args.putBoolean(EditCharacterActivity.ARG_ACTION, isNew);
+        args.putBoolean(EditPcActivity.ARG_ACTION, isNew);
         fragment.setArguments(args);
         return fragment;
     }
@@ -46,7 +46,7 @@ public class EditCharacterStatsFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_character_stats, container, false);
 
-        isNew = getArguments().getBoolean(EditCharacterActivity.ARG_ACTION);
+        isNew = getArguments().getBoolean(EditPcActivity.ARG_ACTION);
 
         return binding.getRoot();
     }

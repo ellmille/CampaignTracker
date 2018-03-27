@@ -23,22 +23,22 @@ import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
  * A Fragment for editing character basics
  */
 
-public class EditCharacterBasicsFragment extends Fragment{
+public class EditPcBasicsFragment extends Fragment{
     private FragmentEditPlayableCharacterBinding binding;
     private PlayableCharacterViewModel viewModel;
     private boolean isNew;
 
-    public EditCharacterBasicsFragment() {
+    public EditPcBasicsFragment() {
     }
 
     /**
      * Returns a new instance of this fragment for the given section
      * number.
      */
-    public static EditCharacterBasicsFragment newInstance(boolean isNew) {
-        EditCharacterBasicsFragment fragment = new EditCharacterBasicsFragment();
+    public static EditPcBasicsFragment newInstance(boolean isNew) {
+        EditPcBasicsFragment fragment = new EditPcBasicsFragment();
         Bundle args = new Bundle();
-        args.putBoolean(EditCharacterActivity.ARG_ACTION, isNew);
+        args.putBoolean(EditPcActivity.ARG_ACTION, isNew);
         fragment.setArguments(args);
         return fragment;
     }
@@ -53,7 +53,7 @@ public class EditCharacterBasicsFragment extends Fragment{
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_playable_character, container, false);
         binding.setCallback(playableCharacterCallback);
-        isNew = getArguments().getBoolean(EditCharacterActivity.ARG_ACTION);
+        isNew = getArguments().getBoolean(EditPcActivity.ARG_ACTION);
         if(isNew){
             binding.setPlayableCharacter(new PlayableCharacter());
         }else{
