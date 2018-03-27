@@ -13,14 +13,14 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "proficiencies", foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
         parentColumns = "id",
         childColumns = "character_id"), indices = @Index(value = ("character_id")))
-public class Proficiencies {
+public class Proficiency {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name = "character_id")
     private int charId;
     private String ability, description;
 
-    public Proficiencies(int id, int charId, String ability, String description){
+    public Proficiency(int id, int charId, String ability, String description){
         this.id = id;
         this.charId = charId;
         this.ability = ability;
