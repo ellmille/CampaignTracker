@@ -15,6 +15,7 @@ import com.elle.campaigntracker.data.dao.AttackDao;
 import com.elle.campaigntracker.data.dao.ItemDao;
 import com.elle.campaigntracker.data.dao.LogDao;
 import com.elle.campaigntracker.data.dao.MoneyDao;
+import com.elle.campaigntracker.data.dao.PcInfoDao;
 import com.elle.campaigntracker.data.dao.PlayableCharacterStatsDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.model.Attack;
@@ -23,6 +24,7 @@ import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 import java.util.concurrent.Executor;
@@ -31,7 +33,9 @@ import java.util.concurrent.Executors;
 /**
  * Holds database
  */
-@Database(entities = {PlayableCharacter.class, PlayableCharacterStats.class, Log.class, Item.class, Money.class, Attack.class}, version = 1)
+@Database(entities = {PlayableCharacter.class, PlayableCharacterStats.class,
+        PlayableCharacterInfo.class, Log.class, Item.class, Money.class,
+        Attack.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
@@ -42,6 +46,7 @@ public abstract class AppDatabase extends RoomDatabase {
     //list all daos
     public abstract PlayerCharacterDao playerCharacterDao();
     public abstract PlayableCharacterStatsDao playableCharacterStatsDao();
+    public abstract PcInfoDao pcInfoDao();
     public abstract LogDao logDao();
     public abstract ItemDao itemDao();
     public abstract MoneyDao moneyDao();

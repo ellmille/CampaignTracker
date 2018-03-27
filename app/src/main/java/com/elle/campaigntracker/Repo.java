@@ -11,6 +11,7 @@ import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
 import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class Repo {
     private final AppDatabase database;
     private MediatorLiveData<PlayableCharacter> observableCharacter;
     private MediatorLiveData<PlayableCharacterStats> observableStats;
+    private MediatorLiveData<PlayableCharacterInfo> observableInfo;
     private MediatorLiveData<List<Item>> observableInventory;
     private MediatorLiveData<List<Log>> observableLogs;
     private MediatorLiveData<Money> observableMoney;
@@ -38,6 +40,7 @@ public class Repo {
         this.charId = charId;
         this.observableCharacter = new MediatorLiveData<>();
         this.observableStats = new MediatorLiveData<>();
+        this.observableInfo = new MediatorLiveData<>();
         this.observableInventory = new MediatorLiveData<>();
         this.observableLogs = new MediatorLiveData<>();
 
@@ -52,6 +55,13 @@ public class Repo {
             @Override
             public void onChanged(@Nullable PlayableCharacterStats playableCharacterStats) {
                 observableStats.postValue(playableCharacterStats);
+            }
+        });
+
+        observableInfo.addSource(loadCharacterInfo(charId), new Observer<PlayableCharacterInfo>() {
+            @Override
+            public void onChanged(@Nullable PlayableCharacterInfo playableCharacterInfo) {
+                observableInfo.postValue(playableCharacterInfo);
             }
         });
 
@@ -117,6 +127,10 @@ public class Repo {
 
     public LiveData<PlayableCharacterStats> loadCharacterStats(final int charId){
         return database.playableCharacterStatsDao().findStatsById(charId);
+    }
+
+    public LiveData<PlayableCharacterInfo> loadCharacterInfo(final int charId){
+        return database.pcInfoDao().getInfoByCharId(charId);
     }
 
     public LiveData<List<Log>> loadLogsForCharacter(final int charId){
