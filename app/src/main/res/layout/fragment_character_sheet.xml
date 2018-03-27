@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="playableCharacter"
+            type="com.elle.campaigntracker.data.model.PlayableCharacter"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.elle.campaigntracker.view.CharacterSheetFragment">
+
+        <TextView
+            android:id="@+id/strengthLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strength"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/vertical_line_one"/>
+
+        <TextView
+            android:id="@+id/strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:intToText="@{playableCharacter.strength}"
+            app:layout_constraintTop_toBottomOf="@+id/strengthLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/vertical_line_one"/>
+
+        <android.support.constraint.Guideline
+            android:id="@+id/vertical_line_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
