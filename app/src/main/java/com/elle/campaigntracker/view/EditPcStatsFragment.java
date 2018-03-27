@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 import com.elle.campaigntracker.databinding.FragmentEditCharacterStatsBinding;
+import com.elle.campaigntracker.view.callback.SaveCallback;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,11 +20,6 @@ public class EditPcStatsFragment extends Fragment {
     private FragmentEditCharacterStatsBinding binding;
 
     private boolean isNew;
-    /**
-     * The fragment argument representing the section number for this
-     * fragment.
-     */
-    private static final String ARG_SECTION_NUMBER = "section_number";
 
     public EditPcStatsFragment() {
         // Required empty public constructor
@@ -45,10 +42,20 @@ public class EditPcStatsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_character_stats, container, false);
-
+        binding.setCallback(statsCallback);
         isNew = getArguments().getBoolean(EditPcActivity.ARG_ACTION);
-
+        if(isNew){
+            binding.setStats(new PlayableCharacterStats());
+        }else{
+            //todo: view model
+        }
         return binding.getRoot();
     }
 
+    private SaveCallback.PcStats statsCallback = new SaveCallback.PcStats(){
+        @Override
+        public void onSave(PlayableCharacterStats stats) {
+
+        }
+    };
 }

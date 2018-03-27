@@ -109,6 +109,10 @@ public class Repo {
         return observableStats;
     }
 
+    public LiveData<PlayableCharacterInfo> getCharacterInfo(){
+        return observableInfo;
+    }
+
     public LiveData<Money> getMoney(){
         return observableMoney;
     }
