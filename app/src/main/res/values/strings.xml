@@ -67,4 +67,6 @@
     <string name="insight">Insight</string>
     <string name="intimidation">Intimidation</string>
     <string name="investigation">Investigation</string>
+    <string name="current_xp">Current XP</string>
+    <string name="alignment">Alignment</string>
 </resources>

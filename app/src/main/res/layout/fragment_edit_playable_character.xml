@@ -100,7 +100,7 @@
             android:id="@+id/alignmentLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/race"
+            android:text="@string/alignment"
             android:labelFor="@+id/editAlignment"
             app:layout_constraintTop_toTopOf="@+id/editAlignment"
             app:layout_constraintBottom_toBottomOf="@+id/editAlignment"
@@ -152,6 +152,26 @@
             app:intToText="@={playableCharacter.totalXpToLevel}"
             app:layout_constraintTop_toBottomOf="@+id/editMaxHp"
             app:layout_constraintStart_toEndOf="@+id/xpToLevelLabel"/>
+
+        <TextView
+            android:id="@+id/currentXpLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_xp"
+            android:labelFor="@+id/editCurrentXp"
+            app:layout_constraintTop_toTopOf="@+id/editCurrentXp"
+            app:layout_constraintBottom_toBottomOf="@+id/editCurrentXp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <EditText
+            android:id="@+id/editCurrentXp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:intToText="@={playableCharacter.currentXp}"
+            app:layout_constraintTop_toBottomOf="@+id/editXpToLevel"
+            app:layout_constraintStart_toEndOf="@+id/currentXpLabel"/>
 
         <Button
             android:id="@+id/save"
