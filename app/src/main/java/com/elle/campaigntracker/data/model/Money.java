@@ -21,6 +21,8 @@ public class Money {
     private int charId;
     private int gold, silver, copper;
     private int electrum, platinum;
+    @Ignore
+    private final double weight = 1/3; // 1/3 of an oz.
 
     @Ignore
     public Money(int charId, int gold, int silver, int copper, int electrum, int platinum){
@@ -94,10 +96,29 @@ public class Money {
         this.platinum = platinum;
     }
 
-    //todo: conversions
 //    1 gold = 10 silver
-//    1 silver = 10 copper
-//    1 electrum = 5 silver
-//    1 platinum = 10 gold
+    public int convertGoldToSilver(int gold){
+        return gold * 10;
+    }
+    //    1 silver = 10 copper
+    public int convertSilverToCopper(int silver){
+        return silver * 10;
+    }
+    //    1 electrum = 5 silver
+    public int convertElectrumToSilver(int electrum){
+        return electrum * 5;
+    }
+    //    1 platinum = 10 gold
+    public int convertPlatinumToGold(int platinum){
+        return platinum * 10;
+    }
+
     //each coin weighs about 1/3 of an oz. (50 coins = 1 lb)
+    public double findWeight(){
+        int totalCoins = gold + silver + copper + electrum + platinum;
+        if((totalCoins % 3) == 0){
+            return totalCoins/3;
+        }
+        return totalCoins * weight;
+    }
 }
