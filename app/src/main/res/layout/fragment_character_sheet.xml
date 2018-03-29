@@ -23,14 +23,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/vertical_line_one"/>
 
-        <TextView
-            android:id="@+id/strength"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:intToText="@{playableCharacter.strength}"
-            app:layout_constraintTop_toBottomOf="@+id/strengthLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/vertical_line_one"/>
+        <!--<TextView-->
+            <!--android:id="@+id/strength"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:intToText="@{playableCharacter.strength}"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/strengthLabel"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="@+id/vertical_line_one"/>-->
 
         <android.support.constraint.Guideline
             android:id="@+id/vertical_line_one"
