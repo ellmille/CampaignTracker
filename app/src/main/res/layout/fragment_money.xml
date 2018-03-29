@@ -36,6 +36,15 @@
             app:layout_constraintTop_toBottomOf="@+id/goldLabel"
             app:layout_constraintEnd_toEndOf="@+id/one_fifth"/>
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border"
+            app:layout_constraintTop_toTopOf="@+id/goldLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/gold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/one_fifth"/>
+
         <TextView
             android:id="@+id/silverLabel"
             android:layout_width="wrap_content"
@@ -54,6 +63,15 @@
             android:textSize="@dimen/message_text_size"
             app:layout_constraintStart_toStartOf="@+id/one_fifth"
             app:layout_constraintTop_toBottomOf="@+id/silverLabel"
+            app:layout_constraintEnd_toEndOf="@+id/two_fifths"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border"
+            app:layout_constraintTop_toTopOf="@+id/silverLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/silver"
+            app:layout_constraintStart_toStartOf="@+id/one_fifth"
             app:layout_constraintEnd_toEndOf="@+id/two_fifths"/>
 
         <TextView
@@ -76,6 +94,15 @@
             app:layout_constraintTop_toBottomOf="@+id/copperLabel"
             app:layout_constraintEnd_toEndOf="@+id/three_fifths"/>
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border"
+            app:layout_constraintTop_toTopOf="@+id/copperLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/copper"
+            app:layout_constraintStart_toStartOf="@+id/two_fifths"
+            app:layout_constraintEnd_toEndOf="@+id/three_fifths"/>
+
         <TextView
             android:id="@+id/electrumLabel"
             android:layout_width="wrap_content"
@@ -96,6 +123,15 @@
             app:layout_constraintTop_toBottomOf="@+id/electrumLabel"
             app:layout_constraintEnd_toEndOf="@+id/four_fifths"/>
 
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border"
+            app:layout_constraintTop_toTopOf="@+id/electrumLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/electrum"
+            app:layout_constraintStart_toStartOf="@+id/three_fifths"
+            app:layout_constraintEnd_toEndOf="@+id/four_fifths"/>
+
         <TextView
             android:id="@+id/platinumLabel"
             android:layout_width="wrap_content"
@@ -114,6 +150,15 @@
             android:textSize="@dimen/message_text_size"
             app:layout_constraintStart_toStartOf="@+id/four_fifths"
             app:layout_constraintTop_toBottomOf="@+id/platinumLabel"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/border"
+            app:layout_constraintTop_toTopOf="@+id/platinumLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/platinum"
+            app:layout_constraintStart_toStartOf="@+id/four_fifths"
             app:layout_constraintEnd_toEndOf="parent"/>
 
         <android.support.design.widget.FloatingActionButton
