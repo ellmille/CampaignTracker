@@ -5,6 +5,9 @@
         <variable
             name="money"
             type="com.elle.campaigntracker.data.model.Money"/>
+        <variable
+            name="callback"
+            type="com.elle.campaigntracker.view.callback.InventoryCallback.MoneyCall"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -112,6 +115,28 @@
             app:layout_constraintStart_toStartOf="@+id/four_fifths"
             app:layout_constraintTop_toBottomOf="@+id/platinumLabel"
             app:layout_constraintEnd_toEndOf="parent"/>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="@{() -> callback.onAdd()}"
+            app:srcCompat="@drawable/ic_add_black"
+            app:layout_constraintTop_toBottomOf="@id/platinum"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:focusable="true" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/subtract"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:onClick="@{() -> callback.onSpend()}"
+            app:srcCompat="@android:drawable/dialog_holo_dark_frame"
+            app:layout_constraintTop_toBottomOf="@id/gold"
+            app:layout_constraintStart_toStartOf="parent"
+            android:focusable="true" />
 
         <android.support.constraint.Guideline
             android:id="@+id/one_fifth"

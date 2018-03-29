@@ -130,4 +130,8 @@ public class PcInfo {
     public void setAllies(String allies) {
         this.allies = allies;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

@@ -14,7 +14,7 @@ import com.elle.campaigntracker.data.model.PcStats;
 
 @Dao
 public interface PlayableCharacterStatsDao {
-    @Query("SELECT * FROM PcStats WHERE character_id = :charId")
+    @Query("SELECT * FROM character_stats WHERE character_id = :charId")
     LiveData<PcStats> findStatsById(int charId);
 
     @Insert

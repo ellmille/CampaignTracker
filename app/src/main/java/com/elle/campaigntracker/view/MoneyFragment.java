@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.databinding.FragmentMoneyBinding;
+import com.elle.campaigntracker.view.callback.InventoryCallback;
 import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
 /**
@@ -38,14 +39,25 @@ public class MoneyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_money, container, false);
+        binding.setCallback(moneyCallBack);
         viewModel.getObservableMoney().observe(getActivity(), new Observer<Money>() {
             @Override
             public void onChanged(@Nullable Money money) {
                 binding.setMoney(money);
             }
         });
-        //binding.setMoney(viewModel.getObservableMoney());
         return binding.getRoot();
     }
 
+    private InventoryCallback.MoneyCall moneyCallBack = new InventoryCallback.MoneyCall() {
+        @Override
+        public void onAdd() {
+
+        }
+
+        @Override
+        public void onSpend() {
+
+        }
+    };
 }

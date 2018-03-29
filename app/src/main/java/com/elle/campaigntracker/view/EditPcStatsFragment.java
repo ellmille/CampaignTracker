@@ -52,7 +52,7 @@ public class EditPcStatsFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private SaveCallback.PcStats statsCallback = new SaveCallback.PcStats(){
+    private SaveCallback.PcStatsSave statsCallback = new SaveCallback.PcStatsSave(){
         @Override
         public void onSave(PcStats stats) {
 

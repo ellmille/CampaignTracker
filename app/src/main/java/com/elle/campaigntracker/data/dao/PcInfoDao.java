@@ -14,7 +14,7 @@ import com.elle.campaigntracker.data.model.PcInfo;
 
 @Dao
 public interface PcInfoDao {
-    @Query("SELECT * FROM PcInfo WHERE character_id=:charId")
+    @Query("SELECT * FROM character_info WHERE character_id=:charId")
     LiveData<PcInfo> getInfoByCharId(int charId);
 
     @Insert
