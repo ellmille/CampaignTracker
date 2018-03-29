@@ -11,11 +11,10 @@ import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
-import com.elle.campaigntracker.data.model.PlayableCharacterStats;
+import com.elle.campaigntracker.data.model.PcInfo;
+import com.elle.campaigntracker.data.model.PcStats;
 
 import java.util.List;
-import java.util.concurrent.Exchanger;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -28,8 +27,8 @@ public class Repo {
 
     private final AppDatabase database;
     private MediatorLiveData<PlayableCharacter> observableCharacter;
-    private MediatorLiveData<PlayableCharacterStats> observableStats;
-    private MediatorLiveData<PlayableCharacterInfo> observableInfo;
+    private MediatorLiveData<PcStats> observableStats;
+    private MediatorLiveData<PcInfo> observableInfo;
     private MediatorLiveData<List<Item>> observableInventory;
     private MediatorLiveData<List<Log>> observableLogs;
     private MediatorLiveData<Money> observableMoney;
@@ -51,17 +50,17 @@ public class Repo {
             }
         });
 
-        observableStats.addSource(loadCharacterStats(charId), new Observer<PlayableCharacterStats>() {
+        observableStats.addSource(loadCharacterStats(charId), new Observer<PcStats>() {
             @Override
-            public void onChanged(@Nullable PlayableCharacterStats playableCharacterStats) {
-                observableStats.postValue(playableCharacterStats);
+            public void onChanged(@Nullable PcStats pcStats) {
+                observableStats.postValue(pcStats);
             }
         });
 
-        observableInfo.addSource(loadCharacterInfo(charId), new Observer<PlayableCharacterInfo>() {
+        observableInfo.addSource(loadCharacterInfo(charId), new Observer<PcInfo>() {
             @Override
-            public void onChanged(@Nullable PlayableCharacterInfo playableCharacterInfo) {
-                observableInfo.postValue(playableCharacterInfo);
+            public void onChanged(@Nullable PcInfo pcInfo) {
+                observableInfo.postValue(pcInfo);
             }
         });
 
@@ -105,11 +104,11 @@ public class Repo {
         return observableCharacter;
     }
 
-    public LiveData<PlayableCharacterStats> getCharacterStats(){
+    public LiveData<PcStats> getCharacterStats(){
         return observableStats;
     }
 
-    public LiveData<PlayableCharacterInfo> getCharacterInfo(){
+    public LiveData<PcInfo> getCharacterInfo(){
         return observableInfo;
     }
 
@@ -129,11 +128,11 @@ public class Repo {
         return database.playerCharacterDao().findCharacterById(charId);
     }
 
-    public LiveData<PlayableCharacterStats> loadCharacterStats(final int charId){
+    public LiveData<PcStats> loadCharacterStats(final int charId){
         return database.playableCharacterStatsDao().findStatsById(charId);
     }
 
-    public LiveData<PlayableCharacterInfo> loadCharacterInfo(final int charId){
+    public LiveData<PcInfo> loadCharacterInfo(final int charId){
         return database.pcInfoDao().getInfoByCharId(charId);
     }
 

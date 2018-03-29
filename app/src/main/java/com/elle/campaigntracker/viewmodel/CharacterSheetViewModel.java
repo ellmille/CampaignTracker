@@ -8,8 +8,7 @@ import android.support.annotation.NonNull;
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
-import com.elle.campaigntracker.data.model.PlayableCharacterStats;
+import com.elle.campaigntracker.data.model.PcInfo;
 
 /**
  * ViewModel prepares data for the UI
@@ -17,7 +16,7 @@ import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 public class CharacterSheetViewModel extends AndroidViewModel {
     private final LiveData<PlayableCharacter> observableCharacter;
-    private final LiveData<PlayableCharacterInfo> observableInfo;
+    private final LiveData<PcInfo> observableInfo;
     private final Repo repo;
 
     public CharacterSheetViewModel(@NonNull Application application) {

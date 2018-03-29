@@ -2,7 +2,7 @@ package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.Alignment;
-import com.elle.campaigntracker.data.model.PlayableCharacterStats;
+import com.elle.campaigntracker.data.model.PcStats;
 
 /**
  * PlayerCharacter sheet pre-sqlite setup
@@ -10,7 +10,7 @@ import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 public class DummyRepo {
     private static PlayableCharacter playableChar;
-    private static PlayableCharacterStats stats;
+    private static PcStats stats;
 
     public DummyRepo(){
         playableChar = createPlayableChar();
@@ -28,8 +28,8 @@ public class DummyRepo {
         return playableChar;
     }
 
-    private PlayableCharacterStats createPlayableCharStats(int charId) {
-        PlayableCharacterStats stats = new PlayableCharacterStats(charId);
+    private PcStats createPlayableCharStats(int charId) {
+        PcStats stats = new PcStats(charId);
         stats.setProficiencyBonus(2);
 
         return stats;

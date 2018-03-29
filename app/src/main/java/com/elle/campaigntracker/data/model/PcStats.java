@@ -14,7 +14,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "character_stats", foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
         parentColumns = "id",
         childColumns = "character_id"), indices = @Index(value = ("character_id")))
-public class PlayableCharacterStats {
+public class PcStats {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name = "character_id")
@@ -29,19 +29,19 @@ public class PlayableCharacterStats {
     private int religion, sleightOfHand, stealth, survival;
 
     @Ignore
-    public PlayableCharacterStats(){
+    public PcStats(){
 
     }
 
     @Ignore
-    public PlayableCharacterStats(int charId){
+    public PcStats(int charId){
         this.charId = charId;
     }
 
-    public PlayableCharacterStats(int id, int charId, int armorClass, int initiative, int speed, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence,
-                                  int wisdom, int charisma, int acrobatics, int animalHandling, int arcana, int athletics, int deception, int history, int insight,
-                                  int intimidation, int investigation, int medicine, int nature, int perception, int performance, int persuasion, int religion,
-                                  int sleightOfHand, int stealth, int survival){
+    public PcStats(int id, int charId, int armorClass, int initiative, int speed, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence,
+                   int wisdom, int charisma, int acrobatics, int animalHandling, int arcana, int athletics, int deception, int history, int insight,
+                   int intimidation, int investigation, int medicine, int nature, int perception, int performance, int persuasion, int religion,
+                   int sleightOfHand, int stealth, int survival){
         this.id = id;
         this.charId = charId;
         this.armorClass = armorClass;

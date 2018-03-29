@@ -1,8 +1,7 @@
 package com.elle.campaigntracker.view.callback;
 
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
-import com.elle.campaigntracker.data.model.PlayableCharacterStats;
+import com.elle.campaigntracker.data.model.PcInfo;
 
 /**
  * Callbacks for save buttons
@@ -10,10 +9,10 @@ import com.elle.campaigntracker.data.model.PlayableCharacterStats;
 
 public interface SaveCallback {
     interface PcStats {
-        void onSave(PlayableCharacterStats stats);
+        void onSave(com.elle.campaigntracker.data.model.PcStats stats);
     }
     interface PcInfoSave {
-        void onSave(PlayableCharacterInfo info);
+        void onSave(PcInfo info);
     }
     interface PcBasics {
         void onSave(PlayableCharacter pc);

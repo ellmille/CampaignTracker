@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
+import com.elle.campaigntracker.data.model.PcInfo;
 
 /**
  * Methods for accessing the database
@@ -14,12 +14,12 @@ import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
 
 @Dao
 public interface PcInfoDao {
-    @Query("SELECT * FROM character_info WHERE character_id=:charId")
-    LiveData<PlayableCharacterInfo> getInfoByCharId(int charId);
+    @Query("SELECT * FROM PcInfo WHERE character_id=:charId")
+    LiveData<PcInfo> getInfoByCharId(int charId);
 
     @Insert
-    void insertPcInfo(PlayableCharacterInfo playableCharacterInfo);
+    void insertPcInfo(PcInfo pcInfo);
 
     @Update
-    void updatePcInfo(PlayableCharacterInfo playableCharacterInfo);
+    void updatePcInfo(PcInfo pcInfo);
 }

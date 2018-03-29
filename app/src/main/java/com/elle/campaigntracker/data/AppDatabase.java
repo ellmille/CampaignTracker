@@ -24,8 +24,8 @@ import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.PlayableCharacterInfo;
-import com.elle.campaigntracker.data.model.PlayableCharacterStats;
+import com.elle.campaigntracker.data.model.PcInfo;
+import com.elle.campaigntracker.data.model.PcStats;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -33,8 +33,8 @@ import java.util.concurrent.Executors;
 /**
  * Holds database
  */
-@Database(entities = {PlayableCharacter.class, PlayableCharacterStats.class,
-        PlayableCharacterInfo.class, Log.class, Item.class, Money.class,
+@Database(entities = {PlayableCharacter.class, PcStats.class,
+        PcInfo.class, Log.class, Item.class, Money.class,
         Attack.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
