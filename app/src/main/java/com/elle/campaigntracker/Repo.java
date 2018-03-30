@@ -42,6 +42,7 @@ public class Repo {
         this.observableInfo = new MediatorLiveData<>();
         this.observableInventory = new MediatorLiveData<>();
         this.observableLogs = new MediatorLiveData<>();
+        this.observableMoney = new MediatorLiveData<>();
 
         observableCharacter.addSource(loadCharacter(charId), new Observer<PlayableCharacter>() {
             @Override

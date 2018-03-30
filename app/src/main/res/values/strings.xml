@@ -53,8 +53,6 @@
     <string name="acrobatics">Acrobatics</string>
     <string name="animal_handling">Animal Handling</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="gold">Gold</string>
     <string name="silver">Silver</string>
     <string name="copper">Copper</string>
