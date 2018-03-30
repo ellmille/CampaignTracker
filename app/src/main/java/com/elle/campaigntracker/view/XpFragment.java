@@ -1,15 +1,18 @@
 package com.elle.campaigntracker.view;
 
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.FragmentXpBinding;
 import com.elle.campaigntracker.view.callback.HealthCallback;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
@@ -40,6 +43,12 @@ public class XpFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_xp, container, false);
         binding.setCallback(xpCallback);
         binding.setPoints("1");
+        viewModel.getObservableCharacter().observe(getActivity(), new Observer<PlayableCharacter>() {
+            @Override
+            public void onChanged(@Nullable PlayableCharacter playableCharacter) {
+                binding.setPlayableCharacter(playableCharacter);
+            }
+        });
         // Inflate the layout for this fragment
         return binding.getRoot();
     }
