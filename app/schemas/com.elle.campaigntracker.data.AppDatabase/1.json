@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "4704d2ea26c4070d090aedfa22dd7a63",
+    "identityHash": "1ee154b6852586d4e815cf0e83459360",
     "entities": [
       {
         "tableName": "playable_character",
@@ -485,7 +485,7 @@
       },
       {
         "tableName": "Item",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `name` TEXT, `quantity` INTEGER NOT NULL, `description` TEXT, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `name` TEXT, `quantity` INTEGER NOT NULL, `description` TEXT, `category` TEXT, `isFavorite` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -516,6 +516,18 @@
             "columnName": "description",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isFavorite",
+            "columnName": "isFavorite",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -717,7 +729,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4704d2ea26c4070d090aedfa22dd7a63\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1ee154b6852586d4e815cf0e83459360\")"
     ]
   }
 }

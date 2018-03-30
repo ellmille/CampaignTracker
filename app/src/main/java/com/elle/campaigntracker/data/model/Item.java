@@ -87,4 +87,20 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+
+    public ItemCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(ItemCategory category) {
+        this.category = category;
+    }
+
+    public boolean isFavorite() {
+        return isFavorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        isFavorite = favorite;
+    }
 }
