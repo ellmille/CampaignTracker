@@ -69,4 +69,6 @@
     <string name="investigation">Investigation</string>
     <string name="current_xp">Current XP</string>
     <string name="alignment">Alignment</string>
+    <string name="amount">Amount:</string>
+    <string name="save">Save</string>
 </resources>
