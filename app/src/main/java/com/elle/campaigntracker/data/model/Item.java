@@ -22,6 +22,9 @@ public class Item {
     private String name;
     private int quantity;
     private String description;
+    //defaults
+    private ItemCategory category = ItemCategory.OTHER;
+    private boolean isFavorite = false;
 
     @Ignore
     public Item(){
