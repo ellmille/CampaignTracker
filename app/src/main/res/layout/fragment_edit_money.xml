@@ -2,6 +2,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
+            name="isSpending"
+            type="Boolean"/>
+        <variable
             name="amount"
             type="Integer"/>
         <variable
@@ -31,7 +34,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="@={amount}"
+            app:intToText="@={amount}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@+id/moneyLabel"/>
 
@@ -47,8 +50,8 @@
             android:id="@+id/save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/save"
-            android:onClick="@{() -> callback.oonSave(amount)}"
+            android:text="@{isSpending ? @string/subtract : @string/add}"
+            android:onClick="@{() -> callback.onSave(amount)}"
             app:layout_constraintTop_toBottomOf="@+id/type"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
