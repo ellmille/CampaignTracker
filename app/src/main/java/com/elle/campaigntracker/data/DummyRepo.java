@@ -1,7 +1,7 @@
 package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.Alignment;
+import com.elle.campaigntracker.data.model.category.Alignment;
 import com.elle.campaigntracker.data.model.PcStats;
 
 /**

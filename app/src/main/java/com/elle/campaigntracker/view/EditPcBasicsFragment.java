@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.Alignment;
+import com.elle.campaigntracker.data.model.category.Alignment;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.FragmentEditPlayableCharacterBinding;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;

@@ -1,5 +1,7 @@
 package com.elle.campaigntracker.data.model;
 
+import com.elle.campaigntracker.data.model.category.Alignment;
+
 /**
  * POJO for Non playable characters (or just other characters that you are not)
  */

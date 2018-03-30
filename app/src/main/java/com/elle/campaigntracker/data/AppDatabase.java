@@ -19,7 +19,7 @@ import com.elle.campaigntracker.data.dao.PcInfoDao;
 import com.elle.campaigntracker.data.dao.PlayableCharacterStatsDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.model.Attack;
-import com.elle.campaigntracker.data.model.Converters;
+import com.elle.campaigntracker.data.model.category.Converters;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.Log;
 import com.elle.campaigntracker.data.model.Money;

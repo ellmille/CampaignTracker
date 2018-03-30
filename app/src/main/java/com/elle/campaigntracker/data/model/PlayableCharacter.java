@@ -4,6 +4,8 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.elle.campaigntracker.data.model.category.Alignment;
+
 /**
  * POJO for playable character
  */
