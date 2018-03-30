@@ -14,17 +14,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/nav_header_img"
+        android:layout_height="@dimen/nav_header_img"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@drawable/gabe_shrug"
         android:contentDescription="@string/placeholder_image" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/also_placeholder"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </LinearLayout>
