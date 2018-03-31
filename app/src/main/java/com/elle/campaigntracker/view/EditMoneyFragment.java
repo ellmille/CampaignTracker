@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.databinding.FragmentEditMoneyBinding;
+import com.elle.campaigntracker.view.callback.SaveCallback;
 
 /**
  * A {@link DialogFragment} to change money amount.
@@ -32,11 +33,18 @@ public class EditMoneyFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_money, container, false);
-        binding.setIsSpending(getArguments().getBoolean(IS_SPENDING_KEY));
+        binding.setCallback(moneyCallback);
+       // binding.setIsSpending(getArguments().getBoolean(IS_SPENDING_KEY));
         binding.setAmount(10);
         //todo: set callback
         // Inflate the layout for this fragment
         return binding.getRoot();
     }
 
+    private SaveCallback.MoneySave moneyCallback = new SaveCallback.MoneySave() {
+        @Override
+        public void onSave(int amount) {
+            System.out.println(String.valueOf(amount));
+        }
+    };
 }

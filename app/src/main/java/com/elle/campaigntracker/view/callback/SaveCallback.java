@@ -21,7 +21,6 @@ public interface SaveCallback {
     }
 
     interface MoneySave {
-        //void onSave(Money money);
         void onSave(int amount);
     }
 }
