@@ -6,6 +6,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,15 +50,23 @@ public class MoneyFragment extends Fragment {
         return binding.getRoot();
     }
 
+    private void openFragment(boolean isSpending){
+        DialogFragment dialogFragment = new AddItemFragment();
+        Bundle bundle = new Bundle();
+        bundle.putBoolean(EditMoneyFragment.ARG_IS_SPENDING, isSpending);
+        dialogFragment.setArguments(bundle);
+        dialogFragment.show(getChildFragmentManager(), EditMoneyFragment.TAG);
+    }
+
     private InventoryCallback.MoneyCall moneyCallBack = new InventoryCallback.MoneyCall() {
         @Override
         public void onAdd() {
-
+            openFragment(false);
         }
 
         @Override
         public void onSpend() {
-
+            openFragment(true);
         }
     };
 }
