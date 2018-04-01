@@ -16,7 +16,7 @@ import com.elle.campaigntracker.data.dao.ItemDao;
 import com.elle.campaigntracker.data.dao.LogDao;
 import com.elle.campaigntracker.data.dao.MoneyDao;
 import com.elle.campaigntracker.data.dao.PcInfoDao;
-import com.elle.campaigntracker.data.dao.PlayableCharacterStatsDao;
+import com.elle.campaigntracker.data.dao.PcStatsDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.model.Attack;
 import com.elle.campaigntracker.data.model.category.Converters;
@@ -45,7 +45,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     //list all daos
     public abstract PlayerCharacterDao playerCharacterDao();
-    public abstract PlayableCharacterStatsDao playableCharacterStatsDao();
+    public abstract PcStatsDao playableCharacterStatsDao();
     public abstract PcInfoDao pcInfoDao();
     public abstract LogDao logDao();
     public abstract ItemDao itemDao();
