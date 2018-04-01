@@ -7,14 +7,11 @@ package com.elle.campaigntracker.data.model.category;
 public class RoleClass {
     private final String name;
     private final Role role;
-    private final String description;
-    private Archetype archetype;
-    private String primaryAbility;
+    private String description;
 
-    public RoleClass(String name, Role roleName, String description){
+    public RoleClass(String name, Role roleName){
         this.name = name;
         this.role = roleName;
-        this.description = description;
     }
 
     public String getName() {
@@ -29,12 +26,12 @@ public class RoleClass {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public enum Role {
         BARBRIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROGUE,
         SORCERER, WARLOCK, WIZARD, OTHER
-    }
-
-    public enum Archetype {
-        THIEF, ASSASSIN, ARCANE_TRICKSTER
     }
 }

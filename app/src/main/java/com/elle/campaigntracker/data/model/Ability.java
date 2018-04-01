@@ -1,5 +1,7 @@
 package com.elle.campaigntracker.data.model;
 
+import android.support.annotation.Nullable;
+
 import com.elle.campaigntracker.data.model.category.RoleClass;
 
 /**
@@ -10,5 +12,4 @@ public class Ability {
     private String name, description;
     private int level;
     private RoleClass.Role role;
-    private RoleClass.Archetype archetype;
 }
