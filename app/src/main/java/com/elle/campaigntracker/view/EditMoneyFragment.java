@@ -1,6 +1,7 @@
 package com.elle.campaigntracker.view;
 
 
+import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.databinding.adapters.SpinnerBindingAdapter;
 import android.os.Bundle;
@@ -11,7 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Spinner;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.databinding.FragmentEditMoneyBinding;
+import com.elle.campaigntracker.view.callback.EditItemCallback;
 import com.elle.campaigntracker.view.callback.SaveCallback;
 
 /**
@@ -20,8 +23,12 @@ import com.elle.campaigntracker.view.callback.SaveCallback;
 public class EditMoneyFragment extends DialogFragment {
     public static final String TAG = "MONEY";
     public static final String ARG_IS_SPENDING = "SPENDING";
-  //  private InventoryViewModel viewModel;
-    private FragmentEditMoneyBinding binding;
+
+    public interface DialogMoneyCallback{
+        void onSaveMoney(int amount);
+    }
+
+    DialogMoneyCallback listener;
 
     public EditMoneyFragment() {
         // Required empty public constructor
@@ -29,13 +36,12 @@ public class EditMoneyFragment extends DialogFragment {
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-     //   viewModel = ViewModelProviders.of(getActivity()).get(InventoryViewModel.class);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_money, container, false);
+        FragmentEditMoneyBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_money, container, false);
         binding.setCallback(moneyCallback);
         binding.setIsSpending(getArguments().getBoolean(ARG_IS_SPENDING));
         binding.setAmount(10);
@@ -47,6 +53,22 @@ public class EditMoneyFragment extends DialogFragment {
         @Override
         public void onSave(int amount) {
             System.out.println(String.valueOf(amount));
+            listener.onSaveMoney(amount);
         }
     };
+
+    // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        // Verify that the host activity implements the callback interface
+        try {
+            // Instantiate the NoticeDialogListener so we can send events to the host
+            listener = (DialogMoneyCallback) context;
+        } catch (ClassCastException e) {
+            // The activity doesn't implement the interface, throw exception
+            throw new ClassCastException(context.toString()
+                    + " must implement NoticeDialogListener");
+        }
+    }
 }

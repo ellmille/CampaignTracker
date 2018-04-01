@@ -19,7 +19,7 @@ import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
 import java.util.List;
 
-public class InventoryActivity extends AppCompatActivity implements EditItemFragment.DialogItemCallback{
+public class InventoryActivity extends AppCompatActivity implements EditItemFragment.DialogItemCallback, EditMoneyFragment.DialogMoneyCallback {
     public static final String ARG_ACTION = "add_or_edit";
     public static final String ARG_ID = "item_id";
     private InventoryViewModel viewModel;
@@ -74,5 +74,11 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
     @Override
     public void onSave(Item item) {
         viewModel.updateItem(item);
+    }
+
+    @Override
+    public void onSaveMoney(int amount) {
+
+       // viewModel.updateMoney();
     }
 }
