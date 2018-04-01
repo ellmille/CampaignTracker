@@ -7,8 +7,6 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-import com.elle.campaigntracker.data.model.category.ItemCategory;
-
 /**
  * POJO for an item in inventory
  */
@@ -102,5 +100,9 @@ public class Item {
 
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
+    }
+
+    public enum ItemCategory {
+        WEAPON, APPAREL, HEALING, OTHER
     }
 }

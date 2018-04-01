@@ -3,6 +3,8 @@ package com.elle.campaigntracker.data.model.category;
 import android.arch.persistence.room.TypeConverter;
 import android.util.Log;
 
+import com.elle.campaigntracker.data.model.Item;
+
 /**
  * Converts Alignment to a String and back to enum
  */
@@ -28,19 +30,19 @@ public class Converters {
     }
 
     @TypeConverter
-    public static ItemCategory fromItemString(String category){
-        ItemCategory itemCategory;
+    public static Item.ItemCategory fromItemString(String category){
+        Item.ItemCategory itemCategory;
         try {
-            itemCategory = ItemCategory.valueOf(category);
+            itemCategory = Item.ItemCategory.valueOf(category);
         }catch (IllegalArgumentException e){
             Log.e(TAG, e.toString());
-            itemCategory = ItemCategory.OTHER;
+            itemCategory = Item.ItemCategory.OTHER;
         }
         return itemCategory;
     }
 
     @TypeConverter
-    public static String fromItemCategory(ItemCategory itemCategory){
+    public static String fromItemCategory(Item.ItemCategory itemCategory){
         return itemCategory.toString();
     }
 }
