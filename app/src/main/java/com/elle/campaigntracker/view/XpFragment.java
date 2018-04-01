@@ -15,6 +15,7 @@ import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.FragmentXpBinding;
 import com.elle.campaigntracker.view.callback.HealthCallback;
+import com.elle.campaigntracker.view.callback.SaveCallback;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
 /**
@@ -24,9 +25,6 @@ public class XpFragment extends Fragment {
     public static final String TAG = "XP";
     private PlayableCharacterViewModel viewModel;
     private FragmentXpBinding binding;
-    //todo: will need it's own callback and make it easier to add points
-    //todo: we only want to edit if there was a mistake
-
 
     public XpFragment() {
         // Required empty public constructor
@@ -53,17 +51,10 @@ public class XpFragment extends Fragment {
         return binding.getRoot();
     }
 
-
-    private final HealthCallback xpCallback = new HealthCallback() {
+    private final SaveCallback.XpSave xpCallback = new SaveCallback.XpSave() {
         @Override
-        public void heal(String hp) {
-            int newPoints = viewModel.playableCharacter.get().getCurrentXp() + Integer.parseInt(hp);
-            viewModel.updatePlayableCharacterXp(newPoints);
-        }
-
-        @Override
-        public void takeDamage(String hp) {
-            int newPoints = viewModel.playableCharacter.get().getCurrentXp() - Integer.parseInt(hp);
+        public void onSave(int points) {
+            int newPoints = viewModel.playableCharacter.get().getCurrentXp() - points;
             viewModel.updatePlayableCharacterXp(newPoints);
         }
     };

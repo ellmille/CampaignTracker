@@ -10,7 +10,7 @@
             type="String"/>
         <variable
             name="callback"
-            type="com.elle.campaigntracker.view.callback.HealthCallback"/>
+            type="com.elle.campaigntracker.view.callback.SaveCallback.XpSave"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -49,28 +49,19 @@
             android:ems="10"
             android:layout_margin="@dimen/character_sheet_margin"
             android:inputType="number"
-            android:text="@={points}"
+            app:intToText="@={points}"
             app:layout_constraintTop_toBottomOf="@+id/xp_textView"
             app:layout_constraintStart_toEndOf="@+id/pointsLabel"/>
-
-        <Button
-            android:id="@+id/take_damage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/subtract_xp"
-            app:layout_constraintTop_toBottomOf="@+id/xp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/heal"
-            android:onClick="@{() -> callback.takeDamage(points)}"/>
 
         <Button
             android:id="@+id/heal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/xp"
-            app:layout_constraintStart_toEndOf="@+id/take_damage"
+            app:layout_constraintTop_toTopOf="@+id/xp"
+            app:layout_constraintBottom_toBottomOf="@+id/xp"
+            app:layout_constraintStart_toEndOf="@+id/xp"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/add_xp"
-            android:onClick="@{() -> callback.heal(points)}"/>
+            android:onClick="@{() -> callback.onSave(points)}"/>
     </android.support.constraint.ConstraintLayout>
 </layout>

@@ -23,4 +23,7 @@ public interface SaveCallback {
     interface MoneySave {
         void onSave(int amount);
     }
+    interface XpSave {
+        void onSave(int points);
+    }
 }
