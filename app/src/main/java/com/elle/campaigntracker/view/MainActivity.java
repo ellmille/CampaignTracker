@@ -23,7 +23,7 @@ import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.ActivityMainBinding;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AddItemFragment.DialogItemCallback {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, EditItemFragment.DialogItemCallback {
     ActivityMainBinding binding;
     PlayableCharacterViewModel viewModel;
 

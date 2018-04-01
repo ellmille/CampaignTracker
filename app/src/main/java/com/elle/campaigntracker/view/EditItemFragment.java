@@ -20,7 +20,7 @@ import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AddItemFragment extends DialogFragment {
+public class EditItemFragment extends DialogFragment {
     FragmentAddItemBinding binding;
 
     public interface DialogItemCallback{
@@ -29,7 +29,7 @@ public class AddItemFragment extends DialogFragment {
 
     DialogItemCallback listener;
 
-    public AddItemFragment() {
+    public EditItemFragment() {
         // Required empty public constructor
     }
 

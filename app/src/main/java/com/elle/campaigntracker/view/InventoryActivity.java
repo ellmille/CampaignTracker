@@ -19,7 +19,7 @@ import com.elle.campaigntracker.viewmodel.InventoryViewModel;
 
 import java.util.List;
 
-public class InventoryActivity extends AppCompatActivity implements AddItemFragment.DialogItemCallback{
+public class InventoryActivity extends AppCompatActivity implements EditItemFragment.DialogItemCallback{
     public static final String ARG_ACTION = "add_or_edit";
     public static final String ARG_ID = "item_id";
     private InventoryViewModel viewModel;
@@ -49,7 +49,7 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
     private FabCallback fabCallback = new FabCallback() {
         @Override
         public void onFabClicked() {
-            DialogFragment dialogFragment = new AddItemFragment();
+            DialogFragment dialogFragment = new EditItemFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean(ARG_ACTION, true);
             dialogFragment.setArguments(bundle);
@@ -62,7 +62,7 @@ public class InventoryActivity extends AppCompatActivity implements AddItemFragm
         public void onClick(Item item) {
             viewModel.setItem(item);
             //open fragment
-            DialogFragment dialogFragment = new AddItemFragment();
+            DialogFragment dialogFragment = new EditItemFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean(ARG_ACTION, false);
             bundle.putInt(ARG_ID, item.getId());

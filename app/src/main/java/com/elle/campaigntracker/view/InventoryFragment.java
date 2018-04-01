@@ -60,7 +60,7 @@ public class InventoryFragment extends Fragment{
     private FabCallback fabCallback = new FabCallback() {
         @Override
         public void onFabClicked() {
-            DialogFragment dialogFragment = new AddItemFragment();
+            DialogFragment dialogFragment = new EditItemFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean(ARG_ACTION, true);
             dialogFragment.setArguments(bundle);
@@ -71,7 +71,7 @@ public class InventoryFragment extends Fragment{
     private ClickCallback.ItemClick itemClickCallback = new ClickCallback.ItemClick() {
         @Override
         public void onClick(Item item) {
-            DialogFragment dialogFragment = new AddItemFragment();
+            DialogFragment dialogFragment = new EditItemFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean(ARG_ACTION, false);
             bundle.putInt(ARG_ID, item.getId());
