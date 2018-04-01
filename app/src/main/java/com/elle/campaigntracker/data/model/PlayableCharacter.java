@@ -16,7 +16,6 @@ public class PlayableCharacter {
     private int id;
     private String name, characterClass, characterRace;
     private Alignment alignment;
-    private String background;
     private int level;
     private int maxHp, currentHp;
     private int totalXpToLevel, currentXp;
@@ -33,14 +32,13 @@ public class PlayableCharacter {
         this.alignment = alignment;
     }
 
-    public PlayableCharacter(int id, String name, String characterClass, String characterRace, Alignment alignment, String background, int level, int maxHp, int currentHp,
+    public PlayableCharacter(int id, String name, String characterClass, String characterRace, Alignment alignment, int level, int maxHp, int currentHp,
                              int totalXpToLevel, int currentXp){
         this.id = id;
         this.name = name;
         this.characterClass = characterClass;
         this.characterRace = characterRace;
         this.alignment = alignment;
-        this.background = background;
         this.level = level;
         this.maxHp = maxHp;
         this.currentHp = currentHp;
@@ -78,14 +76,6 @@ public class PlayableCharacter {
 
     public void setAlignment(Alignment alignment) {
         this.alignment = alignment;
-    }
-
-    public String getBackground() {
-        return background;
-    }
-
-    public void setBackground(String background) {
-        this.background = background;
     }
 
     public int getLevel() {

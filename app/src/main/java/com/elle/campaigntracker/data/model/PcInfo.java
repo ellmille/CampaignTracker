@@ -18,6 +18,7 @@ public class PcInfo {
     private int id;
     @ColumnInfo(name = "character_id")
     private int charId;
+    private String background;
     private String traits, ideals, bonds, flaws;
     private int age, height, weight;
     private String eyes, skin, hair;
@@ -133,5 +134,13 @@ public class PcInfo {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
     }
 }
