@@ -14,7 +14,7 @@ import com.elle.campaigntracker.data.model.category.Alignment;
 public class PlayableCharacter {
     @PrimaryKey(autoGenerate = true)
     private int id;
-    private String name, characterClass, characterRace;
+    private String name, characterClass, characterRace, background;
     private Alignment alignment;
     private int level;
     private int maxHp, currentHp;
@@ -33,7 +33,7 @@ public class PlayableCharacter {
     }
 
     public PlayableCharacter(int id, String name, String characterClass, String characterRace, Alignment alignment, int level, int maxHp, int currentHp,
-                             int totalXpToLevel, int currentXp){
+                             int totalXpToLevel, int currentXp, String background){
         this.id = id;
         this.name = name;
         this.characterClass = characterClass;
@@ -44,6 +44,7 @@ public class PlayableCharacter {
         this.currentHp = currentHp;
         this.totalXpToLevel = totalXpToLevel;
         this.currentXp = currentXp;
+        this.background = background;
     }
 
     public int getId() {
@@ -124,5 +125,13 @@ public class PlayableCharacter {
 
     public void setCharacterRace(String characterRace) {
         this.characterRace = characterRace;
+    }
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
     }
 }

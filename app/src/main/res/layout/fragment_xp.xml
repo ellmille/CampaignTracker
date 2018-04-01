@@ -7,7 +7,7 @@
             type="com.elle.campaigntracker.data.model.PlayableCharacter"/>
         <variable
             name="points"
-            type="String"/>
+            type="int"/>
         <variable
             name="callback"
             type="com.elle.campaigntracker.view.callback.SaveCallback.XpSave"/>

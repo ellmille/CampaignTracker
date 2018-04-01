@@ -40,7 +40,7 @@ public class XpFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_xp, container, false);
         binding.setCallback(xpCallback);
-        binding.setPoints("1");
+        binding.setPoints(1);
         viewModel.getObservableCharacter().observe(getActivity(), new Observer<PlayableCharacter>() {
             @Override
             public void onChanged(@Nullable PlayableCharacter playableCharacter) {

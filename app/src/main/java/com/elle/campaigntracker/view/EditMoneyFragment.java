@@ -34,6 +34,7 @@ public class EditMoneyFragment extends DialogFragment {
         // Required empty public constructor
     }
 
+    //todo: setup spinner
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
     }

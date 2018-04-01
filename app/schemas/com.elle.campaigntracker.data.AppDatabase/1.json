@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1ee154b6852586d4e815cf0e83459360",
+    "identityHash": "e810c89b8d75750717fa9d58a9ff43dc",
     "entities": [
       {
         "tableName": "playable_character",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `characterClass` TEXT, `characterRace` TEXT, `alignment` TEXT, `background` TEXT, `level` INTEGER NOT NULL, `maxHp` INTEGER NOT NULL, `currentHp` INTEGER NOT NULL, `totalXpToLevel` INTEGER NOT NULL, `currentXp` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `characterClass` TEXT, `characterRace` TEXT, `background` TEXT, `alignment` TEXT, `level` INTEGER NOT NULL, `maxHp` INTEGER NOT NULL, `currentHp` INTEGER NOT NULL, `totalXpToLevel` INTEGER NOT NULL, `currentXp` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -33,14 +33,14 @@
             "notNull": false
           },
           {
-            "fieldPath": "alignment",
-            "columnName": "alignment",
+            "fieldPath": "background",
+            "columnName": "background",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "background",
-            "columnName": "background",
+            "fieldPath": "alignment",
+            "columnName": "alignment",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -729,7 +729,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1ee154b6852586d4e815cf0e83459360\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e810c89b8d75750717fa9d58a9ff43dc\")"
     ]
   }
 }
