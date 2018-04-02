@@ -48,7 +48,7 @@ public class EditMoneyFragment extends DialogFragment {
         FragmentEditMoneyBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_money, container, false);
         //todo: setup double data binding with spinner
         Spinner spinner = binding.getRoot().findViewById(R.id.type);
-        spinner.setOnItemClickListener(selectedListener);
+        spinner.setOnItemSelectedListener(selectedListener);
         binding.setCallback(moneyCallback);
         isSpending = getArguments().getBoolean(ARG_IS_SPENDING);
         binding.setIsSpending(isSpending);
@@ -80,10 +80,15 @@ public class EditMoneyFragment extends DialogFragment {
         }
     }
 
-    AdapterView.OnItemClickListener selectedListener = new AdapterView.OnItemClickListener() {
+    AdapterView.OnItemSelectedListener selectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             type = parent.getItemAtPosition(position).toString();
+        }
+
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+            type = "Gold";
         }
     };
 }

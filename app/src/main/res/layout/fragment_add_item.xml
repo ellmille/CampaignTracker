@@ -64,7 +64,7 @@
             android:background="@drawable/ic_delete_black"
             android:contentDescription="@string/remove_item"
             android:layout_gravity="end|center_vertical"
-            android:visibility="@{newItem.id > 0 ? View.VISIBLE : View.GONE}"
+
             android:onClick="@{() -> callback.onDelete(newItem)}"/>
 
         <Button

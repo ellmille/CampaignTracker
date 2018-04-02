@@ -23,7 +23,7 @@ import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.ActivityMainBinding;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, EditItemFragment.DialogItemCallback {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ActivityMainBinding binding;
     PlayableCharacterViewModel viewModel;
 
@@ -132,10 +132,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onSave(Item item) {
-        Toast.makeText(this, "make item", Toast.LENGTH_LONG).show();
     }
 }
