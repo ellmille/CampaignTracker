@@ -121,4 +121,64 @@ public class Money {
         }
         return totalCoins * weight;
     }
+
+    public void updateGold(int amount, boolean isSpending){
+        if(isSpending){
+            if(gold > amount){
+                setGold(gold - amount);
+            }else{
+
+            }
+        }else{
+            setGold(gold + amount);
+        }
+    }
+
+    public void updateSilver(int amount, boolean isSpending){
+        if(isSpending){
+            if(silver > amount){
+                setSilver(silver - amount);
+            }else{
+
+            }
+        }else{
+            setSilver(silver + amount);
+        }
+    }
+
+    public void updateCopper(int amount, boolean isSpending){
+        if(isSpending){
+            if(copper > amount){
+                setCopper(copper - amount);
+            }else{
+
+            }
+        }else{
+            setCopper(copper + amount);
+        }
+    }
+
+    public void updateElectrum(int amount, boolean isSpending){
+        if(isSpending){
+            if(electrum > amount){
+                setElectrum(electrum - amount);
+            }else{
+
+            }
+        }else{
+            setElectrum(electrum + amount);
+        }
+    }
+
+    public void updatePlatinum(int amount, boolean isSpending){
+        if(isSpending){
+            if(platinum > amount){
+                setPlatinum(platinum - amount);
+            }else{
+
+            }
+        }else{
+            setPlatinum(platinum + amount);
+        }
+    }
 }

@@ -82,15 +82,19 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
         Money money = viewModel.money.get();
         switch (type){
             case "Gold":
-                
+                money.updateGold(amount, isSpending);
                 break;
             case "Silver":
+                money.updateSilver(amount, isSpending);
                 break;
             case "Copper":
+                money.updateCopper(amount, isSpending);
                 break;
             case "Electrum":
+                money.updateElectrum(amount, isSpending);
                 break;
             case "Platinum":
+                money.updatePlatinum(amount, isSpending);
                 break;
             default:
                 break;
