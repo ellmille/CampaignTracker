@@ -86,6 +86,7 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
     public void onSaveMoney(int amount, String type, boolean isSpending) {
         Money money = viewModel.getObservableMoney().getValue();
         if(money == null){
+            //todo: get char id
             money = new Money(0, 0, 0, 0, 0, 0);
             viewModel.setMoney(money);
         }
