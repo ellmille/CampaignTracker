@@ -204,6 +204,16 @@ public class Repo {
         });
     }
 
+    public void deleteItem(Item item){
+        Executor executor = Executors.newSingleThreadExecutor();
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                database.itemDao().deleteItem(item);
+            }
+        });
+    }
+
     public void updateMoney(Money money){
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {

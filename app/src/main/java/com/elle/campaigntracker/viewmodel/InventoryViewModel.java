@@ -63,6 +63,10 @@ public class InventoryViewModel extends AndroidViewModel {
         repo.updateItem(item);
     }
 
+    public void deleteItem(Item item){
+        repo.deleteItem(item);
+    }
+
     public void updateMoney(Money money){
         repo.updateMoney(money);
     }

@@ -25,6 +25,7 @@ public class EditItemFragment extends DialogFragment {
 
     public interface DialogItemCallback{
         void onSave(Item item);
+        void onDelete(Item item);
     }
 
     DialogItemCallback listener;
@@ -75,7 +76,8 @@ public class EditItemFragment extends DialogFragment {
 
         @Override
         public void onDelete(Item item) {
-            //todo: remove item
+            listener.onDelete(item);
+            dismiss();
         }
     };
 }

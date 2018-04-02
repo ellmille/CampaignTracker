@@ -78,6 +78,11 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
     }
 
     @Override
+    public void onDelete(Item item) {
+        viewModel.deleteItem(item);
+    }
+
+    @Override
     public void onSaveMoney(int amount, String type, boolean isSpending) {
         Money money = viewModel.money.get();
         switch (type){
