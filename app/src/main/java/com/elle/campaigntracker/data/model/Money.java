@@ -127,7 +127,9 @@ public class Money {
             if(gold > amount){
                 setGold(gold - amount);
             }else{
+                if(platinum > 0){
 
+                }
             }
         }else{
             setGold(gold + amount);
