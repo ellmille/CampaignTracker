@@ -51,7 +51,7 @@ public class MoneyFragment extends Fragment {
     }
 
     private void openFragment(boolean isSpending){
-        DialogFragment dialogFragment = new EditItemFragment();
+        DialogFragment dialogFragment = new EditMoneyFragment();
         Bundle bundle = new Bundle();
         bundle.putBoolean(EditMoneyFragment.ARG_IS_SPENDING, isSpending);
         dialogFragment.setArguments(bundle);
