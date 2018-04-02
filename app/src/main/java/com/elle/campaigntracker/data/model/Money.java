@@ -24,6 +24,10 @@ public class Money {
     @Ignore
     private final double weight = 1/3; // 1/3 of an oz.
 
+    //    1 gold = 10 silver, 1 silver = 10 copper, 1 electrum = 5 silver, 1 platinum = 10 gold
+    @Ignore
+    private final int goldSilver = 10, silverCopper = 10, platinumGold = 10, electrumSilver = 5;
+
     @Ignore
     public Money(int charId, int gold, int silver, int copper, int electrum, int platinum){
         this.charId = charId;
@@ -96,23 +100,6 @@ public class Money {
         this.platinum = platinum;
     }
 
-//    1 gold = 10 silver
-    public int convertGoldToSilver(int gold){
-        return gold * 10;
-    }
-    //    1 silver = 10 copper
-    public int convertSilverToCopper(int silver){
-        return silver * 10;
-    }
-    //    1 electrum = 5 silver
-    public int convertElectrumToSilver(int electrum){
-        return electrum * 5;
-    }
-    //    1 platinum = 10 gold
-    public int convertPlatinumToGold(int platinum){
-        return platinum * 10;
-    }
-
     //each coin weighs about 1/3 of an oz. (50 coins = 1 lb)
     public double findWeight(){
         int totalCoins = gold + silver + copper + electrum + platinum;
@@ -124,13 +111,7 @@ public class Money {
 
     public void updateGold(int amount, boolean isSpending){
         if(isSpending){
-            if(gold > amount){
-                setGold(gold - amount);
-            }else{
-                if(platinum > 0){
-
-                }
-            }
+            spendGold(amount);
         }else{
             setGold(gold + amount);
         }
@@ -138,11 +119,7 @@ public class Money {
 
     public void updateSilver(int amount, boolean isSpending){
         if(isSpending){
-            if(silver > amount){
-                setSilver(silver - amount);
-            }else{
-
-            }
+            spendSilver(amount);
         }else{
             setSilver(silver + amount);
         }
@@ -150,11 +127,7 @@ public class Money {
 
     public void updateCopper(int amount, boolean isSpending){
         if(isSpending){
-            if(copper > amount){
-                setCopper(copper - amount);
-            }else{
-
-            }
+            spendCopper(amount);
         }else{
             setCopper(copper + amount);
         }
@@ -162,11 +135,7 @@ public class Money {
 
     public void updateElectrum(int amount, boolean isSpending){
         if(isSpending){
-            if(electrum > amount){
-                setElectrum(electrum - amount);
-            }else{
-
-            }
+            spendElectrum(amount);
         }else{
             setElectrum(electrum + amount);
         }
@@ -174,13 +143,89 @@ public class Money {
 
     public void updatePlatinum(int amount, boolean isSpending){
         if(isSpending){
-            if(platinum > amount){
-                setPlatinum(platinum - amount);
-            }else{
-
-            }
+            spendPlatinum(amount);
         }else{
             setPlatinum(platinum + amount);
         }
+    }
+
+    public void spendGold(int amount){
+        if(gold > amount){
+            setGold(gold - amount);
+            return;
+        }
+
+    }
+
+    public void spendSilver(int amount){
+        if(silver >= amount){
+            setSilver(silver - amount);
+            return;
+        }
+        if(electrum == 0 && platinum == 0 && copper == 0 && gold == 0){
+            return;
+        }
+        if((gold * goldSilver) + (electrum * electrumSilver) + (copper / silverCopper) + (platinum * platinumGold * goldSilver) > amount){
+            while (silver < amount){
+                //convert copper to silver
+                if(copper >= silverCopper){
+                    setSilver(silver + 1);
+                    setCopper(copper - silverCopper);
+                    continue;
+                }
+                //convert gold to silver
+                if(gold > 0){
+                    setSilver(silver + goldSilver);
+                    setGold(gold - 1);
+                    continue;
+                }
+                if(electrum > 0){
+                    setSilver(silver + electrumSilver);
+                    setElectrum(electrum - 1);
+                    continue;
+                }
+                if(platinum > 0){
+                    setGold(gold + platinumGold);
+                    setPlatinum(platinum - 1);
+                }
+            }
+            setSilver(silver - amount);
+        }
+    }
+
+    public void spendCopper(int amount){
+        if(copper > amount){
+            setCopper(copper - amount);
+            return;
+        }
+    }
+
+    public void spendElectrum(int amount){
+        if(electrum > amount){
+            setElectrum(electrum - amount);
+            return;
+        }
+    }
+
+    public boolean spendPlatinum(int amount){
+        if(platinum > amount){
+            setPlatinum(platinum - amount);
+            return true;
+        }
+        if(electrum == 0 && silver == 0 && copper == 0 && gold == 0){
+            return false;
+        }
+        while (amount > 0){
+            //todo: check we have enough before subtracting
+            if(gold > platinumGold){
+                setGold(gold - 10);
+                amount--;
+            }
+            if(silver > platinumGold * goldSilver){
+                setSilver(silver - 100);
+                amount--;
+            }
+        }
+        return true;
     }
 }
