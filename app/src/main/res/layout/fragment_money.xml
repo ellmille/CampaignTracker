@@ -178,7 +178,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="@{() -> callback.onSpend()}"
-            app:srcCompat="@drawable/ic_line_style_black"
+            app:srcCompat="@drawable/ic_remove_black"
             app:layout_constraintTop_toBottomOf="@id/gold"
             app:layout_constraintStart_toStartOf="parent"
             android:focusable="true" />
