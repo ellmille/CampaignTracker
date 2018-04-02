@@ -84,9 +84,10 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
 
     @Override
     public void onSaveMoney(int amount, String type, boolean isSpending) {
-        Money money = viewModel.money.get();
+        Money money = viewModel.getObservableMoney().getValue();
         if(money == null){
-            money = new Money(0, 0, 0, 0, 0, 0, 0);
+            money = new Money(0, 0, 0, 0, 0, 0);
+            viewModel.setMoney(money);
         }
         switch (type){
             case "Gold":
