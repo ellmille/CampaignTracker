@@ -72,5 +72,10 @@ public class EditItemFragment extends DialogFragment {
             listener.onSave(item);
             dismiss();
         }
+
+        @Override
+        public void onDelete(Item item) {
+            //todo: remove item
+        }
     };
 }

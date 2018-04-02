@@ -8,4 +8,5 @@ import com.elle.campaigntracker.data.model.Item;
 
 public interface EditItemCallback {
     void onSave(Item item);
+    void onDelete(Item item);
 }
