@@ -25,9 +25,10 @@ public class EditMoneyFragment extends DialogFragment {
     public static final String TAG = "MONEY";
     public static final String ARG_IS_SPENDING = "SPENDING";
     private String type;
+    private boolean isSpending;
 
     public interface DialogMoneyCallback{
-        void onSaveMoney(int amount, String type);
+        void onSaveMoney(int amount, String type, boolean isSpending);
     }
 
     DialogMoneyCallback listener;
@@ -49,7 +50,8 @@ public class EditMoneyFragment extends DialogFragment {
         Spinner spinner = binding.getRoot().findViewById(R.id.type);
         spinner.setOnItemClickListener(selectedListener);
         binding.setCallback(moneyCallback);
-        binding.setIsSpending(getArguments().getBoolean(ARG_IS_SPENDING));
+        isSpending = getArguments().getBoolean(ARG_IS_SPENDING);
+        binding.setIsSpending(isSpending);
         binding.setAmount(10);
         // Inflate the layout for this fragment
         return binding.getRoot();
@@ -59,7 +61,7 @@ public class EditMoneyFragment extends DialogFragment {
         @Override
         public void onSave(int amount) {
             System.out.println(String.valueOf(amount));
-            listener.onSaveMoney(amount, type);
+            listener.onSaveMoney(amount, type, isSpending);
         }
     };
 

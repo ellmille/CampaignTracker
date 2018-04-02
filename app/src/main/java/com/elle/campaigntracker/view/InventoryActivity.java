@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.databinding.ActivityInventoryBinding;
 import com.elle.campaigntracker.view.adapters.InventoryItemAdapter;
 import com.elle.campaigntracker.view.callback.ClickCallback;
@@ -77,9 +78,11 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
     }
 
     @Override
-    public void onSaveMoney(int amount, String type) {
+    public void onSaveMoney(int amount, String type, boolean isSpending) {
+        Money money = viewModel.money.get();
         switch (type){
             case "Gold":
+                
                 break;
             case "Silver":
                 break;
@@ -92,6 +95,6 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
             default:
                 break;
         }
-       // viewModel.updateMoney();
+        viewModel.updateMoney(money);
     }
 }
