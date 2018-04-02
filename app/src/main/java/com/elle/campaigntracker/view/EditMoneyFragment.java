@@ -9,6 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 
 import com.elle.campaigntracker.R;
@@ -23,9 +24,10 @@ import com.elle.campaigntracker.view.callback.SaveCallback;
 public class EditMoneyFragment extends DialogFragment {
     public static final String TAG = "MONEY";
     public static final String ARG_IS_SPENDING = "SPENDING";
+    private String type;
 
     public interface DialogMoneyCallback{
-        void onSaveMoney(int amount);
+        void onSaveMoney(int amount, String type);
     }
 
     DialogMoneyCallback listener;
@@ -43,6 +45,9 @@ public class EditMoneyFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         FragmentEditMoneyBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_edit_money, container, false);
+        //todo: setup double data binding with spinner
+        Spinner spinner = binding.getRoot().findViewById(R.id.type);
+        spinner.setOnItemClickListener(selectedListener);
         binding.setCallback(moneyCallback);
         binding.setIsSpending(getArguments().getBoolean(ARG_IS_SPENDING));
         binding.setAmount(10);
@@ -54,7 +59,7 @@ public class EditMoneyFragment extends DialogFragment {
         @Override
         public void onSave(int amount) {
             System.out.println(String.valueOf(amount));
-            listener.onSaveMoney(amount);
+            listener.onSaveMoney(amount, type);
         }
     };
 
@@ -72,4 +77,11 @@ public class EditMoneyFragment extends DialogFragment {
                     + " must implement NoticeDialogListener");
         }
     }
+
+    AdapterView.OnItemClickListener selectedListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            type = parent.getItemAtPosition(position).toString();
+        }
+    };
 }

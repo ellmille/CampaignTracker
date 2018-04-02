@@ -77,8 +77,21 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
     }
 
     @Override
-    public void onSaveMoney(int amount) {
-
+    public void onSaveMoney(int amount, String type) {
+        switch (type){
+            case "Gold":
+                break;
+            case "Silver":
+                break;
+            case "Copper":
+                break;
+            case "Electrum":
+                break;
+            case "Platinum":
+                break;
+            default:
+                break;
+        }
        // viewModel.updateMoney();
     }
 }
