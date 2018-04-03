@@ -22,12 +22,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layoutWidth="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_grade_black"
-                    android:visibility="item.isFavorite ? View.VISIBLE : View.GONE"
-                    android:contentDescription="Favorite Star" />
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/ic_grade_black"-->
+                    <!--android:visibility="@{item.isFavorite ? View.VISIBLE : View.GONE}"-->
+                    <!--android:contentDescription="@string/favorite_star" />-->
 
                 <TextView
                     android:layout_width="wrap_content"

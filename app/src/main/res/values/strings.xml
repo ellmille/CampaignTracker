@@ -71,6 +71,7 @@
     <string name="subtract">Subtract</string>
     <string name="add">Add</string>
     <string name="remove_item">Remove Item</string>
+    <string name="favorite_star">Favorite Star</string>
 
     <string-array name="coin_types">
         <item>Gold</item>
