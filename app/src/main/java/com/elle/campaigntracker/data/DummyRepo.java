@@ -14,11 +14,9 @@ import java.util.List;
 
 public class DummyRepo {
     private static PlayableCharacter playableChar;
-    private static PcStats stats;
 
     public DummyRepo(){
         playableChar = createPlayableChar();
-        stats = createPlayableCharStats(playableChar.getId());
     }
 
     private PlayableCharacter createPlayableChar() {
@@ -32,10 +30,37 @@ public class DummyRepo {
         return playableChar;
     }
 
-    private PcStats createPlayableCharStats(int charId) {
+    public static PcStats createPlayableCharStats(int charId) {
         PcStats stats = new PcStats(charId);
+        stats.setArmorClass(17);
+        stats.setInitiative(5);
+        stats.setSpeed(30);
         stats.setProficiencyBonus(2);
-
+        //saving throws
+        stats.setStrength(1);
+        stats.setDexterity(7);
+        stats.setConstitution(2);
+        stats.setIntelligence(5);
+        stats.setWisdom(1);
+        stats.setCharisma(3);
+        //skills
+        stats.setAcrobatics(7);
+        stats.setAnimalHandling(1);
+        stats.setArcana(3);
+        stats.setAthletics(1);
+        stats.setDeception(5);
+        stats.setHistory(3);
+        stats.setInsight(3);
+        stats.setIntimidation(5);
+        stats.setInvestigation(7);
+        stats.setMedicine(1);
+        stats.setNature(3);
+        stats.setPerception(3);
+        stats.setPersuasion(3);
+        stats.setReligion(3);
+        stats.setSleightOfHand(7);
+        stats.setStealth(9);
+        stats.setSurvival(1);
         return stats;
     }
 
@@ -59,8 +84,17 @@ public class DummyRepo {
         returnList.add(item3);
         Item item4 = new Item(charId, "Disguise Kit", 1, "");
         returnList.add(item4);
-        Item item5 = new Item(charId, "Archery Bracer", 1, "Grants proficiency with long bow");
+        Item item5 = new Item(charId, "Bracer of Archer", 1, "Grants proficiency with long bow");
         returnList.add(item5);
+        Item item6 = new Item(charId, "Potion of Healing", 1, "");
+        item6.setCategory(Item.ItemCategory.HEALING);
+        returnList.add(item6);
+        Item item7 = new Item(charId, "Great Potion of Healing", 1, "");
+        item7.setCategory(Item.ItemCategory.HEALING);
+        returnList.add(item7);
+        Item item8 = new Item(charId, "Superior Potions", 2, "");
+        item8.setCategory(Item.ItemCategory.HEALING);
+        returnList.add(item8);
         return returnList;
     }
 
