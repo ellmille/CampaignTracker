@@ -39,6 +39,8 @@ import java.util.concurrent.Executors;
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     private static AppDatabase instance;
+    //todo: remove
+    private static DummyRepo dummyRepo = new DummyRepo();
 
     @VisibleForTesting
     public static final String DATABASE_NAME = "campaign_db";
@@ -82,7 +84,6 @@ public abstract class AppDatabase extends RoomDatabase {
                             // Generate the data for pre-population
                             AppDatabase database = AppDatabase.getInstance(appContext, executor);
                             //todo: remove
-                            DummyRepo dummyRepo = new DummyRepo();
                             PlayableCharacter playerCharacter = dummyRepo.getPlayableChar();
 
                             insertData(database, playerCharacter);
@@ -110,7 +111,8 @@ public abstract class AppDatabase extends RoomDatabase {
         database.runInTransaction(() -> {
             long id = database.playerCharacterDao().insertPlayerCharacter(playerCharacter);
             int charId = (int) id;
-            database.moneyDao().insertMoney(new Money(charId, 0, 0, 0, 0, 0));
+            database.moneyDao().insertMoney(new Money(charId, 10, 5, 0, 0, 0));
+            database.itemDao().insertItemList(DummyRepo.getItemList(charId));
         });
     }
 

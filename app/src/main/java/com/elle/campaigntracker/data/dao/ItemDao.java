@@ -29,6 +29,9 @@ public interface ItemDao {
     @Insert
     void insertItem(Item item);
 
+    @Insert
+    void insertItemList(List<Item> itemList);
+
     @Update
     void updateItem(Item item);
 

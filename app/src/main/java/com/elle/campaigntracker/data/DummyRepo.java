@@ -1,8 +1,12 @@
 package com.elle.campaigntracker.data;
 
+import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.category.Alignment;
 import com.elle.campaigntracker.data.model.PcStats;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * PlayerCharacter sheet pre-sqlite setup
@@ -37,6 +41,27 @@ public class DummyRepo {
 
     public PlayableCharacter getPlayableChar(){
         return playableChar;
+    }
+
+    public static List<Item> getItemList(int charId){
+        List<Item> returnList = new ArrayList<>();
+        Item item = new Item(charId, "Immovable Rod", 1, "Totally dope rod with a button" +
+                " that'll stick to any surface Mojlnir style");
+        item.setFavorite(true);
+        returnList.add(item);
+        Item item1 = new Item(charId, "Potions of Heroism", 6, "Gain a temporary 10 hp," +
+                " Add a D4 to any attack roll or saving throw");
+        item1.setCategory(Item.ItemCategory.HEALING);
+        returnList.add(item1);
+        Item item2 = new Item(charId, "Poisoners tools", 1, "");
+        returnList.add(item2);
+        Item item3 = new Item(charId, "Thieves tools", 1, "");
+        returnList.add(item3);
+        Item item4 = new Item(charId, "Disguise Kit", 1, "");
+        returnList.add(item4);
+        Item item5 = new Item(charId, "Archery Bracer", 1, "Grants proficiency with long bow");
+        returnList.add(item5);
+        return returnList;
     }
 
 //        Attack attack1 = new Attack("Short Sword, main hand", 8, 1, "D6", 6);
