@@ -1,6 +1,7 @@
 package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.data.model.PcInfo;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.category.Alignment;
 import com.elle.campaigntracker.data.model.PcStats;
@@ -62,6 +63,16 @@ public class DummyRepo {
         stats.setStealth(9);
         stats.setSurvival(1);
         return stats;
+    }
+
+    public static PcInfo getPcInfo(int charId){
+        PcInfo info = new PcInfo();
+        info.setCharId(charId);
+        info.setAge(20);
+        info.setWeight(140);
+        info.setEyes("Green");
+        info.setHair("Blonde");
+        return info;
     }
 
     public PlayableCharacter getPlayableChar(){

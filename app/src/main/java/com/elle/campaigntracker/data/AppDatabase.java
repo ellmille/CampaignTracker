@@ -113,6 +113,8 @@ public abstract class AppDatabase extends RoomDatabase {
             int charId = (int) id;
             database.moneyDao().insertMoney(new Money(charId, 1849, 5, 0, 0, 0));
             database.itemDao().insertItemList(DummyRepo.getItemList(charId));
+            database.pcInfoDao().insertPcInfo(DummyRepo.getPcInfo(charId));
+            database.playableCharacterStatsDao().insertStats(DummyRepo.createPlayableCharStats(charId));
         });
     }
 
