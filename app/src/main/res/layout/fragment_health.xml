@@ -37,13 +37,13 @@
             android:textSize="@dimen/detail_text_size"
             android:labelFor="@+id/points"
             android:layout_margin="@dimen/character_sheet_margin"
-            app:layout_constraintTop_toTopOf="@+id/points"
-            app:layout_constraintBottom_toBottomOf="@+id/points"
+            app:layout_constraintTop_toTopOf="@+id/hp"
+            app:layout_constraintBottom_toBottomOf="@+id/hp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/points"/>
+            app:layout_constraintEnd_toStartOf="@+id/hp"/>
 
         <EditText
-            android:id="@+id/points"
+            android:id="@+id/hp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/take_damage"
-            app:layout_constraintTop_toBottomOf="@+id/points"
+            app:layout_constraintTop_toBottomOf="@+id/hp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/heal"
             android:onClick="@{() -> callback.takeDamage(points)}"/>
@@ -69,7 +69,7 @@
             android:id="@+id/heal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/points"
+            app:layout_constraintTop_toBottomOf="@+id/hp"
             app:layout_constraintStart_toEndOf="@+id/take_damage"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/heal"
