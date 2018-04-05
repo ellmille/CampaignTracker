@@ -45,4 +45,21 @@ public class Converters {
     public static String fromItemCategory(Item.ItemCategory itemCategory){
         return itemCategory.toString();
     }
+
+    @TypeConverter
+    public static String fromDieEnum(Dice dice){
+        return dice.toString();
+    }
+
+    @TypeConverter
+    public static Dice fromDieString(String die){
+        Dice dice;
+        try {
+            dice = Dice.valueOf(die);
+        }catch (IllegalArgumentException e) {
+            Log.e(TAG, e.toString());
+            dice = Dice.D20;
+        }
+        return dice;
+    }
 }

@@ -81,7 +81,7 @@ public class DummyRepo {
 
     public static List<Item> getItemList(int charId){
         List<Item> returnList = new ArrayList<>();
-        Item item = new Item(charId, "Immovable Rod", 1, "Totally dope rod with a button" +
+        Item item = new Item(charId, "Rodney (Immovable Rod)", 1, "Totally dope rod with a button" +
                 " that'll stick to any surface Mojlnir style");
         item.setFavorite(true);
         returnList.add(item);
