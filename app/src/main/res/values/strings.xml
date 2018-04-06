@@ -44,12 +44,12 @@
     <string name="initiative">Initiative</string>
     <string name="speed">Speed</string>
     <string name="proficiency_bonus">Proficiency Bonus</string>
-    <string name="strength">Strength</string>
-    <string name="dexterity">Dexterity</string>
-    <string name="constitution">Constitution</string>
-    <string name="intelligence">Intelligence</string>
-    <string name="wisdom">Wisdom</string>
-    <string name="charisma">Charisma</string>
+    <string name="strength">STRENGTH</string>
+    <string name="dexterity">DEXTERITY</string>
+    <string name="constitution">CONSTITUTION</string>
+    <string name="intelligence">INTELLIGENCE</string>
+    <string name="wisdom">WISDOM</string>
+    <string name="charisma">CHARISMA</string>
     <string name="acrobatics">Acrobatics</string>
     <string name="animal_handling">Animal Handling</string>
 

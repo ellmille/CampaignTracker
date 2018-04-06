@@ -1,13 +1,170 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.elle.campaigntracker.view.character.AbilitiesFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="stats"
+            type="com.elle.campaigntracker.data.model.PcStats"/>
+    </data>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context="com.elle.campaigntracker.view.character.AbilitiesFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/strength_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strength"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/strength"
+            app:layout_constraintEnd_toEndOf="@+id/strength"
+            app:layout_constraintStart_toStartOf="@+id/strength"
+            app:layout_constraintTop_toTopOf="@+id/strength_view" />
+
+        <TextView
+            android:id="@+id/strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.strength, default=4}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/strength_mod"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/strength_label" />
+
+        <TextView
+            android:id="@+id/strength_mod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:text="@{stats.strength, default=2}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/strength"
+            app:layout_constraintStart_toStartOf="@+id/strength"
+            app:layout_constraintTop_toBottomOf="@+id/strength"
+            app:layout_constraintBottom_toBottomOf="@+id/row_one"/>
+
+        <View
+            android:id="@+id/strength_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="@+id/row_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/dex_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dexterity"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/dex"
+            app:layout_constraintEnd_toEndOf="@+id/dex"
+            app:layout_constraintStart_toStartOf="@+id/dex"
+            app:layout_constraintTop_toTopOf="@+id/dex_view"/>
+
+        <TextView
+            android:id="@+id/dex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.dexterity, default=8}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/dex_mod"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dex_label" />
+
+        <TextView
+            android:id="@+id/dex_mod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:text="@{stats.dexterity, default=2}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/dex"
+            app:layout_constraintStart_toStartOf="@+id/dex"
+            app:layout_constraintTop_toBottomOf="@+id/dex"
+            app:layout_constraintBottom_toBottomOf="@+id/row_two"/>
+
+        <View
+            android:id="@+id/dex_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="@+id/row_two"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/row_one" />
+
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="@+id/row_three"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/row_two" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="@+id/row_four"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/row_three" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/row_four" />
+
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".4" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".6" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_four"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".8" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
