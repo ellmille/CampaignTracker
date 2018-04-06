@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "e810c89b8d75750717fa9d58a9ff43dc",
+    "identityHash": "e4dd9d030e59d05138de3317322eb2f5",
     "entities": [
       {
         "tableName": "playable_character",
@@ -639,7 +639,7 @@
       },
       {
         "tableName": "Attack",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `name` TEXT, `attackBonus` INTEGER NOT NULL, `rollCount` INTEGER NOT NULL, `rollType` TEXT, `damage` INTEGER NOT NULL, `damageType` TEXT, `range` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `character_id` INTEGER NOT NULL, `name` TEXT, `attackBonus` INTEGER NOT NULL, `rollCount` INTEGER NOT NULL, `dice` TEXT, `damage` INTEGER NOT NULL, `damageType` TEXT, `range` INTEGER NOT NULL, FOREIGN KEY(`character_id`) REFERENCES `playable_character`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -672,8 +672,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "rollType",
-            "columnName": "rollType",
+            "fieldPath": "dice",
+            "columnName": "dice",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -729,7 +729,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e810c89b8d75750717fa9d58a9ff43dc\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"e4dd9d030e59d05138de3317322eb2f5\")"
     ]
   }
 }
