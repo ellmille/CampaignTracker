@@ -22,6 +22,7 @@ public class Npc {
     private int charId;
     private String name, characterClass;
     private Alignment alignment;
+    private boolean inParty;
 
     public int getId() {
         return id;
@@ -61,5 +62,13 @@ public class Npc {
 
     public void setCharacterClass(String characterClass) {
         this.characterClass = characterClass;
+    }
+
+    public boolean isInParty() {
+        return inParty;
+    }
+
+    public void setInParty(boolean inParty) {
+        this.inParty = inParty;
     }
 }

@@ -6,6 +6,8 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.elle.campaigntracker.data.model.category.Dice;
+
 /**
  * Represents an attack
  */
@@ -22,16 +24,16 @@ public class Attack {
     private int attackBonus;
     //damage
     private int rollCount;
-    private String rollType;
+    private Dice dice;
     private int damage;
     private String damageType;
     private int range;
 
-    public Attack(String name, int attackBonus, int rollCount, String rollType, int damage){
+    public Attack(String name, int attackBonus, int rollCount, Dice dice, int damage){
         this.name = name;
         this.attackBonus = attackBonus;
         this.rollCount = rollCount;
-        this.rollType = rollType;
+        this.dice = dice;
         this.damage = damage;
     }
 
@@ -59,12 +61,12 @@ public class Attack {
         this.rollCount = rollCount;
     }
 
-    public String getRollType() {
-        return rollType;
+    public Dice getDice(){
+        return dice;
     }
 
-    public void setRollType(String rollType) {
-        this.rollType = rollType;
+    public void setDice(Dice dice){
+        this.dice = dice;
     }
 
     public int getDamage() {
