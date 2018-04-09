@@ -1,13 +1,177 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.elle.campaigntracker.view.character.SkillsFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="stats"
+            type="com.elle.campaigntracker.data.model.PcStats"/>
+    </data>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.constraint.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context="com.elle.campaigntracker.view.character.SkillsFragment">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/inspiration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.intelligence, default=1}"
+            android:background="@drawable/border"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/insp_label"
+            app:layout_constraintBottom_toBottomOf="@+id/row_one"/>
+
+        <TextView
+            android:id="@+id/insp_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:text="@string/inspiration"
+            app:layout_constraintStart_toEndOf="@+id/inspiration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/inspiration"
+            app:layout_constraintBottom_toBottomOf="@+id/inspiration"/>
+
+        <TextView
+            android:id="@+id/prof_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            android:text="@{stats.proficiencyBonus, default=3}"
+            app:layout_constraintTop_toTopOf="@+id/row_one"
+            app:layout_constraintBottom_toBottomOf="@+id/row_two"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/prof_label"/>
+
+        <TextView
+            android:id="@+id/prof_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proficiency_bonus"
+            android:background="@drawable/border"
+            app:layout_constraintStart_toEndOf="@+id/prof_bonus"
+            app:layout_constraintTop_toTopOf="@+id/prof_bonus"
+            app:layout_constraintBottom_toBottomOf="@+id/prof_bonus"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/throws_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/row_two"
+            app:layout_constraintBottom_toBottomOf="@+id/row_three"/>
+
+        <RadioButton
+            android:id="@+id/strength_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/throws_view"
+            app:layout_constraintTop_toTopOf="@+id/throws_view"
+            app:layout_constraintBottom_toTopOf="@+id/dex_bonus"/>
+
+        <RadioButton
+            android:id="@+id/dex_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/throws_view"
+            app:layout_constraintTop_toBottomOf="@+id/strength_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/cons_bonus"/>
+
+        <RadioButton
+            android:id="@+id/cons_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/throws_view"
+            app:layout_constraintTop_toBottomOf="@+id/dex_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/inte_bonus"/>
+
+        <RadioButton
+            android:id="@+id/inte_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/throws_view"
+            app:layout_constraintTop_toBottomOf="@+id/cons_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/wisdom_bonus"/>
+
+        <RadioButton
+            android:id="@+id/wisdom_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/throws_view"
+            app:layout_constraintTop_toBottomOf="@+id/inte_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/charisma_bonus"/>
+
+        <RadioButton
+            android:id="@+id/charisma_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/throws_view"
+            app:layout_constraintTop_toBottomOf="@+id/wisdom_bonus"
+            app:layout_constraintBottom_toBottomOf="@+id/throws_view"/>
+
+        <View
+            android:id="@+id/skills_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/row_three"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <RadioButton
+            android:id="@+id/acro_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/skills_view"
+            app:layout_constraintBottom_toTopOf="@+id/animal_bonus" />
+
+        <RadioButton
+            android:id="@+id/animal_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/acro_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/arcana_bonus" />
+
+        <RadioButton
+            android:id="@+id/arcana_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/animal_bonus"
+
+            />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".1" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".2" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".4" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
