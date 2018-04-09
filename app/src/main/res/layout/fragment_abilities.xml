@@ -106,8 +106,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/row_one" />
 
+        <TextView
+            android:id="@+id/con_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/constitution"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/con"
+            app:layout_constraintEnd_toEndOf="@+id/con"
+            app:layout_constraintStart_toStartOf="@+id/con"
+            app:layout_constraintTop_toTopOf="@+id/cons_view"/>
+
+        <TextView
+            android:id="@+id/con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.constitution, default=8}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/con_mod"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/con_label" />
+
+        <TextView
+            android:id="@+id/con_mod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:text="@{stats.constitution, default=2}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/con"
+            app:layout_constraintStart_toStartOf="@+id/con"
+            app:layout_constraintTop_toBottomOf="@+id/con"
+            app:layout_constraintBottom_toBottomOf="@+id/row_three"/>
 
         <View
+            android:id="@+id/cons_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/character_sheet_margin"
@@ -117,7 +153,44 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/row_two" />
 
+        <TextView
+            android:id="@+id/int_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/intelligence"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/intel"
+            app:layout_constraintEnd_toEndOf="@+id/intel"
+            app:layout_constraintStart_toStartOf="@+id/intel"
+            app:layout_constraintTop_toTopOf="@+id/int_view"/>
+
+        <TextView
+            android:id="@+id/intel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.intelligence, default=8}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/int_mod"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/int_label" />
+
+        <TextView
+            android:id="@+id/int_mod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:text="@{stats.intelligence, default=2}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/intel"
+            app:layout_constraintStart_toStartOf="@+id/intel"
+            app:layout_constraintTop_toBottomOf="@+id/intel"
+            app:layout_constraintBottom_toBottomOf="@+id/row_four"/>
+
         <View
+            android:id="@+id/int_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/character_sheet_margin"
@@ -127,7 +200,91 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/row_three" />
 
+        <TextView
+            android:id="@+id/wisdom_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wisdom"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/wisdom"
+            app:layout_constraintEnd_toEndOf="@+id/wisdom"
+            app:layout_constraintStart_toStartOf="@+id/wisdom"
+            app:layout_constraintTop_toTopOf="@+id/wisdom_view"/>
+
+        <TextView
+            android:id="@+id/wisdom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.wisdom, default=8}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/wisdom_mod"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wisdom_label" />
+
+        <TextView
+            android:id="@+id/wisdom_mod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:text="@{stats.wisdom, default=2}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/wisdom"
+            app:layout_constraintStart_toStartOf="@+id/wisdom"
+            app:layout_constraintTop_toBottomOf="@+id/wisdom"
+            app:layout_constraintBottom_toBottomOf="@+id/row_five"/>
+
         <View
+            android:id="@+id/wisdom_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/character_sheet_margin"
+            android:background="@drawable/border"
+            app:layout_constraintBottom_toBottomOf="@+id/row_five"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/row_four" />
+
+        <TextView
+            android:id="@+id/charisma_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/charisma"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/charisma"
+            app:layout_constraintEnd_toEndOf="@+id/charisma"
+            app:layout_constraintStart_toStartOf="@+id/charisma"
+            app:layout_constraintTop_toTopOf="@+id/charisma_view"/>
+
+        <TextView
+            android:id="@+id/charisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.charisma, default=8}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintBottom_toTopOf="@+id/charisma_mod"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/charisma_label" />
+
+        <TextView
+            android:id="@+id/charisma_mod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval"
+            android:paddingEnd="30dp"
+            android:paddingStart="30dp"
+            android:text="@{stats.charisma, default=2}"
+            android:textSize="@dimen/detail_text_size"
+            app:layout_constraintEnd_toEndOf="@+id/charisma"
+            app:layout_constraintStart_toStartOf="@+id/charisma"
+            app:layout_constraintTop_toBottomOf="@+id/charisma"
+            app:layout_constraintBottom_toBottomOf="@+id/row_five"/>
+
+        <View
+            android:id="@+id/charisma_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_margin="@dimen/character_sheet_margin"
@@ -135,7 +292,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/row_four" />
+            app:layout_constraintTop_toTopOf="@+id/row_five" />
 
 
         <android.support.constraint.Guideline
@@ -143,28 +300,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".2" />
+            app:layout_constraintGuide_percent=".16" />
 
         <android.support.constraint.Guideline
             android:id="@+id/row_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".4" />
+            app:layout_constraintGuide_percent=".33" />
 
         <android.support.constraint.Guideline
             android:id="@+id/row_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".6" />
+            app:layout_constraintGuide_percent=".51" />
 
         <android.support.constraint.Guideline
             android:id="@+id/row_four"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".8" />
+            app:layout_constraintGuide_percent=".68" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/row_five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".84" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
