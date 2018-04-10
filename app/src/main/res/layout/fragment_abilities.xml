@@ -27,21 +27,21 @@
             android:id="@+id/strength"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{stats.strength, default=4}"
+            android:text="@{stats.getModifier(stats.strength), default=1}"
             android:textSize="@dimen/detail_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/strength_mod"
+            app:layout_constraintBottom_toTopOf="@+id/strength_score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/strength_label" />
 
         <TextView
-            android:id="@+id/strength_mod"
+            android:id="@+id/strength_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/oval"
             android:paddingEnd="30dp"
             android:paddingStart="30dp"
-            android:text="@{stats.strength, default=2}"
+            android:text="@{stats.strength, default=13}"
             android:textSize="@dimen/detail_text_size"
             app:layout_constraintEnd_toEndOf="@+id/strength"
             app:layout_constraintStart_toStartOf="@+id/strength"
@@ -74,21 +74,21 @@
             android:id="@+id/dex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{stats.dexterity, default=8}"
+            android:text="@{stats.getModifier(stats.dexterity), default=5}"
             android:textSize="@dimen/detail_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/dex_mod"
+            app:layout_constraintBottom_toTopOf="@+id/dex_score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dex_label" />
 
         <TextView
-            android:id="@+id/dex_mod"
+            android:id="@+id/dex_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/oval"
             android:paddingEnd="30dp"
             android:paddingStart="30dp"
-            android:text="@{stats.dexterity, default=2}"
+            android:text="@{stats.dexterity, default=20}"
             android:textSize="@dimen/detail_text_size"
             app:layout_constraintEnd_toEndOf="@+id/dex"
             app:layout_constraintStart_toStartOf="@+id/dex"
@@ -121,15 +121,15 @@
             android:id="@+id/con"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{stats.constitution, default=8}"
+            android:text="@{stats.getModifier(stats.constitution), default=8}"
             android:textSize="@dimen/detail_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/con_mod"
+            app:layout_constraintBottom_toTopOf="@+id/con_score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/con_label" />
 
         <TextView
-            android:id="@+id/con_mod"
+            android:id="@+id/con_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/oval"
@@ -168,15 +168,15 @@
             android:id="@+id/intel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{stats.intelligence, default=8}"
+            android:text="@{stats.getModifier(stats.intelligence), default=8}"
             android:textSize="@dimen/detail_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/int_mod"
+            app:layout_constraintBottom_toTopOf="@+id/int_score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/int_label" />
 
         <TextView
-            android:id="@+id/int_mod"
+            android:id="@+id/int_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/oval"
@@ -215,15 +215,15 @@
             android:id="@+id/wisdom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{stats.wisdom, default=8}"
+            android:text="@{stats.getModifier(stats.wisdom), default=8}"
             android:textSize="@dimen/detail_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/wisdom_mod"
+            app:layout_constraintBottom_toTopOf="@+id/wisdom_score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/wisdom_label" />
 
         <TextView
-            android:id="@+id/wisdom_mod"
+            android:id="@+id/wisdom_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/oval"
@@ -262,15 +262,15 @@
             android:id="@+id/charisma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{stats.charisma, default=8}"
+            android:text="@{stats.getModifier(stats.charisma), default=8}"
             android:textSize="@dimen/detail_text_size"
-            app:layout_constraintBottom_toTopOf="@+id/charisma_mod"
+            app:layout_constraintBottom_toTopOf="@+id/charisma_score"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/charisma_label" />
 
         <TextView
-            android:id="@+id/charisma_mod"
+            android:id="@+id/charisma_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/oval"
@@ -293,7 +293,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/row_five" />
-
 
         <android.support.constraint.Guideline
             android:id="@+id/row_one"

@@ -316,7 +316,7 @@ public class PcStats {
         this.speed = speed;
     }
 
-    public float getModifier(int score){
-        return Math.round((score - 10) / 2);
+    public String getModifier(int score){
+        return "+"+String.valueOf(Math.round((score - 10) / 2));
     }
 }
