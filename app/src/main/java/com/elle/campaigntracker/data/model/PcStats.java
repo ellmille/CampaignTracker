@@ -20,9 +20,14 @@ public class PcStats {
     @ColumnInfo(name = "character_id")
     private int charId;
     private int armorClass, initiative, speed;
-//todo: what stats get the bonus for saves?
-    private int proficiencyBonus, strength, dexterity, constitution;
+    private int proficiencyBonus;
+
+    private int strength, dexterity, constitution;
     private int intelligence, wisdom, charisma;
+    //todo: signed
+    private int strengthMod, dexMod, constitutionMod;
+    private int intelligenceMod, wisdomMod, charismaMod;
+
     private int acrobatics, animalHandling, arcana, athletics;
     private int deception, history, insight, intimidation, investigation;
     private int medicine, nature, perception, performance, persuasion;
@@ -38,10 +43,12 @@ public class PcStats {
         this.charId = charId;
     }
 
-    public PcStats(int id, int charId, int armorClass, int initiative, int speed, int proficiencyBonus, int strength, int dexterity, int constitution, int intelligence,
-                   int wisdom, int charisma, int acrobatics, int animalHandling, int arcana, int athletics, int deception, int history, int insight,
-                   int intimidation, int investigation, int medicine, int nature, int perception, int performance, int persuasion, int religion,
-                   int sleightOfHand, int stealth, int survival){
+    public PcStats(int id, int charId, int armorClass, int initiative, int speed, int proficiencyBonus, int strength,
+                   int strengthMod, int dexMod, int constitutionMod, int intelligenceMod, int wisdomMod,
+                   int charismaMod, int dexterity, int constitution, int intelligence,
+                   int wisdom, int charisma, int acrobatics, int animalHandling, int arcana, int athletics, int deception,
+                   int history, int insight, int intimidation, int investigation, int medicine, int nature, int perception,
+                   int performance, int persuasion, int religion, int sleightOfHand, int stealth, int survival){
         this.id = id;
         this.charId = charId;
         this.armorClass = armorClass;
@@ -54,6 +61,13 @@ public class PcStats {
         this.intelligence = intelligence;
         this.wisdom = wisdom;
         this.charisma = charisma;
+        this.strengthMod = strengthMod;
+        this.dexMod = dexMod;
+        this.constitutionMod = constitutionMod;
+        this.intelligenceMod = intelligenceMod;
+        this.wisdomMod = wisdomMod;
+        this.charismaMod = charismaMod;
+
         this.acrobatics = acrobatics;
         this.animalHandling = animalHandling;
         this.arcana = arcana;
@@ -312,5 +326,53 @@ public class PcStats {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public int getStrengthMod() {
+        return strengthMod;
+    }
+
+    public void setStrengthMod(int strengthMod) {
+        this.strengthMod = strengthMod;
+    }
+
+    public int getDexMod() {
+        return dexMod;
+    }
+
+    public void setDexMod(int dexMod) {
+        this.dexMod = dexMod;
+    }
+
+    public int getConstitutionMod() {
+        return constitutionMod;
+    }
+
+    public void setConstitutionMod(int constitutionMod) {
+        this.constitutionMod = constitutionMod;
+    }
+
+    public int getIntelligenceMod() {
+        return intelligenceMod;
+    }
+
+    public void setIntelligenceMod(int intelligenceMod) {
+        this.intelligenceMod = intelligenceMod;
+    }
+
+    public int getWisdomMod() {
+        return wisdomMod;
+    }
+
+    public void setWisdomMod(int wisdomMod) {
+        this.wisdomMod = wisdomMod;
+    }
+
+    public int getCharismaMod() {
+        return charismaMod;
+    }
+
+    public void setCharismaMod(int charismaMod) {
+        this.charismaMod = charismaMod;
     }
 }

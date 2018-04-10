@@ -8,6 +8,10 @@ import com.elle.campaigntracker.data.model.category.RoleClass;
 
 public class Rogue extends RoleClass {
     private Archetype archetype;
+    private boolean hasDexProf, hasIntProf;
+    private boolean hasAcroProf, hasAthleticsProf, hasDeceptionProf, hasInsightProf
+            , hasIntimidationProf, hasInvetProf, hasPerfceptionProf, hasPersuasionProf
+            , hasSleightProf, hasStealthProf;
 
     public Rogue() {
         super("Rogue", Role.ROGUE);
