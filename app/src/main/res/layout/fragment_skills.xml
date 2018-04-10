@@ -73,48 +73,156 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/throws_view"
-            app:layout_constraintTop_toTopOf="@+id/throws_view"
-            app:layout_constraintBottom_toTopOf="@+id/dex_bonus"/>
+            app:layout_constraintTop_toTopOf="@+id/strength"
+            app:layout_constraintBottom_toBottomOf="@+id/strength"/>
+
+        <TextView
+            android:id="@+id/strength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.strength, default=2}"
+            app:layout_constraintStart_toEndOf="@+id/strength_bonus"
+            app:layout_constraintTop_toTopOf="@+id/throws_view"/>
+
+        <TextView
+            android:id="@+id/strength_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/strength"
+            app:layout_constraintStart_toEndOf="@+id/strength"
+            app:layout_constraintEnd_toEndOf="@+id/throws_view"
+            app:layout_constraintTop_toTopOf="@+id/strength"
+            app:layout_constraintBottom_toBottomOf="@+id/strength"/>
 
         <RadioButton
             android:id="@+id/dex_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/throws_view"
-            app:layout_constraintTop_toBottomOf="@+id/strength_bonus"
-            app:layout_constraintBottom_toTopOf="@+id/cons_bonus"/>
+            app:layout_constraintTop_toTopOf="@+id/dex"
+            app:layout_constraintBottom_toBottomOf="@+id/dex"/>
+
+        <TextView
+            android:id="@+id/dex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.dexterity, default=2}"
+            app:layout_constraintStart_toEndOf="@+id/strength_bonus"
+            app:layout_constraintTop_toBottomOf="@+id/strength"/>
+
+        <TextView
+            android:id="@+id/dex_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dexterity"
+            app:layout_constraintStart_toEndOf="@+id/dex"
+            app:layout_constraintEnd_toEndOf="@+id/throws_view"
+            app:layout_constraintTop_toTopOf="@+id/dex"
+            app:layout_constraintBottom_toBottomOf="@+id/dex"/>
 
         <RadioButton
             android:id="@+id/cons_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/throws_view"
-            app:layout_constraintTop_toBottomOf="@+id/dex_bonus"
-            app:layout_constraintBottom_toTopOf="@+id/inte_bonus"/>
+            app:layout_constraintTop_toTopOf="@+id/con"
+            app:layout_constraintBottom_toBottomOf="@+id/con"/>
+
+        <TextView
+            android:id="@+id/con"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.constitution, default=2}"
+            app:layout_constraintStart_toEndOf="@+id/cons_bonus"
+            app:layout_constraintTop_toBottomOf="@+id/dex"/>
+
+        <TextView
+            android:id="@+id/con_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/constitution"
+            app:layout_constraintStart_toEndOf="@+id/con"
+            app:layout_constraintEnd_toEndOf="@+id/throws_view"
+            app:layout_constraintTop_toTopOf="@+id/con"
+            app:layout_constraintBottom_toBottomOf="@+id/con"/>
 
         <RadioButton
-            android:id="@+id/inte_bonus"
+            android:id="@+id/intelligence_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/throws_view"
-            app:layout_constraintTop_toBottomOf="@+id/cons_bonus"
-            app:layout_constraintBottom_toTopOf="@+id/wisdom_bonus"/>
+            app:layout_constraintTop_toTopOf="@+id/intelligence"
+            app:layout_constraintBottom_toBottomOf="@+id/intelligence"/>
+
+        <TextView
+            android:id="@+id/intelligence"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.intelligence, default=2}"
+            app:layout_constraintStart_toEndOf="@+id/intelligence_bonus"
+            app:layout_constraintTop_toBottomOf="@+id/con"/>
+
+        <TextView
+            android:id="@+id/intelligence_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/intelligence"
+            app:layout_constraintStart_toEndOf="@+id/intelligence"
+            app:layout_constraintEnd_toEndOf="@+id/throws_view"
+            app:layout_constraintTop_toTopOf="@+id/intelligence"
+            app:layout_constraintBottom_toBottomOf="@+id/intelligence"/>
 
         <RadioButton
             android:id="@+id/wisdom_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/throws_view"
-            app:layout_constraintTop_toBottomOf="@+id/inte_bonus"
-            app:layout_constraintBottom_toTopOf="@+id/charisma_bonus"/>
+            app:layout_constraintTop_toTopOf="@+id/wisdom"
+            app:layout_constraintBottom_toBottomOf="@+id/wisdom"/>
+
+        <TextView
+            android:id="@+id/wisdom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.wisdom, default=2}"
+            app:layout_constraintStart_toEndOf="@+id/wisdom_bonus"
+            app:layout_constraintTop_toBottomOf="@+id/intelligence"/>
+
+        <TextView
+            android:id="@+id/wisdom_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wisdom"
+            app:layout_constraintStart_toEndOf="@+id/wisdom"
+            app:layout_constraintEnd_toEndOf="@+id/throws_view"
+            app:layout_constraintTop_toTopOf="@+id/wisdom"
+            app:layout_constraintBottom_toBottomOf="@+id/wisdom"/>
 
         <RadioButton
             android:id="@+id/charisma_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/throws_view"
-            app:layout_constraintTop_toBottomOf="@+id/wisdom_bonus"
-            app:layout_constraintBottom_toBottomOf="@+id/throws_view"/>
+            app:layout_constraintTop_toTopOf="@+id/charisma"
+            app:layout_constraintBottom_toBottomOf="@+id/charisma"/>
+
+        <TextView
+            android:id="@+id/charisma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.charisma, default=2}"
+            app:layout_constraintStart_toEndOf="@+id/charisma_bonus"
+            app:layout_constraintTop_toBottomOf="@+id/wisdom"/>
+
+        <TextView
+            android:id="@+id/charisma_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/charisma"
+            app:layout_constraintStart_toEndOf="@+id/charisma"
+            app:layout_constraintEnd_toEndOf="@+id/throws_view"
+            app:layout_constraintTop_toTopOf="@+id/charisma"
+            app:layout_constraintBottom_toBottomOf="@+id/charisma"/>
 
         <View
             android:id="@+id/skills_view"
@@ -149,8 +257,139 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
             app:layout_constraintTop_toBottomOf="@+id/animal_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/athletics_bonus" />
 
+        <RadioButton
+            android:id="@+id/athletics_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/animal_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/deception_bonus" />
+
+        <RadioButton
+            android:id="@+id/deception_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/animal_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/history_bonus"
             />
+
+        <RadioButton
+            android:id="@+id/history_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/animal_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/insight_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/insight_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/history_bonus"
+            app:layout_constraintBottom_toBottomOf="@+id/intimidation_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/intimidation_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/insight_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/investigation_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/investigation_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/intimidation_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/medicine_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/medicine_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/insight_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/nature_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/nature_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/medicine_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/perception_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/perception_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/nature_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/performance_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/performance_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/perception_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/persuassion_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/persuassion_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/performance_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/religion_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/religion_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/persuassion_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/sleight_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/sleight_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/religion_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/stealth_bonus"
+            />
+
+        <RadioButton
+            android:id="@+id/stealth_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/sleight_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/survival_bonus" />
+
+        <RadioButton
+            android:id="@+id/survival_bonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toBottomOf="@+id/stealth_bonus"
+            app:layout_constraintBottom_toBottomOf="@+id/skills_view" />
 
         <android.support.constraint.Guideline
             android:id="@+id/row_one"
