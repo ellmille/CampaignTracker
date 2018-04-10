@@ -38,12 +38,12 @@ public class DummyRepo {
         stats.setSpeed(30);
         stats.setProficiencyBonus(2);
         //saving throws
-        stats.setStrength(1);
-        stats.setDexterity(7);
-        stats.setConstitution(2);
-        stats.setIntelligence(5);
-        stats.setWisdom(1);
-        stats.setCharisma(3);
+        stats.setStrength(13);
+        stats.setDexterity(20);
+        stats.setConstitution(14);
+        stats.setIntelligence(16);
+        stats.setWisdom(13);
+        stats.setCharisma(16);
         //skills
         stats.setAcrobatics(7);
         stats.setAnimalHandling(1);
