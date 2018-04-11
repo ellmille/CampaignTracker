@@ -84,4 +84,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="inspiration">Inspiration</string>
+    <string name="medicine">MEDICINE</string>
+    <string name="nature">NATURE</string>
+    <string name="perception">PERCEPTION</string>
+    <string name="performance">PERFORMANCE</string>
+    <string name="persuasion">PERSUASION</string>
+    <string name="religion">RELIGION</string>
+    <string name="sleight">SLEIGHT OF HAND</string>
+    <string name="survival">SURVIVAL</string>
+    <string name="stealth">STEALTH</string>
 </resources>

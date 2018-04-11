@@ -39,7 +39,8 @@
             android:text="@{stats.acrobatics, default=7}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintStart_toEndOf="@+id/acro_bonus"
-            app:layout_constraintTop_toTopOf="@+id/skills_view"/>
+            app:layout_constraintTop_toTopOf="@+id/skills_view"
+            app:layout_constraintBottom_toTopOf="@+id/animal"/>
 
         <TextView
             android:id="@+id/acro_label"
@@ -67,7 +68,8 @@
             android:text="@{stats.animalHandling, default=2}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintTop_toBottomOf="@+id/acro"
-            app:layout_constraintStart_toEndOf="@+id/animal_bonus" />
+            app:layout_constraintStart_toEndOf="@+id/animal_bonus"
+            app:layout_constraintBottom_toTopOf="@+id/arcana"/>
 
         <TextView
             android:id="@+id/animal_label"
@@ -95,6 +97,7 @@
             android:text="@{stats.arcana, default=2}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintTop_toBottomOf="@+id/animal"
+            app:layout_constraintBottom_toTopOf="@+id/athletics"
             app:layout_constraintStart_toEndOf="@+id/animal_bonus" />
 
         <TextView
@@ -123,6 +126,7 @@
             android:text="@{stats.athletics, default=4}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintTop_toBottomOf="@+id/arcana"
+            app:layout_constraintBottom_toTopOf="@+id/deception"
             app:layout_constraintStart_toEndOf="@+id/athletics_bonus" />
 
         <TextView
@@ -151,6 +155,7 @@
             android:text="@{stats.deception, default=5}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintTop_toBottomOf="@+id/athletics"
+            app:layout_constraintBottom_toTopOf="@+id/history"
             app:layout_constraintStart_toEndOf="@+id/deception_bonus" />
 
         <TextView
@@ -179,6 +184,7 @@
             android:text="@{stats.history, default=1}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintTop_toBottomOf="@+id/deception"
+            app:layout_constraintBottom_toTopOf="@+id/insight"
             app:layout_constraintStart_toEndOf="@+id/history_bonus" />
 
         <TextView
@@ -207,6 +213,7 @@
             android:text="@{stats.insight, default=1}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintTop_toBottomOf="@+id/history"
+            app:layout_constraintBottom_toTopOf="@+id/intimidation"
             app:layout_constraintStart_toEndOf="@+id/insight_bonus" />
 
         <TextView
@@ -235,6 +242,7 @@
             android:text="@{stats.intimidation, default=5}"
             android:textSize="@dimen/char_sheet_text_size"
             app:layout_constraintTop_toBottomOf="@+id/insight"
+            app:layout_constraintBottom_toTopOf="@+id/investigation"
             app:layout_constraintStart_toEndOf="@+id/intimidation_bonus" />
 
         <TextView
@@ -253,100 +261,290 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/investigation"
+            app:layout_constraintBottom_toBottomOf="@+id/investigation" />
 
-            />
+        <TextView
+            android:id="@+id/investigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.investigation, default=7}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/intimidation"
+            app:layout_constraintBottom_toTopOf="@+id/medicine"
+            app:layout_constraintStart_toEndOf="@+id/investigation_bonus" />
+
+        <TextView
+            android:id="@+id/investigation_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/investigation"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/investigation"
+            app:layout_constraintTop_toTopOf="@+id/investigation"
+            app:layout_constraintBottom_toBottomOf="@+id/investigation"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/medicine_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/medicine"
+            app:layout_constraintBottom_toBottomOf="@+id/medicine" />
 
-            />
+        <TextView
+            android:id="@+id/medicine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.medicine, default=1}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/investigation"
+            app:layout_constraintBottom_toTopOf="@+id/nature"
+            app:layout_constraintStart_toEndOf="@+id/medicine_bonus" />
+
+        <TextView
+            android:id="@+id/medicine_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medicine"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/medicine"
+            app:layout_constraintTop_toTopOf="@+id/medicine"
+            app:layout_constraintBottom_toBottomOf="@+id/medicine"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/nature_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/nature"
+            app:layout_constraintBottom_toBottomOf="@+id/nature" />
 
-            />
+        <TextView
+            android:id="@+id/nature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.nature, default=1}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/medicine"
+            app:layout_constraintBottom_toTopOf="@+id/perception"
+            app:layout_constraintStart_toEndOf="@+id/nature_bonus" />
+
+        <TextView
+            android:id="@+id/nature_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nature"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/nature"
+            app:layout_constraintTop_toTopOf="@+id/nature"
+            app:layout_constraintBottom_toBottomOf="@+id/nature"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/perception_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/perception"
+            app:layout_constraintBottom_toBottomOf="@+id/perception" />
 
-            />
+        <TextView
+            android:id="@+id/perception"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.perception, default=5}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/nature"
+            app:layout_constraintBottom_toTopOf="@+id/performance"
+            app:layout_constraintStart_toEndOf="@+id/perception_bonus" />
+
+        <TextView
+            android:id="@+id/perception_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/perception"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/perception"
+            app:layout_constraintTop_toTopOf="@+id/perception"
+            app:layout_constraintBottom_toBottomOf="@+id/perception"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/performance_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/performance"
+            app:layout_constraintBottom_toBottomOf="@+id/performance" />
 
-            />
+        <TextView
+            android:id="@+id/performance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.perception, default=2}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/perception"
+            app:layout_constraintBottom_toTopOf="@+id/persuasion"
+            app:layout_constraintStart_toEndOf="@+id/performance_bonus" />
+
+        <TextView
+            android:id="@+id/performance_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/performance"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/performance"
+            app:layout_constraintTop_toTopOf="@+id/performance"
+            app:layout_constraintBottom_toBottomOf="@+id/performance"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
-            android:id="@+id/persuassion_bonus"
+            android:id="@+id/persuasion_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/persuasion"
+            app:layout_constraintBottom_toBottomOf="@+id/persuasion" />
 
-            />
+        <TextView
+            android:id="@+id/persuasion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.persuasion, default=2}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/performance"
+            app:layout_constraintBottom_toTopOf="@+id/religion"
+            app:layout_constraintStart_toEndOf="@+id/persuasion_bonus" />
+
+        <TextView
+            android:id="@+id/persuasion_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/persuasion"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/persuasion"
+            app:layout_constraintTop_toTopOf="@+id/persuasion"
+            app:layout_constraintBottom_toBottomOf="@+id/persuasion"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/religion_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/religion"
+            app:layout_constraintBottom_toBottomOf="@+id/religion" />
 
-            />
+        <TextView
+            android:id="@+id/religion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.religion, default=1}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/persuasion"
+            app:layout_constraintBottom_toTopOf="@+id/sleight"
+            app:layout_constraintStart_toEndOf="@+id/religion_bonus" />
+
+        <TextView
+            android:id="@+id/religion_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/religion"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/religion"
+            app:layout_constraintTop_toTopOf="@+id/religion"
+            app:layout_constraintBottom_toBottomOf="@+id/religion"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/sleight_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/sleight"
+            app:layout_constraintBottom_toBottomOf="@+id/sleight" />
 
-            />
+        <TextView
+            android:id="@+id/sleight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.sleightOfHand, default=7}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/religion"
+            app:layout_constraintBottom_toTopOf="@+id/stealth"
+            app:layout_constraintStart_toEndOf="@+id/sleight_bonus" />
+
+        <TextView
+            android:id="@+id/sleight_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sleight"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/sleight"
+            app:layout_constraintTop_toTopOf="@+id/sleight"
+            app:layout_constraintBottom_toBottomOf="@+id/sleight"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/stealth_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
-          />
+            app:layout_constraintTop_toTopOf="@+id/stealth"
+            app:layout_constraintBottom_toBottomOf="@+id/stealth"/>
+
+        <TextView
+            android:id="@+id/stealth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stats.stealth, default=9}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/sleight"
+            app:layout_constraintBottom_toTopOf="@+id/survival"
+            app:layout_constraintStart_toEndOf="@+id/stealth_bonus" />
+
+        <TextView
+            android:id="@+id/stealth_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stealth"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/stealth"
+            app:layout_constraintTop_toTopOf="@+id/stealth"
+            app:layout_constraintBottom_toBottomOf="@+id/stealth"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <RadioButton
             android:id="@+id/survival_bonus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@+id/skills_view"
+            app:layout_constraintTop_toTopOf="@+id/survival"
+            app:layout_constraintBottom_toBottomOf="@+id/survival" />
 
-            />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/row_one"
+        <TextView
+            android:id="@+id/survival"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".1" />
+            android:text="@{stats.survival, default=7}"
+            android:textSize="@dimen/char_sheet_text_size"
+            app:layout_constraintTop_toBottomOf="@+id/stealth"
+            app:layout_constraintStart_toEndOf="@+id/survival_bonus"
+            app:layout_constraintBottom_toBottomOf="@+id/skills_view"/>
 
-        <android.support.constraint.Guideline
-            android:id="@+id/row_two"
+        <TextView
+            android:id="@+id/survival_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".2" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/row_three"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".4" />
+            android:text="@string/survival"
+            android:textSize="@dimen/throws_label_text_size"
+            app:layout_constraintStart_toEndOf="@+id/survival"
+            app:layout_constraintTop_toTopOf="@+id/survival"
+            app:layout_constraintBottom_toBottomOf="@+id/survival"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>
