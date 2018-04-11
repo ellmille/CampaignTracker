@@ -17,4 +17,5 @@
     <dimen name="money_label_text_size">17sp</dimen>
 
     <dimen name="char_sheet_text_size">30sp</dimen>
+    <dimen name="throws_label_text_size">25sp</dimen>
 </resources>
