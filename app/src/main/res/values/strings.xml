@@ -30,7 +30,7 @@
     <string name="label">Label:</string>
     <string name="background">Background:</string>
     <string name="race">Race:</string>
-    <string name="armor_class">Armor Class:</string>
+    <string name="armor_class">ARMOR CLASS</string>
     <string name="personality">Personality:</string>
     <string name="max_health">Max Health:</string>
     <string name="experience_to_level">Experience to Level:</string>
@@ -41,8 +41,8 @@
     <string name="new_character">New Character</string>
     <string name="edit_character">Edit Character</string>
     <string name="quantity">Quantity:</string>
-    <string name="initiative">Initiative</string>
-    <string name="speed">Speed</string>
+    <string name="initiative">INITIATIVE</string>
+    <string name="speed">SPEED</string>
     <string name="proficiency_bonus">Proficiency Bonus</string>
     <string name="strength">STRENGTH</string>
     <string name="dexterity">DEXTERITY</string>
@@ -93,4 +93,9 @@
     <string name="sleight">SLEIGHT OF HAND</string>
     <string name="survival">SURVIVAL</string>
     <string name="stealth">STEALTH</string>
+    <string name="success">SUCCESS</string>
+    <string name="failures">FAILURES</string>
+    <string name="death_saves">DEATH SAVES</string>
+    <string name="total">TOTAL</string>
+    <string name="hit_dice">HIT DICE</string>
 </resources>
