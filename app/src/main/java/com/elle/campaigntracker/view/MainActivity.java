@@ -21,6 +21,7 @@ import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.ActivityMainBinding;
+import com.elle.campaigntracker.view.character.CharacterSheetActivity;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -102,15 +103,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_full_sheet) {
-            // Handle the camera action
+            Intent intent = new Intent(this, CharacterSheetActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_inventory) {
             Intent intent = new Intent(this, InventoryActivity.class);
             startActivity(intent);
-//            InventoryFragment fragment = new InventoryFragment();
-//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment);
-//            fragmentTransaction.addToBackStack(null);
-//            fragmentTransaction.commit();
         } else if (id == R.id.nav_log) {
             Intent intent = new Intent(this, LogActivity.class);
             startActivity(intent);

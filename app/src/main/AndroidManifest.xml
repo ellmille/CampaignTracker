@@ -39,6 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.elle.campaigntracker.view.MainActivity" />
         </activity>
+        <activity android:name=".view.character.CharacterSheetActivity"></activity>
     </application>
 
 </manifest>
