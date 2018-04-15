@@ -4,6 +4,7 @@ import android.arch.persistence.room.TypeConverter;
 import android.util.Log;
 
 import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.data.model.category.classes.Rogue;
 
 /**
  * Converts Alignment to a String and back to enum
@@ -61,5 +62,22 @@ public class Converters {
             dice = Dice.D20;
         }
         return dice;
+    }
+
+    @TypeConverter
+    public static String fromClass(RoleClass.Role pcClass){
+        return pcClass.toString();
+    }
+
+    @TypeConverter
+    public RoleClass.Role fromClassString(String pcClass){
+        RoleClass.Role roleClass;
+        try {
+            roleClass = RoleClass.Role.valueOf(pcClass);
+        }catch (IllegalArgumentException e) {
+            Log.e(TAG, e.toString());
+            roleClass = RoleClass.Role.OTHER;
+        }
+        return roleClass;
     }
 }

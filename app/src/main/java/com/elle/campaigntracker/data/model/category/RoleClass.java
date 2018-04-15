@@ -5,17 +5,13 @@ package com.elle.campaigntracker.data.model.category;
  */
 
 public class RoleClass {
-    private final String name;
     private final Role role;
+    private int hitDieCount;
+    private Dice hitDie;
     private String description;
 
-    public RoleClass(String name, Role roleName){
-        this.name = name;
+    public RoleClass(Role roleName){
         this.role = roleName;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public Role getRole() {
@@ -30,8 +26,24 @@ public class RoleClass {
         this.description = description;
     }
 
+    public Dice getHitDie() {
+        return hitDie;
+    }
+
+    public void setHitDie(Dice hitDie) {
+        this.hitDie = hitDie;
+    }
+
+    public int getHitDieCount() {
+        return hitDieCount;
+    }
+
+    public void setHitDieCount(int hitDieCount) {
+        this.hitDieCount = hitDieCount;
+    }
+
     public enum Role {
-        BARBRIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROGUE,
+        BARBARIAN, BARD, CLERIC, DRUID, FIGHTER, MONK, PALADIN, RANGER, ROGUE,
         SORCERER, WARLOCK, WIZARD, OTHER
     }
 }

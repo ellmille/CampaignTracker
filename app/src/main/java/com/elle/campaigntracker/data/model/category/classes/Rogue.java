@@ -1,5 +1,6 @@
 package com.elle.campaigntracker.data.model.category.classes;
 
+import com.elle.campaigntracker.data.model.category.Dice;
 import com.elle.campaigntracker.data.model.category.RoleClass;
 
 /**
@@ -14,7 +15,9 @@ public class Rogue extends RoleClass {
             , hasSleightProf, hasStealthProf;
 
     public Rogue() {
-        super("Rogue", Role.ROGUE);
+        super(Role.ROGUE);
+        this.setHitDie(Dice.D8);
+        this.setHitDieCount(4);
         this.setDescription("Being a sneaky badass and taking names");
     }
 

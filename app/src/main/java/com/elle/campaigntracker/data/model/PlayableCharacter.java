@@ -5,6 +5,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import com.elle.campaigntracker.data.model.category.Alignment;
+import com.elle.campaigntracker.data.model.category.RoleClass;
 
 /**
  * POJO for playable character
@@ -15,6 +16,8 @@ public class PlayableCharacter {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String name, characterClass, characterRace, background;
+    private RoleClass.Role pcClass;
+    //secondary class
     private Alignment alignment;
     private int level;
     private int maxHp, currentHp;
@@ -133,5 +136,13 @@ public class PlayableCharacter {
 
     public void setBackground(String background) {
         this.background = background;
+    }
+
+    public RoleClass.Role getPcClass() {
+        return pcClass;
+    }
+
+    public void setPcClass(RoleClass.Role pcClass) {
+        this.pcClass = pcClass;
     }
 }
