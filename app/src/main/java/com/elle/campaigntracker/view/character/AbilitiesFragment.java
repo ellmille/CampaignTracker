@@ -8,12 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
+import com.elle.campaigntracker.databinding.FragmentAbilitiesBinding;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AbilitiesFragment extends Fragment {
-
+    private FragmentAbilitiesBinding binding;
 
     public AbilitiesFragment() {
         // Required empty public constructor
