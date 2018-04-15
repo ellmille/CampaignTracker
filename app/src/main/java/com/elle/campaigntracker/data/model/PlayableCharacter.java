@@ -29,17 +29,17 @@ public class PlayableCharacter {
     }
 
     @Ignore
-    public PlayableCharacter(String name, String characterClass, Alignment alignment){
+    public PlayableCharacter(String name, RoleClass.Role pcClass, Alignment alignment){
         this.name = name;
-        this.characterClass = characterClass;
+        this.pcClass = pcClass;
         this.alignment = alignment;
     }
 
-    public PlayableCharacter(int id, String name, String characterClass, String characterRace, Alignment alignment, int level, int maxHp, int currentHp,
+    public PlayableCharacter(int id, String name, RoleClass.Role pcClass, String characterRace, Alignment alignment, int level, int maxHp, int currentHp,
                              int totalXpToLevel, int currentXp, String background){
         this.id = id;
         this.name = name;
-        this.characterClass = characterClass;
+        this.pcClass = pcClass;
         this.characterRace = characterRace;
         this.alignment = alignment;
         this.level = level;

@@ -1,5 +1,7 @@
 package com.elle.campaigntracker.data.model.category;
 
+import com.elle.campaigntracker.data.model.category.classes.Rogue;
+
 /**
  * Base Model for class
  */
@@ -40,6 +42,14 @@ public class RoleClass {
 
     public void setHitDieCount(int hitDieCount) {
         this.hitDieCount = hitDieCount;
+    }
+
+    public static RoleClass findClass(Role role){
+        switch (role){
+            case ROGUE:
+                return new Rogue();
+        }
+        return new RoleClass(Role.OTHER);
     }
 
     public enum Role {

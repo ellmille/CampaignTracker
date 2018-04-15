@@ -5,6 +5,7 @@ import com.elle.campaigntracker.data.model.PcInfo;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.category.Alignment;
 import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.category.RoleClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class DummyRepo {
     }
 
     private PlayableCharacter createPlayableChar() {
-        PlayableCharacter playableChar = new PlayableCharacter("Rex", "Rouge", Alignment.CHAOTIC_NEUTRAL);
+        PlayableCharacter playableChar = new PlayableCharacter("Rex", RoleClass.Role.ROGUE, Alignment.CHAOTIC_NEUTRAL);
         playableChar.setMaxHp(34);
         playableChar.setCurrentHp(34);
         playableChar.setLevel(4);

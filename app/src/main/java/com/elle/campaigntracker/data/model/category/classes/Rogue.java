@@ -21,6 +21,14 @@ public class Rogue extends RoleClass {
         this.setDescription("Being a sneaky badass and taking names");
     }
 
+    public void setArchetype(Archetype archetype){
+        this.archetype = archetype;
+    }
+
+    public Archetype getArchetype(){
+        return archetype;
+    }
+
     public enum Archetype {
         THIEF, ASSASSIN, ARCANE_TRICKSTER
     }

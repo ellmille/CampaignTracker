@@ -20,6 +20,8 @@ public class PcStats {
     @ColumnInfo(name = "character_id")
     private int charId;
     private int armorClass, initiative, speed;
+    @Ignore
+    private int inspiration = 0;
 
     private int proficiencyBonus;
     private int strength, dexterity, constitution;
@@ -49,7 +51,9 @@ public class PcStats {
         this.armorClass = armorClass;
         this.initiative = initiative;
         this.speed = speed;
+
         this.proficiencyBonus = proficiencyBonus;
+
         this.strength = strength;
         this.dexterity = dexterity;
         this.constitution = constitution;
@@ -318,5 +322,13 @@ public class PcStats {
 
     public String getModifier(int score){
         return "+"+String.valueOf(Math.round((score - 10) / 2));
+    }
+
+    public int getInspiration() {
+        return inspiration;
+    }
+
+    public void setInspiration(int inspiration) {
+        this.inspiration = inspiration;
     }
 }
