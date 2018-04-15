@@ -5,9 +5,16 @@
         <variable
             name="stats"
             type="com.elle.campaigntracker.data.model.PcStats"/>
+        <variable
+            name="hitDieString"
+            type="String"/>
+        <variable
+            name="callback"
+            type="com.elle.campaigntracker.view.callback.DeathSavingCallback"/>
     </data>
 
-    <android.support.constraint.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    <android.support.constraint.ConstraintLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.elle.campaigntracker.view.character.HpFragment">
@@ -90,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/character_sheet_margin"
             android:textSize="@dimen/detail_text_size"
+            android:text="@{hitDieString, default=4D}"
             app:layout_constraintTop_toTopOf="@+id/hit_die_view"
             app:layout_constraintStart_toStartOf="@+id/hit_die_view"
             app:layout_constraintEnd_toEndOf="@+id/hit_die_view"/>
@@ -116,6 +124,7 @@
             android:id="@+id/success_throw_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onDeathSave(1)}"
             app:layout_constraintTop_toTopOf="@+id/success"
             app:layout_constraintBottom_toBottomOf="@+id/success"
             app:layout_constraintStart_toEndOf="@+id/success" />
@@ -124,6 +133,7 @@
             android:id="@+id/success_throw_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onDeathSave(2)}"
             app:layout_constraintTop_toTopOf="@+id/success"
             app:layout_constraintBottom_toBottomOf="@+id/success"
             app:layout_constraintStart_toEndOf="@+id/success_throw_one" />
@@ -132,6 +142,7 @@
             android:id="@+id/success_throw_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onDeathSave(3)}"
             app:layout_constraintTop_toTopOf="@+id/success"
             app:layout_constraintBottom_toBottomOf="@+id/success"
             app:layout_constraintStart_toEndOf="@+id/success_throw_two"
@@ -150,6 +161,7 @@
             android:id="@+id/fail_throw_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onDeathFail(1)}"
             app:layout_constraintTop_toTopOf="@+id/fail"
             app:layout_constraintBottom_toBottomOf="@+id/fail"
             app:layout_constraintStart_toEndOf="@+id/fail" />
@@ -158,6 +170,7 @@
             android:id="@+id/fail_throw_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onDeathFail(2)}"
             app:layout_constraintTop_toTopOf="@+id/fail"
             app:layout_constraintBottom_toBottomOf="@+id/fail"
             app:layout_constraintStart_toEndOf="@+id/fail_throw_one" />
@@ -166,6 +179,7 @@
             android:id="@+id/fail_throw_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onDeathFail(3)}"
             app:layout_constraintTop_toTopOf="@+id/fail"
             app:layout_constraintBottom_toBottomOf="@+id/fail"
             app:layout_constraintStart_toEndOf="@+id/fail_throw_two"

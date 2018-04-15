@@ -10,6 +10,7 @@ import com.elle.campaigntracker.Repo;
 import com.elle.campaigntracker.data.model.PcStats;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PcInfo;
+import com.elle.campaigntracker.data.model.category.RoleClass;
 
 /**
  * ViewModel prepares data for the UI
@@ -39,5 +40,12 @@ public class CharacterSheetViewModel extends AndroidViewModel {
 
     public LiveData<PcInfo> getObservableInfo(){
         return observableInfo;
+    }
+
+    public String getHitDie(){
+        RoleClass.Role role = observableCharacter.getValue().getPcClass();
+        RoleClass roleClass = RoleClass.findClass(role);
+        String hitDie = String.valueOf(roleClass.getHitDieCount());
+        return hitDie + roleClass.getHitDie().toString();
     }
 }

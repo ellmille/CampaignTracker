@@ -37,6 +37,7 @@ public class HpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_hp, container, false);
+        binding.setHitDieString(viewModel.getHitDie());
         viewModel.getObservableStats().observe(getActivity(), new Observer<PcStats>() {
             @Override
             public void onChanged(@Nullable PcStats pcStats) {
