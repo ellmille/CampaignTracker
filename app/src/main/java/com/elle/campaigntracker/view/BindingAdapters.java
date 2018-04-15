@@ -44,6 +44,11 @@ public class BindingAdapters {
         }
     }
 
+    @BindingAdapter("intString")
+    public static void setIntToText(TextView textView, int number){
+        textView.setText(String.valueOf(number));
+    }
+
     @BindingAdapter("intToText")
     public static void setIntToText(EditText view, int number){
         if(!String.valueOf(number).equals(view.getText().toString())){
