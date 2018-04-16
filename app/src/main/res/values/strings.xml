@@ -98,4 +98,8 @@
     <string name="death_saves">DEATH SAVES</string>
     <string name="total">TOTAL</string>
     <string name="hit_dice">HIT DICE</string>
+    <string name="flaws">FLAWS</string>
+    <string name="bonds">BONDS</string>
+    <string name="ideals">IDEALS</string>
+    <string name="personality_traits">PERSONALITY TRAITS</string>
 </resources>
