@@ -1,48 +1,23 @@
 package com.elle.campaigntracker.data.model.world;
 
-import android.arch.persistence.room.Ignore;
-
 /**
- * POJO for notes on NPCs
+ * Interface for notes
  */
 
-public class Note {
-    private int id;
-    private int npcId;
-    private String message;
+public interface Note {
+    int getId();
 
-    @Ignore
-    public Note(String message){
-        this.message = message;
-    }
+    void setId(int id);
 
-    public Note(int id, int npcId, String message){
-        this.id = id;
-        this.npcId = npcId;
-        this.message = message;
-    }
+    int getForeignId();
 
-    public int getId() {
-        return id;
-    }
+    void setForeignId(int fId);
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    String getMessage();
 
-    public int getNpcId() {
-        return npcId;
-    }
+    void setMessage(String message);
 
-    public void setNpcId(int npcId) {
-        this.npcId = npcId;
-    }
+    long getTimeCreated();
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    void setTimeCreated(long timeCreated);
 }
