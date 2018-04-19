@@ -1,10 +1,12 @@
-package com.elle.campaigntracker.data.model;
+package com.elle.campaigntracker.data.model.world;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 
 /**
  * POJO for a log

@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data.model;
+package com.elle.campaigntracker.data.model.world;
 
 import android.arch.persistence.room.Ignore;
 

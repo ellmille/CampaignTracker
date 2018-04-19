@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data.model;
+package com.elle.campaigntracker.data.model.world;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -6,10 +6,11 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.category.Alignment;
 
 /**
- * POJO for Non playable characters (or just other characters that you are not)
+ * POJO for Non playable characters
  */
 
 @Entity(tableName = "non_playable_characters", foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
@@ -22,7 +23,6 @@ public class Npc {
     private int charId;
     private String name, characterClass;
     private Alignment alignment;
-    private boolean inParty;
 
     public int getId() {
         return id;
@@ -62,13 +62,5 @@ public class Npc {
 
     public void setCharacterClass(String characterClass) {
         this.characterClass = characterClass;
-    }
-
-    public boolean isInParty() {
-        return inParty;
-    }
-
-    public void setInParty(boolean inParty) {
-        this.inParty = inParty;
     }
 }
