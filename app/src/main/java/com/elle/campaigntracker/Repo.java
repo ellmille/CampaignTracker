@@ -8,7 +8,7 @@ import android.support.annotation.Nullable;
 import com.elle.campaigntracker.data.AppDatabase;
 import com.elle.campaigntracker.data.model.Attack;
 import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.Log;
+import com.elle.campaigntracker.data.model.world.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PcInfo;

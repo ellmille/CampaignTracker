@@ -7,8 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.Log;
+import com.elle.campaigntracker.data.model.world.Log;
 import com.elle.campaigntracker.databinding.LogItemBinding;
 
 import java.util.ArrayList;

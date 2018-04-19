@@ -4,7 +4,7 @@
     <data>
         <variable
             name="log"
-            type="com.elle.campaigntracker.data.model.Log"/>
+            type="com.elle.campaigntracker.data.model.world.Log"/>
     </data>
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

@@ -8,8 +8,7 @@ import android.support.annotation.NonNull;
 
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
-import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.Log;
+import com.elle.campaigntracker.data.model.world.Log;
 
 import java.util.List;
 
