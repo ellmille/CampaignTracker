@@ -1,6 +1,6 @@
 package com.elle.campaigntracker.data.model.category;
 
-import com.elle.campaigntracker.data.model.category.classes.Rogue;
+import com.elle.campaigntracker.data.model.classes.Rogue;
 
 /**
  * Base Model for class

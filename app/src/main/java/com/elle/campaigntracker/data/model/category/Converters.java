@@ -4,7 +4,6 @@ import android.arch.persistence.room.TypeConverter;
 import android.util.Log;
 
 import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.category.classes.Rogue;
 
 /**
  * Converts Alignment to a String and back to enum
