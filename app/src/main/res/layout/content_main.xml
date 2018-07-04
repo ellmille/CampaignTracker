@@ -72,24 +72,12 @@
             app:layout_constraintTop_toBottomOf="@+id/char_class"
             app:layout_constraintStart_toEndOf="@+id/char_race"/>
 
-        <!--<View-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="0dp"-->
-            <!--android:background="@drawable/border"-->
-            <!--app:layout_constraintTop_toTopOf="parent"-->
-            <!--app:layout_constraintBottom_toBottomOf="@+id/char_alignment"-->
-            <!--app:layout_constraintStart_toEndOf="@+id/char_name"-->
-            <!--app:layout_constraintEnd_toEndOf="parent" />-->
-
-        <ProgressBar
+        <fragment
             android:id="@+id/xp_bar"
-            style="?android:attr/progressBarStyleHorizontal"
+            android:name="com.elle.campaigntracker.view.XpFragment"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:progressTint="@color/colorPrimary"
-            android:max="@{playableCharacter.totalXpToLevel, default=100}"
-            android:progress="@{playableCharacter.currentXp, default=25}"
-            android:layout_margin="@dimen/character_sheet_margin"
+            tools:layout="@layout/fragment_xp"
             app:layout_constraintTop_toBottomOf="@+id/char_class"
             app:layout_constraintStart_toEndOf="@+id/char_alignment"
             app:layout_constraintEnd_toEndOf="parent"/>
