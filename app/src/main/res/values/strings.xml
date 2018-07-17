@@ -102,4 +102,5 @@
     <string name="bonds">BONDS</string>
     <string name="ideals">IDEALS</string>
     <string name="personality_traits">PERSONALITY TRAITS</string>
+    <string name="plus">+</string>
 </resources>

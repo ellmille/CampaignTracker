@@ -13,6 +13,8 @@ import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.PcInfo;
 import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.util.DeleteItemAsyncTask;
+import com.elle.campaigntracker.util.InsertItemAsyncTask;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -29,7 +31,8 @@ public class Repo {
     private MediatorLiveData<PlayableCharacter> observableCharacter;
     private MediatorLiveData<PcStats> observableStats;
     private MediatorLiveData<PcInfo> observableInfo;
-    private MediatorLiveData<List<Item>> observableInventory;
+    private LiveData<List<Item>> inventoryLiveData;
+//    private MediatorLiveData<List<Item>> observableInventory;
     private MediatorLiveData<List<Log>> observableLogs;
     private MediatorLiveData<Money> observableMoney;
     private final int charId;
@@ -37,10 +40,13 @@ public class Repo {
     private Repo(final AppDatabase database, int charId){
         this.database = database;
         this.charId = charId;
+        this.inventoryLiveData = database.itemDao().findInventoryForCharacter(charId);
+
         this.observableCharacter = new MediatorLiveData<>();
         this.observableStats = new MediatorLiveData<>();
         this.observableInfo = new MediatorLiveData<>();
-        this.observableInventory = new MediatorLiveData<>();
+
+        //this.observableInventory = new MediatorLiveData<>();
         this.observableLogs = new MediatorLiveData<>();
         this.observableMoney = new MediatorLiveData<>();
 
@@ -62,13 +68,6 @@ public class Repo {
             @Override
             public void onChanged(@Nullable PcInfo pcInfo) {
                 observableInfo.postValue(pcInfo);
-            }
-        });
-
-        observableInventory.addSource(loadItemsForCharacter(charId), new Observer<List<Item>>() {
-            @Override
-            public void onChanged(@Nullable List<Item> items) {
-                observableInventory.postValue(items);
             }
         });
 
@@ -101,6 +100,18 @@ public class Repo {
     /**
      * Get the list of products from the database and get notified when the data changes.
      */
+    public LiveData<List<Item>> getInventoryLiveData(){
+        return inventoryLiveData;
+    }
+
+    public void insert(Item item){
+        new InsertItemAsyncTask(database.itemDao()).execute(item);
+    }
+
+    public void delete(Item item){
+        new DeleteItemAsyncTask(database.itemDao()).execute(item);
+    }
+
     public LiveData<PlayableCharacter> getCharacter(){
         return observableCharacter;
     }
@@ -115,10 +126,6 @@ public class Repo {
 
     public LiveData<Money> getMoney(){
         return observableMoney;
-    }
-
-    public LiveData<List<Item>> getInventory(){
-        return observableInventory;
     }
 
     public LiveData<List<Log>> getLogs(){
@@ -171,10 +178,6 @@ public class Repo {
         });
     }
 
-    public LiveData<List<Item>> loadItemsForCharacter(final int charId){
-        return database.itemDao().findInventoryForCharacter(charId);
-    }
-
     public void addItem(Item item){
         Executor executor = Executors.newSingleThreadExecutor();
         executor.execute(new Runnable() {
@@ -187,31 +190,6 @@ public class Repo {
 
     public LiveData<Item> loadItemById(final int id){
         return database.itemDao().findItemById(id);
-    }
-
-    public void updateItem(Item item){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                if(item.getId() > 0){
-                    database.itemDao().updateItem(item);
-                }else{
-                    database.itemDao().insertItem(item);
-                }
-
-            }
-        });
-    }
-
-    public void deleteItem(Item item){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                database.itemDao().deleteItem(item);
-            }
-        });
     }
 
     public void updateMoney(Money money){
