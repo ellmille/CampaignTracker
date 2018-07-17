@@ -24,7 +24,8 @@ import com.elle.campaigntracker.databinding.ActivityMainBinding;
 import com.elle.campaigntracker.view.character.CharacterSheetActivity;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
     ActivityMainBinding binding;
     PlayableCharacterViewModel viewModel;
 
@@ -33,6 +34,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         //setup binding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setupNavigation();
+        //setup view model
+        viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
+        binding.setCharViewModel(viewModel);
+        subscribeToModel(viewModel);
+
+//        //add health fragment if this is first creation
+//        if(savedInstanceState == null){
+//            HealthFragment fragment = new HealthFragment();
+//            getSupportFragmentManager().beginTransaction()
+//                    .add(R.id.fragment_container, fragment, HealthFragment.TAG).commit();
+//        }
+    }
+
+    private void subscribeToModel(final PlayableCharacterViewModel model){
+        //observe character
+        model.getObservableCharacter().observe(this, model::setPlayableCharacter);
+    }
+
+    //region navigation drawer
+    private void setupNavigation(){
         //set up drawer
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -42,28 +64,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //set up nav drawer
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        //setup view model
-        viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
-        binding.setCharViewModel(viewModel);
-        subscribeToModel(viewModel);
-
-        //add health fragment if this is first creation
-        if(savedInstanceState == null){
-            HealthFragment fragment = new HealthFragment();
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, fragment, HealthFragment.TAG).commit();
-        }
     }
 
-    private void subscribeToModel(final PlayableCharacterViewModel model){
-        //observe character
-        model.getObservableCharacter().observe(this, new Observer<PlayableCharacter>() {
-            @Override
-            public void onChanged(@Nullable PlayableCharacter playableCharacter) {
-                model.setPlayableCharacter(playableCharacter);
-            }
-        });
-    }
 
     @Override
     public void onBackPressed() {
@@ -103,31 +105,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_full_sheet) {
-            Intent intent = new Intent(this, CharacterSheetActivity.class);
-            startActivity(intent);
+            Toast.makeText(this, "FULL SHEET", Toast.LENGTH_SHORT).show();
+        //    Intent intent = new Intent(this, CharacterSheetActivity.class);
+        //    startActivity(intent);
         } else if (id == R.id.nav_inventory) {
-            Intent intent = new Intent(this, InventoryActivity.class);
-            startActivity(intent);
+            Toast.makeText(this, "Inventory activity", Toast.LENGTH_SHORT).show();
+        //    Intent intent = new Intent(this, InventoryActivity.class);
+        //    startActivity(intent);
         } else if (id == R.id.nav_log) {
-            Intent intent = new Intent(this, LogActivity.class);
-            startActivity(intent);
+            Toast.makeText(this, "LOGS", Toast.LENGTH_SHORT).show();
+        //    Intent intent = new Intent(this, LogActivity.class);
+         //   startActivity(intent);
         } else if (id == R.id.nav_level){
-            //update Fragment
-            XpFragment fragment = new XpFragment();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.addToBackStack(null);
-            fragmentTransaction.commit();
+            Toast.makeText(this, "LEVEL", Toast.LENGTH_SHORT).show();
+//            //update Fragment
+//            XpFragment fragment = new XpFragment();
+//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fragment_container, fragment);
+//            fragmentTransaction.addToBackStack(null);
+//            fragmentTransaction.commit();
         } else if(id == R.id.nav_edit_char){
-            Intent intent = new Intent(this, EditPcActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putBoolean(EditPcActivity.ARG_ACTION, false);
-            intent.putExtras(bundle);
-            startActivity(intent);
+            Toast.makeText(this, "EDIT", Toast.LENGTH_SHORT).show();
+//            Intent intent = new Intent(this, EditPcActivity.class);
+//            Bundle bundle = new Bundle();
+//            bundle.putBoolean(EditPcActivity.ARG_ACTION, false);
+//            intent.putExtras(bundle);
+//            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    //endregion
 }
