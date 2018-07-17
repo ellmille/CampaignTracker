@@ -22,7 +22,7 @@ public class PlayableCharacterViewModel extends AndroidViewModel {
     public PlayableCharacterViewModel(Application application){
         super(application);
         this.repo = ((App) application).getRepo();
-        this.observableCharacter = repo.getCharacter();
+        this.observableCharacter = repo.getCharacterLiveData();
     }
 
     public LiveData<PlayableCharacter> getObservableCharacter(){

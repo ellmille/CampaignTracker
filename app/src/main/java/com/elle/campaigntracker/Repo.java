@@ -28,11 +28,10 @@ public class Repo {
     private static Repo instance;
 
     private final AppDatabase database;
-    private MediatorLiveData<PlayableCharacter> observableCharacter;
+    private LiveData<PlayableCharacter> characterLiveData;
     private MediatorLiveData<PcStats> observableStats;
     private MediatorLiveData<PcInfo> observableInfo;
     private LiveData<List<Item>> inventoryLiveData;
-//    private MediatorLiveData<List<Item>> observableInventory;
     private MediatorLiveData<List<Log>> observableLogs;
     private MediatorLiveData<Money> observableMoney;
     private final int charId;
@@ -40,22 +39,13 @@ public class Repo {
     private Repo(final AppDatabase database, int charId){
         this.database = database;
         this.charId = charId;
+        this.characterLiveData = database.playerCharacterDao().findCharacterById(charId);
         this.inventoryLiveData = database.itemDao().findInventoryForCharacter(charId);
 
-        this.observableCharacter = new MediatorLiveData<>();
         this.observableStats = new MediatorLiveData<>();
         this.observableInfo = new MediatorLiveData<>();
-
-        //this.observableInventory = new MediatorLiveData<>();
         this.observableLogs = new MediatorLiveData<>();
         this.observableMoney = new MediatorLiveData<>();
-
-        observableCharacter.addSource(loadCharacter(charId), new Observer<PlayableCharacter>() {
-            @Override
-            public void onChanged(@Nullable PlayableCharacter playableCharacter) {
-                observableCharacter.postValue(playableCharacter);
-            }
-        });
 
         observableStats.addSource(loadCharacterStats(charId), new Observer<PcStats>() {
             @Override
@@ -97,9 +87,10 @@ public class Repo {
         return instance;
     }
 
-    /**
-     * Get the list of products from the database and get notified when the data changes.
-     */
+    public LiveData<PlayableCharacter> getCharacterLiveData() {
+        return characterLiveData;
+    }
+
     public LiveData<List<Item>> getInventoryLiveData(){
         return inventoryLiveData;
     }
@@ -110,10 +101,6 @@ public class Repo {
 
     public void delete(Item item){
         new DeleteItemAsyncTask(database.itemDao()).execute(item);
-    }
-
-    public LiveData<PlayableCharacter> getCharacter(){
-        return observableCharacter;
     }
 
     public LiveData<PcStats> getCharacterStats(){
