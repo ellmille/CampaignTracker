@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data.model.category.classes;
+package com.elle.campaigntracker.data.model.classes;
 
 import com.elle.campaigntracker.data.model.category.Dice;
 import com.elle.campaigntracker.data.model.category.RoleClass;
