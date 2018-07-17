@@ -1,15 +1,17 @@
 package com.elle.campaigntracker.view;
 
-import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentTransaction;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,11 +20,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.databinding.ActivityMainBinding;
-import com.elle.campaigntracker.view.character.CharacterSheetActivity;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,18 +36,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         //setup binding
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        setupNavigation();
+
         //setup view model
         viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
         binding.setCharViewModel(viewModel);
         subscribeToModel(viewModel);
 
-//        //add health fragment if this is first creation
-//        if(savedInstanceState == null){
-//            HealthFragment fragment = new HealthFragment();
-//            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.fragment_container, fragment, HealthFragment.TAG).commit();
-//        }
+        setupNavigation();
+        setupViewPager();
     }
 
     private void subscribeToModel(final PlayableCharacterViewModel model){
@@ -136,6 +134,52 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    //endregion
+
+    //region view pager
+    private void setupViewPager(){
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new HealthFragment(), HealthFragment.TAG);
+
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+    /**
+     * Adapter for {@link ViewPager}
+     * Allows swiping to move in between fragments
+     */
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> fragmentList = new ArrayList<>();
+        private final List<String> fragmentTitleList = new ArrayList<>();
+
+        ViewPagerAdapter(FragmentManager manager){
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return fragmentList.size();
+        }
+
+        void addFragment(Fragment fragment, String title){
+            fragmentList.add(fragment);
+            fragmentTitleList.add(title);
+        }
+
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return fragmentTitleList.get(position);
+        }
     }
     //endregion
 }

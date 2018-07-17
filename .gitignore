@@ -8,3 +8,4 @@
 /captures
 .externalNativeBuild
 .idea/*
+app/schemas/com.elle.campaigntracker.data.AppDatabase/1.json
