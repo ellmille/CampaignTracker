@@ -48,7 +48,7 @@ public abstract class AppDatabase extends RoomDatabase {
     //list all daos
     public abstract PlayerCharacterDao playerCharacterDao();
     public abstract CharacterSkillsDao playableCharacterStatsDao();
-    public abstract CharacterInfoDao pcInfoDao();
+    public abstract CharacterInfoDao skillsDao();
     public abstract LogDao logDao();
     public abstract ItemDao itemDao();
     public abstract MoneyDao moneyDao();
@@ -113,7 +113,7 @@ public abstract class AppDatabase extends RoomDatabase {
             int charId = (int) id;
             database.moneyDao().insertMoney(new Money(charId, 1849, 5, 0, 0, 0));
             database.itemDao().insertItemList(DummyRepo.getItemList(charId));
-            database.pcInfoDao().insertPcInfo(DummyRepo.getPcInfo(charId));
+            database.skillsDao().insertPcInfo(DummyRepo.getPcInfo(charId));
             database.playableCharacterStatsDao().insertStats(DummyRepo.createPlayableCharStats(charId));
         });
     }
