@@ -32,6 +32,8 @@ public class Repo {
     private LiveData<List<Item>> inventoryLiveData;
     private LiveData<Money> moneyLiveData;
 
+    private LiveData<CharacterSkills> skillsLiveData;
+
     private final int charId;
 
     private Repo(final AppDatabase database, int charId){
@@ -40,6 +42,7 @@ public class Repo {
         this.characterLiveData = database.playerCharacterDao().findCharacterById(charId);
         this.inventoryLiveData = database.itemDao().findInventoryForCharacter(charId);
         this.moneyLiveData = database.moneyDao().getMoneyByCharId(charId);
+
     }
 
     public static Repo getInstance(final AppDatabase database, int charId){

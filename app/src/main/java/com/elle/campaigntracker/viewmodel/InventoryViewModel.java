@@ -21,6 +21,7 @@ import java.util.List;
 
 public class InventoryViewModel extends AndroidViewModel {
     private LiveData<List<Item>> liveInventory;
+    private LiveData<Money> liveMoney;
     private MutableLiveData<Item> selected = new MutableLiveData<>();
     private final Repo repo;
 
@@ -32,6 +33,10 @@ public class InventoryViewModel extends AndroidViewModel {
 
     public LiveData<List<Item>> getLiveInventory() {
         return liveInventory;
+    }
+
+    public LiveData<Money> getLiveMoney() {
+        return liveMoney;
     }
 
     public void insert(Item item){

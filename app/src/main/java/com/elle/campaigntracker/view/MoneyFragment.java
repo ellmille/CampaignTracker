@@ -41,7 +41,7 @@ public class MoneyFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_money, container, false);
         binding.setCallback(moneyCallBack);
-        viewModel.getObservableMoney().observe(getActivity(), new Observer<Money>() {
+        viewModel.getLiveMoney().observe(getActivity(), new Observer<Money>() {
             @Override
             public void onChanged(@Nullable Money money) {
                 binding.setMoney(money);

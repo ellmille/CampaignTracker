@@ -98,9 +98,9 @@ public class EditPcActivity extends AppCompatActivity {
                 case 0:
                     return EditPcBasicsFragment.newInstance(isNew);
                 case 1:
-                    return EditPcStatsFragment.newInstance(isNew);
+                    //return EditPcStatsFragment.newInstance(isNew);
                 case 2:
-                    return EditPcInfoFragment.newInstance(isNew);
+                    //return EditPcInfoFragment.newInstance(isNew);
             }
             return null;
         }

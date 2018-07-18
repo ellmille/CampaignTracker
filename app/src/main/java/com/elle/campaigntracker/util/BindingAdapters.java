@@ -5,14 +5,22 @@ import android.databinding.InverseBindingAdapter;
 import android.databinding.InverseBindingListener;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Holds binding adapters for view
  */
 public class BindingAdapters {
+    private static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMMM.dd - yyyy",
+            Locale.getDefault());
+
 
     //region int to text
     /**
@@ -100,6 +108,25 @@ public class BindingAdapters {
         }
     }
     //endregion
+
+
+    @BindingAdapter("intToText")
+    public static void setIntToText(EditText view, int number){
+        if(!String.valueOf(number).equals(view.getText().toString())){
+            view.setText(String.valueOf(number));
+        }
+    }
+
+    @BindingAdapter("longToDate")
+    public static void setLongToDate(TextView view, long time){
+        Date date = new Date(time);
+        view.setText(simpleDateFormat.format(date));
+    }
+
+    @BindingAdapter("visibleGone")
+    public static void showHide(View view, boolean show) {
+        view.setVisibility(show ? View.VISIBLE : View.GONE);
+    }
 
     /**
      * Enables or Disables Image

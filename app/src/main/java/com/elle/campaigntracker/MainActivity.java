@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.view;
+package com.elle.campaigntracker;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.databinding.ActivityMainBinding;
+import com.elle.campaigntracker.view.HealthFragment;
 import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
 
 import java.util.ArrayList;
