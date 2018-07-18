@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 import com.elle.campaigntracker.databinding.FragmentEditCharacterStatsBinding;
 import com.elle.campaigntracker.view.callback.SaveCallback;
 
@@ -45,7 +45,7 @@ public class EditPcStatsFragment extends Fragment {
         binding.setCallback(statsCallback);
         isNew = getArguments().getBoolean(EditPcActivity.ARG_ACTION);
         if(isNew){
-            binding.setStats(new PcStats());
+            binding.setStats(new CharacterSkills());
         }else{
             //todo: view model
         }
@@ -54,7 +54,7 @@ public class EditPcStatsFragment extends Fragment {
 
     private SaveCallback.PcStatsSave statsCallback = new SaveCallback.PcStatsSave(){
         @Override
-        public void onSave(PcStats stats) {
+        public void onSave(CharacterSkills stats) {
 
         }
     };

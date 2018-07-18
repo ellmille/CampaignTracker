@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 import com.elle.campaigntracker.databinding.FragmentSavingThrowsBinding;
 import com.elle.campaigntracker.viewmodel.CharacterSheetViewModel;
 
@@ -37,10 +37,10 @@ public class SavingThrowsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_saving_throws, container, false);
-        viewModel.getObservableStats().observe(getActivity(), new Observer<PcStats>() {
+        viewModel.getObservableStats().observe(getActivity(), new Observer<CharacterSkills>() {
             @Override
-            public void onChanged(@Nullable PcStats pcStats) {
-                binding.setStats(pcStats);
+            public void onChanged(@Nullable CharacterSkills characterSkills) {
+                binding.setStats(characterSkills);
             }
         });
         return binding.getRoot();

@@ -7,9 +7,9 @@ import android.support.annotation.NonNull;
 
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.PcInfo;
+import com.elle.campaigntracker.data.model.CharacterInfo;
 import com.elle.campaigntracker.data.model.category.RoleClass;
 
 /**
@@ -18,8 +18,8 @@ import com.elle.campaigntracker.data.model.category.RoleClass;
 
 public class CharacterSheetViewModel extends AndroidViewModel {
     private final LiveData<PlayableCharacter> observableCharacter;
-    private final LiveData<PcStats> observableStats;
-    private final LiveData<PcInfo> observableInfo;
+    private final LiveData<CharacterSkills> observableStats;
+    private final LiveData<CharacterInfo> observableInfo;
     private final Repo repo;
 
     public CharacterSheetViewModel(@NonNull Application application) {
@@ -34,11 +34,11 @@ public class CharacterSheetViewModel extends AndroidViewModel {
         return observableCharacter;
     }
 
-    public LiveData<PcStats> getObservableStats(){
+    public LiveData<CharacterSkills> getObservableStats(){
         return observableStats;
     }
 
-    public LiveData<PcInfo> getObservableInfo(){
+    public LiveData<CharacterInfo> getObservableInfo(){
         return observableInfo;
     }
 

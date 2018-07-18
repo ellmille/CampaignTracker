@@ -4,7 +4,7 @@
     <data>
         <variable
             name="stats"
-            type="com.elle.campaigntracker.data.model.PcStats"/>
+            type="com.elle.campaigntracker.data.model.CharacterSkills"/>
     </data>
 
     <android.support.constraint.ConstraintLayout

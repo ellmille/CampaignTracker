@@ -1,10 +1,10 @@
 package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.PcInfo;
+import com.elle.campaigntracker.data.model.CharacterInfo;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.category.Alignment;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 import com.elle.campaigntracker.data.model.category.RoleClass;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class DummyRepo {
         return playableChar;
     }
 
-    public static PcStats createPlayableCharStats(int charId) {
-        PcStats stats = new PcStats(charId);
+    public static CharacterSkills createPlayableCharStats(int charId) {
+        CharacterSkills stats = new CharacterSkills(charId);
         stats.setArmorClass(17);
         stats.setInitiative(5);
         stats.setSpeed(30);
@@ -66,8 +66,8 @@ public class DummyRepo {
         return stats;
     }
 
-    public static PcInfo getPcInfo(int charId){
-        PcInfo info = new PcInfo();
+    public static CharacterInfo getPcInfo(int charId){
+        CharacterInfo info = new CharacterInfo();
         info.setCharId(charId);
         info.setAge(20);
         info.setWeight(140);

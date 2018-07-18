@@ -8,18 +8,16 @@ import android.support.annotation.NonNull;
 
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
-import com.elle.campaigntracker.data.model.PcInfo;
-import com.elle.campaigntracker.data.model.PcStats;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 
 /**
  * Prepares data for the UI
  */
 
 public class StatsViewModel extends AndroidViewModel {
-    private final LiveData<PcStats> observableStats;
+    private final LiveData<CharacterSkills> observableStats;
     private final Repo repo;
-    public ObservableField<PcStats> pcStats = new ObservableField<>();
+    public ObservableField<CharacterSkills> pcStats = new ObservableField<>();
 
     public StatsViewModel(@NonNull Application application) {
         super(application);
@@ -27,12 +25,12 @@ public class StatsViewModel extends AndroidViewModel {
         this.observableStats = repo.getCharacterStats();
     }
 
-    public LiveData<PcStats> observableInfo() {
+    public LiveData<CharacterSkills> observableInfo() {
         return observableStats;
     }
 
-    public void setPcInfo(PcStats pcStatsIn){
-        this.pcStats.set(pcStatsIn);
+    public void setPcInfo(CharacterSkills characterSkillsIn){
+        this.pcStats.set(characterSkillsIn);
     }
 }
 

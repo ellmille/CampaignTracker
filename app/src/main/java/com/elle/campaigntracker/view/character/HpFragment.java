@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 import com.elle.campaigntracker.databinding.FragmentHpBinding;
 import com.elle.campaigntracker.view.callback.DeathSavingCallback;
 import com.elle.campaigntracker.viewmodel.CharacterSheetViewModel;
@@ -41,10 +41,10 @@ public class HpFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_hp, container, false);
         binding.setHitDieString(viewModel.getHitDie());
         binding.setCallback(deathSavingCallback);
-        viewModel.getObservableStats().observe(getActivity(), new Observer<PcStats>() {
+        viewModel.getObservableStats().observe(getActivity(), new Observer<CharacterSkills>() {
             @Override
-            public void onChanged(@Nullable PcStats pcStats) {
-                binding.setStats(pcStats);
+            public void onChanged(@Nullable CharacterSkills characterSkills) {
+                binding.setStats(characterSkills);
             }
         });
         return binding.getRoot();
