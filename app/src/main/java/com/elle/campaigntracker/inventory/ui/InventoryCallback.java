@@ -1,6 +1,4 @@
-package com.elle.campaigntracker.view.callback;
-
-import com.elle.campaigntracker.data.model.Item;
+package com.elle.campaigntracker.inventory.ui;
 
 /**
  * Callbacks for the inventory

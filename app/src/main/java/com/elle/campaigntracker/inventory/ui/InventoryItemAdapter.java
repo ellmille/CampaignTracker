@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.view.adapters;
+package com.elle.campaigntracker.inventory.ui;
 
 import android.databinding.DataBindingUtil;
 import android.support.v7.util.DiffUtil;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.databinding.ItemBinding;
 import com.elle.campaigntracker.view.callback.ClickCallback;
 
@@ -76,7 +76,7 @@ public class InventoryItemAdapter extends RecyclerView.Adapter<InventoryItemAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.binding.setItem(itemList.get(position));
+       // holder.binding.setItem(itemList.get(position));
         holder.binding.executePendingBindings();
     }
 

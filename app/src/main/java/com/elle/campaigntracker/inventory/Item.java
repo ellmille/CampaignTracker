@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.data.model;
+package com.elle.campaigntracker.inventory;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -6,6 +6,8 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+
+import com.elle.campaigntracker.data.model.PlayableCharacter;
 
 /**
  * POJO for an item in inventory

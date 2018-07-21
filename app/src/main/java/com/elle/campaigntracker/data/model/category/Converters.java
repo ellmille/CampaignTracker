@@ -3,7 +3,7 @@ package com.elle.campaigntracker.data.model.category;
 import android.arch.persistence.room.TypeConverter;
 import android.util.Log;
 
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 
 /**
  * Converts Alignment to a String and back to enum

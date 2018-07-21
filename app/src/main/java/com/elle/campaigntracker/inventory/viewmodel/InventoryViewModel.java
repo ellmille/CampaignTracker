@@ -1,16 +1,13 @@
-package com.elle.campaigntracker.viewmodel;
+package com.elle.campaigntracker.inventory.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.persistence.room.Ignore;
-import android.databinding.ObservableField;
-import android.databinding.ObservableList;
 
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.data.model.Money;
 
 import java.util.List;

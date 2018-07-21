@@ -1,9 +1,9 @@
-package com.elle.campaigntracker.util;
+package com.elle.campaigntracker.inventory;
 
 import android.os.AsyncTask;
 
 import com.elle.campaigntracker.data.dao.ItemDao;
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 
 public class InsertItemAsyncTask extends AsyncTask<Item, Void, Void> {
     private ItemDao itemDao;
