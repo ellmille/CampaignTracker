@@ -45,7 +45,7 @@ public class InventoryFragment extends Fragment{
 
         //set view model
         viewModel = ViewModelProviders.of(this).get(InventoryViewModel.class);
-        viewModel.getObservableInventory().observe(this, new Observer<List<Item>>() {
+        viewModel.getLiveInventory().observe(this, new Observer<List<Item>>() {
             @Override
             public void onChanged(@Nullable List<Item> items) {
                 //throw in binding
@@ -81,6 +81,6 @@ public class InventoryFragment extends Fragment{
     };
 
     public void onSave(Item item) {
-        viewModel.updateItem(item);
+        viewModel.insert(item);
     }
 }

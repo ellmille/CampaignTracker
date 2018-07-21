@@ -38,7 +38,7 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
         recyclerView.setAdapter(adapter);
         //set view model
         viewModel = ViewModelProviders.of(this).get(InventoryViewModel.class);
-        viewModel.getObservableInventory().observe(this, new Observer<List<Item>>() {
+        viewModel.getLiveInventory().observe(this, new Observer<List<Item>>() {
             @Override
             public void onChanged(@Nullable List<Item> items) {
                 //throw in binding
@@ -61,7 +61,7 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
     private ClickCallback.ItemClick itemClickCallback = new ClickCallback.ItemClick() {
         @Override
         public void onClick(Item item) {
-            viewModel.setItem(item);
+            viewModel.setSelected(item);
             //open fragment
             DialogFragment dialogFragment = new EditItemFragment();
             Bundle bundle = new Bundle();
@@ -74,41 +74,41 @@ public class InventoryActivity extends AppCompatActivity implements EditItemFrag
 
     @Override
     public void onSave(Item item) {
-        viewModel.updateItem(item);
+        viewModel.insert(item);
     }
 
     @Override
     public void onDelete(Item item) {
-        viewModel.deleteItem(item);
+        viewModel.delete(item);
     }
 
     @Override
     public void onSaveMoney(int amount, String type, boolean isSpending) {
-        Money money = viewModel.getObservableMoney().getValue();
-        if(money == null){
-            //todo: get char id
-            money = new Money(0, 0, 0, 0, 0, 0);
-            viewModel.setMoney(money);
-        }
-        switch (type){
-            case "Gold":
-                money.updateGold(amount, isSpending);
-                break;
-            case "Silver":
-                money.updateSilver(amount, isSpending);
-                break;
-            case "Copper":
-                money.updateCopper(amount, isSpending);
-                break;
-            case "Electrum":
-                money.updateElectrum(amount, isSpending);
-                break;
-            case "Platinum":
-                money.updatePlatinum(amount, isSpending);
-                break;
-            default:
-                break;
-        }
-        viewModel.updateMoney(money);
+//        Money money = viewModel.getObservableMoney().getValue();
+//        if(money == null){
+//            //todo: get char id
+//            money = new Money(0, 0, 0, 0, 0, 0);
+//            viewModel.setMoney(money);
+//        }
+//        switch (type){
+//            case "Gold":
+//                money.updateGold(amount, isSpending);
+//                break;
+//            case "Silver":
+//                money.updateSilver(amount, isSpending);
+//                break;
+//            case "Copper":
+//                money.updateCopper(amount, isSpending);
+//                break;
+//            case "Electrum":
+//                money.updateElectrum(amount, isSpending);
+//                break;
+//            case "Platinum":
+//                money.updatePlatinum(amount, isSpending);
+//                break;
+//            default:
+//                break;
+//        }
+//        viewModel.updateMoney(money);
     }
 }

@@ -11,8 +11,10 @@ import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.world.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.PcInfo;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterInfo;
+import com.elle.campaigntracker.data.model.CharacterSkills;
+import com.elle.campaigntracker.util.DeleteItemAsyncTask;
+import com.elle.campaigntracker.util.InsertItemAsyncTask;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -26,65 +28,21 @@ public class Repo {
     private static Repo instance;
 
     private final AppDatabase database;
-    private MediatorLiveData<PlayableCharacter> observableCharacter;
-    private MediatorLiveData<PcStats> observableStats;
-    private MediatorLiveData<PcInfo> observableInfo;
-    private MediatorLiveData<List<Item>> observableInventory;
-    private MediatorLiveData<List<Log>> observableLogs;
-    private MediatorLiveData<Money> observableMoney;
+    private LiveData<PlayableCharacter> characterLiveData;
+    private LiveData<List<Item>> inventoryLiveData;
+    private LiveData<Money> moneyLiveData;
+
+    private LiveData<CharacterSkills> skillsLiveData;
+
     private final int charId;
 
     private Repo(final AppDatabase database, int charId){
         this.database = database;
         this.charId = charId;
-        this.observableCharacter = new MediatorLiveData<>();
-        this.observableStats = new MediatorLiveData<>();
-        this.observableInfo = new MediatorLiveData<>();
-        this.observableInventory = new MediatorLiveData<>();
-        this.observableLogs = new MediatorLiveData<>();
-        this.observableMoney = new MediatorLiveData<>();
+        this.characterLiveData = database.playerCharacterDao().findCharacterById(charId);
+        this.inventoryLiveData = database.itemDao().findInventoryForCharacter(charId);
+        this.moneyLiveData = database.moneyDao().getMoneyByCharId(charId);
 
-        observableCharacter.addSource(loadCharacter(charId), new Observer<PlayableCharacter>() {
-            @Override
-            public void onChanged(@Nullable PlayableCharacter playableCharacter) {
-                observableCharacter.postValue(playableCharacter);
-            }
-        });
-
-        observableStats.addSource(loadCharacterStats(charId), new Observer<PcStats>() {
-            @Override
-            public void onChanged(@Nullable PcStats pcStats) {
-                observableStats.postValue(pcStats);
-            }
-        });
-
-        observableInfo.addSource(loadCharacterInfo(charId), new Observer<PcInfo>() {
-            @Override
-            public void onChanged(@Nullable PcInfo pcInfo) {
-                observableInfo.postValue(pcInfo);
-            }
-        });
-
-        observableInventory.addSource(loadItemsForCharacter(charId), new Observer<List<Item>>() {
-            @Override
-            public void onChanged(@Nullable List<Item> items) {
-                observableInventory.postValue(items);
-            }
-        });
-
-        observableMoney.addSource(loadMoneyByCharId(charId), new Observer<Money>() {
-            @Override
-            public void onChanged(@Nullable Money money) {
-                observableMoney.postValue(money);
-            }
-        });
-
-        observableLogs.addSource(loadLogsForCharacter(charId), new Observer<List<Log>>() {
-            @Override
-            public void onChanged(@Nullable List<Log> logs) {
-                observableLogs.postValue(logs);
-            }
-        });
     }
 
     public static Repo getInstance(final AppDatabase database, int charId){
@@ -98,47 +56,24 @@ public class Repo {
         return instance;
     }
 
-    /**
-     * Get the list of products from the database and get notified when the data changes.
-     */
-    public LiveData<PlayableCharacter> getCharacter(){
-        return observableCharacter;
+    public LiveData<PlayableCharacter> getCharacterLiveData() {
+        return characterLiveData;
     }
 
-    public LiveData<PcStats> getCharacterStats(){
-        return observableStats;
+    public LiveData<List<Item>> getInventoryLiveData(){
+        return inventoryLiveData;
     }
 
-    public LiveData<PcInfo> getCharacterInfo(){
-        return observableInfo;
+    public LiveData<Money> getMoneyLiveData() {
+        return moneyLiveData;
     }
 
-    public LiveData<Money> getMoney(){
-        return observableMoney;
+    public void insert(Item item){
+        new InsertItemAsyncTask(database.itemDao()).execute(item);
     }
 
-    public LiveData<List<Item>> getInventory(){
-        return observableInventory;
-    }
-
-    public LiveData<List<Log>> getLogs(){
-        return observableLogs;
-    }
-
-    public LiveData<PlayableCharacter> loadCharacter(final int charId){
-        return database.playerCharacterDao().findCharacterById(charId);
-    }
-
-    public LiveData<PcStats> loadCharacterStats(final int charId){
-        return database.playableCharacterStatsDao().findStatsById(charId);
-    }
-
-    public LiveData<PcInfo> loadCharacterInfo(final int charId){
-        return database.pcInfoDao().getInfoByCharId(charId);
-    }
-
-    public LiveData<List<Log>> loadLogsForCharacter(final int charId){
-        return database.logDao().findLogsForCharacter(charId);
+    public void delete(Item item){
+        new DeleteItemAsyncTask(database.itemDao()).execute(item);
     }
 
     public void updateCharacter(final PlayableCharacter playableCharacter){
@@ -159,77 +94,6 @@ public class Repo {
                 database.logDao().insertLog(log);
             }
         });
-    }
-
-    public void updateLog(Log log){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                database.logDao().updateLog(log);
-            }
-        });
-    }
-
-    public LiveData<List<Item>> loadItemsForCharacter(final int charId){
-        return database.itemDao().findInventoryForCharacter(charId);
-    }
-
-    public void addItem(Item item){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                database.itemDao().insertItem(item);
-            }
-        });
-    }
-
-    public LiveData<Item> loadItemById(final int id){
-        return database.itemDao().findItemById(id);
-    }
-
-    public void updateItem(Item item){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                if(item.getId() > 0){
-                    database.itemDao().updateItem(item);
-                }else{
-                    database.itemDao().insertItem(item);
-                }
-
-            }
-        });
-    }
-
-    public void deleteItem(Item item){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                database.itemDao().deleteItem(item);
-            }
-        });
-    }
-
-    public void updateMoney(Money money){
-        Executor executor = Executors.newSingleThreadExecutor();
-        executor.execute(new Runnable() {
-            @Override
-            public void run() {
-                database.moneyDao().updateMoney(money);
-            }
-        });
-    }
-
-    public LiveData<Money> loadMoneyByCharId(final int charId){
-        return database.moneyDao().getMoneyByCharId(charId);
-    }
-
-    public LiveData<List<Attack>> loadAttacksForCharacter(final int charId){
-        return database.attackDao().findAttacksForCharacter(charId);
     }
 
     public int getCharId() {

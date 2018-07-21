@@ -13,7 +13,7 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity(tableName = "character_info", foreignKeys = @ForeignKey(entity = PlayableCharacter.class,
         parentColumns = "id",
         childColumns = "character_id"), indices = @Index(value = ("character_id")))
-public class PcInfo {
+public class CharacterInfo {
     @PrimaryKey(autoGenerate = true)
     private int id;
     @ColumnInfo(name = "character_id")

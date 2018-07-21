@@ -21,6 +21,7 @@ public class Money {
     private int charId;
     private int gold, silver, copper;
     private int electrum, platinum;
+    @SuppressWarnings("FieldCanBeLocal")
     @Ignore
     private final double weight = 1/3; // 1/3 of an oz.
 

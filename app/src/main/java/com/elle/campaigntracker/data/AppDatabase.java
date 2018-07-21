@@ -15,8 +15,8 @@ import com.elle.campaigntracker.data.dao.AttackDao;
 import com.elle.campaigntracker.data.dao.ItemDao;
 import com.elle.campaigntracker.data.dao.LogDao;
 import com.elle.campaigntracker.data.dao.MoneyDao;
-import com.elle.campaigntracker.data.dao.PcInfoDao;
-import com.elle.campaigntracker.data.dao.PcStatsDao;
+import com.elle.campaigntracker.data.dao.CharacterInfoDao;
+import com.elle.campaigntracker.data.dao.CharacterSkillsDao;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
 import com.elle.campaigntracker.data.model.Attack;
 import com.elle.campaigntracker.data.model.category.Converters;
@@ -24,8 +24,8 @@ import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.data.model.world.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.PcInfo;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterInfo;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -33,8 +33,8 @@ import java.util.concurrent.Executors;
 /**
  * Holds database
  */
-@Database(entities = {PlayableCharacter.class, PcStats.class,
-        PcInfo.class, Log.class, Item.class, Money.class,
+@Database(entities = {PlayableCharacter.class, CharacterSkills.class,
+        CharacterInfo.class, Log.class, Item.class, Money.class,
         Attack.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
@@ -47,8 +47,8 @@ public abstract class AppDatabase extends RoomDatabase {
 
     //list all daos
     public abstract PlayerCharacterDao playerCharacterDao();
-    public abstract PcStatsDao playableCharacterStatsDao();
-    public abstract PcInfoDao pcInfoDao();
+    public abstract CharacterInfoDao playableCharacterStatsDao();
+    public abstract CharacterSkillsDao skillsDao();
     public abstract LogDao logDao();
     public abstract ItemDao itemDao();
     public abstract MoneyDao moneyDao();
@@ -111,10 +111,6 @@ public abstract class AppDatabase extends RoomDatabase {
         database.runInTransaction(() -> {
             long id = database.playerCharacterDao().insertPlayerCharacter(playerCharacter);
             int charId = (int) id;
-            database.moneyDao().insertMoney(new Money(charId, 1849, 5, 0, 0, 0));
-            database.itemDao().insertItemList(DummyRepo.getItemList(charId));
-            database.pcInfoDao().insertPcInfo(DummyRepo.getPcInfo(charId));
-            database.playableCharacterStatsDao().insertStats(DummyRepo.createPlayableCharStats(charId));
         });
     }
 

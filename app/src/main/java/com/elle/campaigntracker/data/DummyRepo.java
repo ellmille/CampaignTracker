@@ -1,10 +1,10 @@
 package com.elle.campaigntracker.data;
 
 import com.elle.campaigntracker.data.model.Item;
-import com.elle.campaigntracker.data.model.PcInfo;
+import com.elle.campaigntracker.data.model.CharacterInfo;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.category.Alignment;
-import com.elle.campaigntracker.data.model.PcStats;
+import com.elle.campaigntracker.data.model.CharacterSkills;
 import com.elle.campaigntracker.data.model.category.RoleClass;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import java.util.List;
 public class DummyRepo {
     private static PlayableCharacter playableChar;
 
-    public DummyRepo(){
+    DummyRepo(){
         playableChar = createPlayableChar();
     }
 
@@ -32,12 +32,12 @@ public class DummyRepo {
         return playableChar;
     }
 
-    public static PcStats createPlayableCharStats(int charId) {
-        PcStats stats = new PcStats(charId);
+    public static CharacterSkills createPlayableCharStats(int charId) {
+        CharacterSkills stats = new CharacterSkills(charId);
         stats.setArmorClass(17);
         stats.setInitiative(5);
         stats.setSpeed(30);
-        stats.setProficiencyBonus(2);
+        stats.setProficiencyBonus(3);
         //saving throws
         stats.setStrength(13);
         stats.setDexterity(20);
@@ -46,28 +46,28 @@ public class DummyRepo {
         stats.setWisdom(13);
         stats.setCharisma(16);
         //skills
-        stats.setAcrobatics(7);
+        stats.setAcrobatics(8);
         stats.setAnimalHandling(1);
         stats.setArcana(3);
         stats.setAthletics(1);
         stats.setDeception(5);
         stats.setHistory(3);
         stats.setInsight(3);
-        stats.setIntimidation(5);
-        stats.setInvestigation(7);
+        stats.setIntimidation(6);
+        stats.setInvestigation(9);
         stats.setMedicine(1);
         stats.setNature(3);
         stats.setPerception(3);
         stats.setPersuasion(3);
         stats.setReligion(3);
-        stats.setSleightOfHand(7);
-        stats.setStealth(9);
+        stats.setSleightOfHand(8);
+        stats.setStealth(11);
         stats.setSurvival(1);
         return stats;
     }
 
-    public static PcInfo getPcInfo(int charId){
-        PcInfo info = new PcInfo();
+    public static CharacterInfo getPcInfo(int charId){
+        CharacterInfo info = new CharacterInfo();
         info.setCharId(charId);
         info.setAge(20);
         info.setWeight(140);
@@ -109,12 +109,4 @@ public class DummyRepo {
         returnList.add(item8);
         return returnList;
     }
-
-//        Attack attack1 = new Attack("Short Sword, main hand", 8, 1, "D6", 6);
-//        rex.addAttackToList(attack1);
-//        Attack attack2 = new Attack("Short Sword, other hand", 7, 1, "D6", 0);
-//        rex.addAttackToList(attack2);
-//        Attack attack3 = new Attack("Short Bow", 7, 1, "D6", 5);
-//        rex.addAttackToList(attack3);
-
 }

@@ -32,10 +32,10 @@ android {
 
 dependencies {
     def support_version = "27.1.1"
+    def nav_version = "1.0.0-alpha02"
     def paging_version = "1.0.0"
     def room_version = "1.1.1"
     def lifecycle_version = "1.1.1"
-    def nav_version = "1.0.0-alpha02"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "com.android.support:appcompat-v7:$support_version"
@@ -47,13 +47,12 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
     implementation "com.android.support:recyclerview-v7:$support_version"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
-    implementation "android.arch.paging:runtime:$paging_version"
-    //nav
-    implementation "android.arch.navigation:navigation-fragment:$nav_version"
-    implementation "android.arch.navigation:navigation-ui:$nav_version"
     // Room DB
     implementation "android.arch.persistence.room:runtime:$room_version"
     annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+    //navigation
+    implementation "android.arch.navigation:navigation-fragment:$nav_version"
+    implementation "android.arch.navigation:navigation-ui:$nav_version"
 
     testImplementation 'junit:junit:4.12'
     testImplementation "android.arch.core:core-testing:$lifecycle_version"
