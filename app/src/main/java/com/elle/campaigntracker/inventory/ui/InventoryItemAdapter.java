@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.databinding.ItemBinding;
-import com.elle.campaigntracker.view.callback.ClickCallback;
+import com.elle.campaigntracker.util.callback.ClickCallback;
 
 import java.util.ArrayList;
 import java.util.List;

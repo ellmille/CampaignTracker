@@ -12,11 +12,9 @@ import android.support.v7.widget.RecyclerView;
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.databinding.ActivityInventoryBinding;
-import com.elle.campaigntracker.inventory.ui.InventoryItemAdapter;
-import com.elle.campaigntracker.view.EditItemFragment;
-import com.elle.campaigntracker.view.EditMoneyFragment;
-import com.elle.campaigntracker.view.callback.ClickCallback;
-import com.elle.campaigntracker.view.callback.FabCallback;
+import com.elle.campaigntracker.wallet.ui.EditMoneyFragment;
+import com.elle.campaigntracker.util.callback.ClickCallback;
+import com.elle.campaigntracker.util.callback.FabCallback;
 import com.elle.campaigntracker.inventory.viewmodel.InventoryViewModel;
 
 import java.util.List;

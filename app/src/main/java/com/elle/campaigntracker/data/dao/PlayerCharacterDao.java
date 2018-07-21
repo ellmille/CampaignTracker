@@ -6,7 +6,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.character.PlayableCharacter;
 
 import java.util.List;
 

@@ -1,11 +1,11 @@
-package com.elle.campaigntracker.viewmodel;
+package com.elle.campaigntracker.wallet.viewmodel;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-import com.elle.campaigntracker.data.model.Money;
+import com.elle.campaigntracker.wallet.Money;
 
 public class WalletViewModel extends ViewModel {
     LiveData<Money> liveWallet;

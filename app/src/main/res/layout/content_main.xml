@@ -4,7 +4,7 @@
     <data>
         <variable
             name="playableCharacter"
-            type="com.elle.campaigntracker.data.model.PlayableCharacter"/>
+            type="com.elle.campaigntracker.character.PlayableCharacter"/>
     </data>
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"

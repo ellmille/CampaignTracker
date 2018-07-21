@@ -7,7 +7,7 @@
             type="com.elle.campaigntracker.inventory.Item"/>
         <variable
             name="callback"
-            type="com.elle.campaigntracker.view.callback.ClickCallback.ItemClick"/>
+            type="com.elle.campaigntracker.util.callback.ClickCallback.ItemClick"/>
     </data>
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

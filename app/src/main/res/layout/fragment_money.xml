@@ -4,17 +4,17 @@
     <data>
         <variable
             name="money"
-            type="com.elle.campaigntracker.data.model.Money"/>
+            type="com.elle.campaigntracker.wallet.Money"/>
         <variable
             name="callback"
-            type="com.elle.campaigntracker.inventory.ui.InventoryCallback"/>
+            type="com.elle.campaigntracker.inventory.ui.InventoryCallback.MoneyCall"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:context="com.elle.campaigntracker.view.MoneyFragment">
+        tools:context="com.elle.campaigntracker.wallet.ui.MoneyFragment">
 
         <TextView
             android:id="@+id/goldLabel"

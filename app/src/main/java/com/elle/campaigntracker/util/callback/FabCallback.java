@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.view.callback;
+package com.elle.campaigntracker.util.callback;
 
 /**
  * Handles FAB button clicks

@@ -8,7 +8,7 @@ import android.arch.lifecycle.MutableLiveData;
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
 import com.elle.campaigntracker.inventory.Item;
-import com.elle.campaigntracker.data.model.Money;
+import com.elle.campaigntracker.wallet.Money;
 
 import java.util.List;
 

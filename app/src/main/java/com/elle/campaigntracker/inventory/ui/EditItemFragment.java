@@ -1,9 +1,9 @@
-package com.elle.campaigntracker.view;
-
+package com.elle.campaigntracker.inventory.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.databinding.FragmentAddItemBinding;
-import com.elle.campaigntracker.inventory.ui.EditItemCallback;
 import com.elle.campaigntracker.inventory.viewmodel.InventoryViewModel;
+import com.elle.campaigntracker.character.ui.EditPcActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,21 +35,22 @@ public class EditItemFragment extends DialogFragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_item, container, false);
-        binding.setCallback(editItemCallback);
-        if(getArguments().getBoolean(EditPcActivity.ARG_ACTION)){
-            binding.setNewItem(new Item());
-        }else{
-            InventoryViewModel viewModel = ViewModelProviders.of(getActivity()).get(InventoryViewModel.class);
-            if(viewModel.getItem() != null){
-                binding.setNewItem(viewModel.getItem());
-            }
-        }
-        //todo: pass in existing item if we are editing
-        // Inflate the layout for this fragment
-        return binding.getRoot();
+//        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add_item, container, false);
+//        binding.setCallback(editItemCallback);
+//        if(getArguments().getBoolean(EditPcActivity.ARG_ACTION)){
+//            binding.setNewItem(new Item());
+//        }else{
+//            InventoryViewModel viewModel = ViewModelProviders.of(getActivity()).get(InventoryViewModel.class);
+//            if(viewModel.getItem() != null){
+//                binding.setNewItem(viewModel.getItem());
+//            }
+//        }
+//        //todo: pass in existing item if we are editing
+//        // Inflate the layout for this fragment
+//        return binding.getRoot();
+        return inflater.inflate(R.layout.fragment_add_item, container, false);
     }
 
     // Override the Fragment.onAttach() method to instantiate the NoticeDialogListener

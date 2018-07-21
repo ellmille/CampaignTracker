@@ -7,7 +7,7 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.character.PlayableCharacter;
 
 /**
  * POJO for an item in inventory

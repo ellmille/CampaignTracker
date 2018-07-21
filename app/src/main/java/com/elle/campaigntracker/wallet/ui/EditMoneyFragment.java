@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.view;
+package com.elle.campaigntracker.wallet.ui;
 
 
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.Spinner;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.databinding.FragmentEditMoneyBinding;
-import com.elle.campaigntracker.view.callback.SaveCallback;
+import com.elle.campaigntracker.util.callback.SaveCallback;
 
 /**
  * A {@link DialogFragment} to change money amount.

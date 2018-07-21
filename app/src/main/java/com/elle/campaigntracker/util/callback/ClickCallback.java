@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.view.callback;
+package com.elle.campaigntracker.util.callback;
 
 import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.data.model.world.Log;

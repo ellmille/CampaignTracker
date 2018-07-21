@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.view;
+package com.elle.campaigntracker.character.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.design.widget.TabLayout;
@@ -13,7 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
+import com.elle.campaigntracker.character.viewmodel.PlayableCharacterViewModel;
 
 public class EditPcActivity extends AppCompatActivity {
     public static final String ARG_ACTION = "add_or_edit";
@@ -96,7 +96,7 @@ public class EditPcActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
             switch (position){
                 case 0:
-                    return EditPcBasicsFragment.newInstance(isNew);
+                   // return EditPcBasicsFragment.newInstance(isNew);
                 case 1:
                     //return EditPcStatsFragment.newInstance(isNew);
                 case 2:

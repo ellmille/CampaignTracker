@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.view;
+package com.elle.campaigntracker.character.ui;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.databinding.FragmentXpBinding;
-import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
+import com.elle.campaigntracker.character.viewmodel.PlayableCharacterViewModel;
 
 import java.util.Objects;
 

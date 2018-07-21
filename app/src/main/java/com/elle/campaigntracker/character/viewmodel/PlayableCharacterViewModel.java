@@ -1,4 +1,4 @@
-package com.elle.campaigntracker.viewmodel;
+package com.elle.campaigntracker.character.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
@@ -8,7 +8,7 @@ import android.util.Log;
 
 import com.elle.campaigntracker.App;
 import com.elle.campaigntracker.Repo;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.character.PlayableCharacter;
 
 /**
  * Prepares data for the UI

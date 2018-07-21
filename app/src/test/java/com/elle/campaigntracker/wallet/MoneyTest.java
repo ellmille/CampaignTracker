@@ -1,4 +1,6 @@
-package com.elle.campaigntracker.data.model;
+package com.elle.campaigntracker.wallet;
+
+import com.elle.campaigntracker.wallet.Money;
 
 import junit.framework.Assert;
 

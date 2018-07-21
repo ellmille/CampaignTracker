@@ -6,6 +6,8 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
+import com.elle.campaigntracker.character.PlayableCharacter;
+
 /**
  * POJO for features and traits
  */

@@ -7,7 +7,7 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.elle.campaigntracker.LiveDataTestUtil;
 import com.elle.campaigntracker.data.dao.PlayerCharacterDao;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.character.PlayableCharacter;
 
 import junit.framework.Assert;
 

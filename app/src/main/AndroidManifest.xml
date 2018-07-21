@@ -21,7 +21,7 @@
             android:name=".inventory.ui.InventoryActivity"
             android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".view.EditPcActivity"
+            android:name=".character.ui.EditPcActivity"
             android:label="@string/title_activity_edit_playable_character"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

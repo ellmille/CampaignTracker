@@ -1,8 +1,8 @@
-package com.elle.campaigntracker.view.callback;
+package com.elle.campaigntracker.util.callback;
 
 import com.elle.campaigntracker.data.model.CharacterSkills;
 import com.elle.campaigntracker.data.model.CharacterInfo;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.character.PlayableCharacter;
 
 /**
  * Callbacks for save buttons

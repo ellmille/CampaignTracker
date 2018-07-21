@@ -4,10 +4,10 @@
     <data>
         <variable
             name="callback"
-            type="com.elle.campaigntracker.view.callback.HealthCallback"/>
+            type="com.elle.campaigntracker.character.ui.HealthCallback"/>
         <variable
             name="playableCharacter"
-            type="com.elle.campaigntracker.data.model.PlayableCharacter"/>
+            type="com.elle.campaigntracker.character.PlayableCharacter"/>
         <variable
             name="points"
             type="String"/>
@@ -17,7 +17,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.elle.campaigntracker.view.HealthFragment">
+        tools:context="com.elle.campaigntracker.character.ui.HealthFragment">
 
         <!--<ProgressBar-->
             <!--android:id="@+id/hp_bar"-->

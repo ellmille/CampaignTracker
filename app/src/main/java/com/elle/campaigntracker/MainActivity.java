@@ -19,28 +19,27 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.databinding.ActivityMainBinding;
-import com.elle.campaigntracker.view.HealthFragment;
-import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
+import com.elle.campaigntracker.character.ui.HealthFragment;
+import com.elle.campaigntracker.character.viewmodel.PlayableCharacterViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    ActivityMainBinding binding;
+   // ActivityMainBinding binding;
     PlayableCharacterViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setup binding
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+  //      binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         //setup view model
         viewModel = ViewModelProviders.of(this).get(PlayableCharacterViewModel.class);
-        binding.setCharViewModel(viewModel);
+    //    binding.setCharViewModel(viewModel);
         subscribeToModel(viewModel);
 
         setupNavigation();

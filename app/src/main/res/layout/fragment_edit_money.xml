@@ -9,14 +9,14 @@
             type="int"/>
         <variable
             name="callback"
-            type="com.elle.campaigntracker.view.callback.SaveCallback.MoneySave"/>
+            type="com.elle.campaigntracker.util.callback.SaveCallback.MoneySave"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:context="com.elle.campaigntracker.view.EditMoneyFragment">
+        tools:context="com.elle.campaigntracker.wallet.ui.EditMoneyFragment">
 
         <TextView
             android:id="@+id/moneyLabel"

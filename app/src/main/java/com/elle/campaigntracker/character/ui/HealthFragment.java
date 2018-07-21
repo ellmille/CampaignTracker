@@ -1,23 +1,19 @@
-package com.elle.campaigntracker.view;
+package com.elle.campaigntracker.character.ui;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.databinding.InverseMethod;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.character.PlayableCharacter;
 import com.elle.campaigntracker.databinding.FragmentHealthBinding;
-import com.elle.campaigntracker.view.callback.HealthCallback;
-import com.elle.campaigntracker.viewmodel.PlayableCharacterViewModel;
+import com.elle.campaigntracker.character.viewmodel.PlayableCharacterViewModel;
 
 /**
  * A simple {@link Fragment} subclass.

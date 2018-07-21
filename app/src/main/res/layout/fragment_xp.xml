@@ -4,17 +4,17 @@
     <data>
         <variable
             name="playableCharacter"
-            type="com.elle.campaigntracker.data.model.PlayableCharacter"/>
+            type="com.elle.campaigntracker.character.PlayableCharacter"/>
         <variable
             name="callback"
-            type="com.elle.campaigntracker.view.callback.SaveCallback.XpSave"/>
+            type="com.elle.campaigntracker.util.callback.SaveCallback.XpSave"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.elle.campaigntracker.view.XpFragment">
+        tools:context="com.elle.campaigntracker.character.ui.XpFragment">
 
         <TextView
             android:id="@+id/xp_textView"

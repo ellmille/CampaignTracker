@@ -22,8 +22,8 @@ import com.elle.campaigntracker.data.model.Attack;
 import com.elle.campaigntracker.data.model.category.Converters;
 import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.data.model.world.Log;
-import com.elle.campaigntracker.data.model.Money;
-import com.elle.campaigntracker.data.model.PlayableCharacter;
+import com.elle.campaigntracker.wallet.Money;
+import com.elle.campaigntracker.character.PlayableCharacter;
 import com.elle.campaigntracker.data.model.CharacterInfo;
 import com.elle.campaigntracker.data.model.CharacterSkills;
 
