@@ -1,20 +1,15 @@
 package com.elle.campaigntracker;
 
 import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
-import android.arch.lifecycle.Observer;
-import android.support.annotation.Nullable;
 
 import com.elle.campaigntracker.data.AppDatabase;
-import com.elle.campaigntracker.data.model.Attack;
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.data.model.world.Log;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
-import com.elle.campaigntracker.data.model.CharacterInfo;
 import com.elle.campaigntracker.data.model.CharacterSkills;
-import com.elle.campaigntracker.util.DeleteItemAsyncTask;
-import com.elle.campaigntracker.util.InsertItemAsyncTask;
+import com.elle.campaigntracker.inventory.DeleteItemAsyncTask;
+import com.elle.campaigntracker.inventory.InsertItemAsyncTask;
 
 import java.util.List;
 import java.util.concurrent.Executor;

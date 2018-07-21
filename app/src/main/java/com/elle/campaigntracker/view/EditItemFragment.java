@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.databinding.FragmentAddItemBinding;
-import com.elle.campaigntracker.view.callback.EditItemCallback;
-import com.elle.campaigntracker.viewmodel.InventoryViewModel;
+import com.elle.campaigntracker.inventory.ui.EditItemCallback;
+import com.elle.campaigntracker.inventory.viewmodel.InventoryViewModel;
 
 /**
  * A simple {@link Fragment} subclass.

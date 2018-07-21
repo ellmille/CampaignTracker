@@ -7,7 +7,7 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 
 import java.util.List;
 

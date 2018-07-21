@@ -4,7 +4,7 @@
         <import type="android.view.View"/>
         <variable
             name="item"
-            type="com.elle.campaigntracker.data.model.Item"/>
+            type="com.elle.campaigntracker.inventory.Item"/>
         <variable
             name="callback"
             type="com.elle.campaigntracker.view.callback.ClickCallback.ItemClick"/>

@@ -15,8 +15,8 @@ import android.view.ViewGroup;
 import com.elle.campaigntracker.R;
 import com.elle.campaigntracker.data.model.Money;
 import com.elle.campaigntracker.databinding.FragmentMoneyBinding;
-import com.elle.campaigntracker.view.callback.InventoryCallback;
-import com.elle.campaigntracker.viewmodel.InventoryViewModel;
+import com.elle.campaigntracker.inventory.ui.InventoryCallback;
+import com.elle.campaigntracker.inventory.viewmodel.InventoryViewModel;
 
 /**
  * A simple {@link Fragment} subclass.

@@ -3,7 +3,6 @@ package com.elle.campaigntracker.view;
 
 import android.content.Context;
 import android.databinding.DataBindingUtil;
-import android.databinding.adapters.SpinnerBindingAdapter;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -13,9 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 
 import com.elle.campaigntracker.R;
-import com.elle.campaigntracker.data.model.Item;
 import com.elle.campaigntracker.databinding.FragmentEditMoneyBinding;
-import com.elle.campaigntracker.view.callback.EditItemCallback;
 import com.elle.campaigntracker.view.callback.SaveCallback;
 
 /**

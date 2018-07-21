@@ -1,6 +1,6 @@
 package com.elle.campaigntracker.data;
 
-import com.elle.campaigntracker.data.model.Item;
+import com.elle.campaigntracker.inventory.Item;
 import com.elle.campaigntracker.data.model.CharacterInfo;
 import com.elle.campaigntracker.data.model.PlayableCharacter;
 import com.elle.campaigntracker.data.model.category.Alignment;

@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.InventoryActivity"
+            android:name=".inventory.ui.InventoryActivity"
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".view.EditPcActivity"
